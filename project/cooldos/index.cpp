@@ -2,6 +2,26 @@
 #include <string>
 using namespace std;
 
+class Car {
+    public: 
+    string brand;
+    string model;
+    string engineType;
+    int buildYear;
+    int horsePower;
+    int topSpeed;
+    float price;
+
+    void specs() {
+        cout << brand << " " << model << " specifications:\n"
+        << "Build year: " << buildYear << endl 
+        << "Engine type: " << engineType << endl 
+        << "Horse power: " << horsePower << "hp" << endl 
+        << "Top speed: " << topSpeed << "km/h" << endl 
+        << "Price: $" << price <<  endl;
+    };
+};
+
 int main(){
     //This is the welcome page that asks if you are an admin or guest and asks for your pw
     
@@ -31,5 +51,3 @@ int main(){
     
     return 0;
 }
-
-//test 
