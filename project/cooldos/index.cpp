@@ -55,23 +55,61 @@ int main(){
     char view;
     cin >> view; // hier kan je kiezen welke van de opties je wilt zien
 
-    string availableCars[] = { "Toyota Corola", "Ferrari SF90", "Toyota Hilux"}; // dit zijn de verschillende available auto's 
+    string availableCars[] = { "Toyota Corolla", "Ferrari SF90"}; // dit zijn de verschillende available auto's 
 
-    string purchaseHistory[] = {"Ford Ranger" , "Toyota Vitz"};
+    string purchaseHistory[] = {"Ford Ranger" , "Toyota Vitz"}; // previously purchased cars
+
+    
+    int carIndex;
 
     switch(view){
-        case 'a':
-            for (int i=0; i<3; i++){
+        case 'a': // dit geeft een lijst van available cars onder elkaar weer
+            cout << "Which car would you like to view the specifications of? " << endl;
+            for (int i=0; i<2; i++){ 
             cout << availableCars[i] << endl;
              }
-        break;
+             cin >> carIndex;
+                break;
         
-        case 'b':
-             for (int j=0; j<3; j++){
+        case 'b': // dit geeft een lijst van previously purchased cars onder elkaar weer 
+             for (int j=0; j<2; j++){
             cout << purchaseHistory[j] << endl;
              }
         break;
 
             }
+
+            cin >> carIndex;
+
+            Car car1;
+            car1.brand = "Toyota";
+            car1.model = "Corolla";
+            car1.engineType = "1.2L Turbo V4";
+            car1.horsePower = 156;
+            car1.topSpeed = 160;
+            car1.buildYear = 2020;
+            car1.price = 20.000;
+
+            Car car2;
+            car2.brand = "Ferrari";
+            car2.model = "Sf90";
+            car2.engineType = "4.0L V8";
+            car2.horsePower = 900;
+            car2.topSpeed = 300;
+            car2.buildYear = 2019;
+            car2.price = 269.000;
+
+            switch(carIndex){
+                case '1':
+                     car1.specs();
+                break;
+
+                case '2':
+                    car2.specs();
+                break;
+            }
+            
+            
+
     return 0;
 }
