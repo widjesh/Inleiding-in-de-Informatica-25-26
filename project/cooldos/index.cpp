@@ -57,7 +57,7 @@ int main(){
 
     string availableCars[] = { "Toyota Corola", "Ferrari SF90", "Toyota Hilux"}; // dit zijn de verschillende available auto's 
 
-    string purchaseHistory[] = {"Ford Ranger, Toyota Vitz"};
+    string purchaseHistory[] = {"Ford Ranger" , "Toyota Vitz"};
 
     switch(view){
         case 'a':
@@ -67,8 +67,8 @@ int main(){
         break;
         
         case 'b':
-             for (int i=0; i<3; i++){
-            cout << purchaseHistory[i] << endl;
+             for (int j=0; j<3; j++){
+            cout << purchaseHistory[j] << endl;
              }
         break;
 
