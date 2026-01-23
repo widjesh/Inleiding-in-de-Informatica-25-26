@@ -61,14 +61,7 @@ int main(){
 
     string availableCars[] = { "Toyota Corolla", "Ferrari SF90"}; // dit zijn de verschillende available auto's 
 
-<<<<<<< HEAD
     string purchaseHistory[] = {"Ford Ranger" , "Toyota Vitz"}; // previously purchased cars
-
-    
-    int carIndex;
-=======
-    string purchaseHistory[] = {"Ford Ranger, Toyota Vitz"};
->>>>>>> e8105e5ae924939a73debf1a7990a43e08aec2a8
 
     switch(view){
         case 'a': // dit geeft een lijst van available cars onder elkaar weer
@@ -79,21 +72,13 @@ int main(){
              cin >> carIndex;
                 break;
         
-<<<<<<< HEAD
         case 'b': // dit geeft een lijst van previously purchased cars onder elkaar weer 
              for (int j=0; j<2; j++){
             cout << purchaseHistory[j] << endl;
-=======
-        case 'b':
-             for (int i=0; i<3; i++){
-            cout << purchaseHistory[i] << endl;
->>>>>>> e8105e5ae924939a73debf1a7990a43e08aec2a8
              }
         break;
 
             }
-
-            cin >> carIndex;
 
             Car car1;
             car1.brand = "Toyota";
