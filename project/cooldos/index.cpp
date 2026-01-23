@@ -22,6 +22,10 @@ class Car {
     };
 };
 
+float calculateDiscountedPrice (float Car.price, float premiumDiscount) {
+    return Car.price - (Car.price * premiumDiscount / 100);
+}
+
 int main(){
     //This is the welcome page that asks if you are an admin or guest and asks for your pw
     
@@ -57,7 +61,7 @@ int main(){
 
     string availableCars[] = { "Toyota Corola", "Ferrari SF90", "Toyota Hilux"}; // dit zijn de verschillende available auto's 
 
-    string purchaseHistory[] = {"Ford Ranger" , "Toyota Vitz"};
+    string purchaseHistory[] = {"Ford Ranger, Toyota Vitz"};
 
     switch(view){
         case 'a':
@@ -67,8 +71,8 @@ int main(){
         break;
         
         case 'b':
-             for (int j=0; j<3; j++){
-            cout << purchaseHistory[j] << endl;
+             for (int i=0; i<3; i++){
+            cout << purchaseHistory[i] << endl;
              }
         break;
 
