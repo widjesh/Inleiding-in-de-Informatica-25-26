@@ -30,7 +30,7 @@ class Car {
 
 int main(){
     //This is the welcome page that asks if you are an admin or guest and asks for your pw
-    
+    int carIndex; 
     string userAnswer;
     string password; // Guest password: guest.pw   Admin password: admin.pw
 
@@ -90,7 +90,7 @@ int main(){
             car1.horsePower = 156;
             car1.topSpeed = 160;
             car1.buildYear = 2020;
-            car1.price = 20.000;
+            car1.price = 20000;
 
             Car car2;
             car2.brand = "Ferrari";
@@ -99,14 +99,14 @@ int main(){
             car2.horsePower = 900;
             car2.topSpeed = 300;
             car2.buildYear = 2019;
-            car2.price = 269.000;
+            car2.price = 269000;
 
             switch(carIndex){
-                case '1':
+                case 1:
                      car1.specs();
                 break;
 
-                case '2':
+                case 2:
                     car2.specs();
                 break;
             }
