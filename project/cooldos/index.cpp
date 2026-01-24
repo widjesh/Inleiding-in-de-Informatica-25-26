@@ -19,12 +19,14 @@ class Car {
         << "Horse power: " << horsePower << "hp" << endl 
         << "Top speed: " << topSpeed << "km/h" << endl 
         << "Price: $" << price <<  endl;
-    };
-};
 
-float calculateDiscountedPrice (float Car.price, float premiumDiscount) {
-    return Car.price - (Car.price * premiumDiscount / 100);
-}
+    }
+
+     float calculateDiscountedPrice(float price, float premiumDiscount) {
+       return price = price - (price * premiumDiscount / 100);
+     } // function for calculating price after discount (in class because it uses variables that are in the class)
+
+    };
 
 int main(){
     //This is the welcome page that asks if you are an admin or guest and asks for your pw
@@ -43,7 +45,8 @@ int main(){
     cout << "Please enter your password: " << endl;
     cin >> password;
 
-    while(password != "guest.pw" && password != "admin.pw"){ // if you dont use the correct pw, u have to try again
+     while(password != "guest.pw" && userAnswer == "guest" || password != "admin.pw" && userAnswer == "admin"){ 
+        // if you dont use the correct pw for guest or admin, u have to try again
         cout << "Please enter your correct password: " << endl;
         cin >> password;
     }
