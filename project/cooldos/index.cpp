@@ -79,6 +79,41 @@ int main(){
     car5.buildYear = 2019;
     car5.price = 115000;
 
+    car6.brand = "Audi";
+    car6.model ="RS5";
+    car6.engineType = "2.9L TT V6"; 
+    car6.horsePower =  444;
+    car6.topSpeed = 280;
+    car6.buildYear = 2021;
+    car6.price = 75000;
+
+    car7.brand = "Honda";
+    car7.model ="Civic";
+    car7.engineType = "2.0L I4"; 
+    car7.horsePower =  158
+    car7.topSpeed = 200;
+    car7.buildYear = 2020;
+    car7.price = 24000;
+
+    car8.brand = "Mazda";
+    car8.model ="3";
+    car8.engineType = "2.0 I4"; 
+    car8.horsePower =  155;
+    car8.topSpeed = 195;
+    car8.buildYear = 2018;
+    car8.price = 21000;
+    
+    car9.brand = "Hyundai";
+    car9.model ="Elantra";
+    car9.engineType = "2.0L I4"; 
+    car9.horsePower =  147;
+    car9.topSpeed = 190;
+    car9.buildYear = 2019;
+    car9.price = 20000;
+
+
+
+
         Car availableCars[numberAcars] = {car1, car2, car3, car4, car5};
     
 
