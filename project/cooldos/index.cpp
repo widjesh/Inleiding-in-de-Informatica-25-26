@@ -48,7 +48,34 @@ int main(){
     car2.buildYear = 2019;
     car2.price = 269,000;
 
-    Car availableCars[] = {car1, car2};
+    Car car3;
+    car3.brand = "Porsche";
+    car3.model = "911Turbo";
+    car3.engineType = "3.8L F6"; 
+    car3.horsePower = "572";
+    car3.topSpeed = "330";
+    car3.buildYear ="2021";
+    car3.price  = "190000";
+
+    Car car4;
+    car4.brand ="BMW";
+    car4.model = "M3";
+    car4.engineType ="3.0L TB I6"; 
+    car4.horsePower = "473";
+    car4.topSpeed = "290";
+    car4.buildYear ="2020";
+    car4.price ="70000";
+   
+    Car car5;
+    car5.brand ="Mercedes-Benz";
+    car5.model ="AMG-GT";
+    car5.engineType = "4.0L V8"; 
+    car5.horsePower =  "523";
+    car5.topSpeed = "310";
+    car5.buildYear ="2019";
+    car5.price = "115000";
+    
+        Car availableCars[] = {car1, car2};
 
     //This is the welcome page that asks if you are an admin or guest and asks for your pw
     string userAnswer;
