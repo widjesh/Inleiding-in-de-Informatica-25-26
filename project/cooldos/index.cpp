@@ -30,9 +30,9 @@ class Car {
 
 int main(){
 
-int numerPcars; // number purchased cars
-int numberAcars = 5; // number available cars
-float premiumDiscount = 15; // discount percentage for premium guests
+    int numerPcars; // number purchased cars
+    int numberAcars = 5; // number available cars
+    float premiumDiscount = 15; // discount percentage for premium guests
     
     Car car1;
     car1.brand = "Toyota";
@@ -41,7 +41,7 @@ float premiumDiscount = 15; // discount percentage for premium guests
     car1.horsePower = 156;
     car1.topSpeed = 160;
     car1.buildYear = 2020;
-    car1.price = 20,000;
+    car1.price = 20000;
 
     Car car2;
     car2.brand = "Ferrari";
@@ -50,7 +50,7 @@ float premiumDiscount = 15; // discount percentage for premium guests
     car2.horsePower = 900;
     car2.topSpeed = 300;
     car2.buildYear = 2019;
-    car2.price = 269,000;
+    car2.price = 269000;
 
     Car car3;
     car3.brand = "Porsche";
@@ -104,6 +104,12 @@ float premiumDiscount = 15; // discount percentage for premium guests
         cin >> password;
     }
 
+     if (password == "PREMIUMguest.pw") {
+            for(int i=-1; i<numberAcars; i++){ 
+                availableCars[i].price = availableCars[i].calculateDiscountedPrice(availableCars[i].price, premiumDiscount);
+            }
+        }
+
     cout << "Please enter what you would like to view: " << endl;
 
     string viewOptions[]= { "(a) Available cars", "(b) Purchase history"}; // these are the options that u can view
@@ -139,23 +145,23 @@ float premiumDiscount = 15; // discount percentage for premium guests
     
             switch(carIndex){
                 case 1:
-                     car1.specs();
+                     availableCars[0].specs();
                 break;
 
                 case 2:
-                    car2.specs();
+                    availableCars[1].specs();
                 break;
 
                 case 3:
-                    car3.specs();
+                    availableCars[2].specs();
                 break;
 
                 case 4:
-                    car4.specs();
+                    availableCars[3].specs();
                 break;
 
                 case 5:
-                    car5.specs();
+                    availableCars[4].specs();
                 break;
             }
             
