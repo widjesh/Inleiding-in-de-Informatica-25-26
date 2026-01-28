@@ -105,7 +105,7 @@ int main(){
     }
 
      if (password == "PREMIUMguest.pw") {
-            for(int i=-1; i<numberAcars; i++){ 
+            for(int i=0; i<numberAcars; i++){ 
                 availableCars[i].price = availableCars[i].calculateDiscountedPrice(availableCars[i].price, premiumDiscount);
             }
         }
