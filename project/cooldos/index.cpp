@@ -30,6 +30,10 @@ class Car {
 
 int main(){
 
+int numerPcars; // number purchased cars
+int numberAcars = 5; // number available cars
+float premiumDiscount = 15; // discount percentage for premium guests
+    
     Car car1;
     car1.brand = "Toyota";
     car1.model = "Corolla";
@@ -51,31 +55,32 @@ int main(){
     Car car3;
     car3.brand = "Porsche";
     car3.model = "911Turbo";
-    car3.engineType = "3.8L F6"; 
-    car3.horsePower = "572";
-    car3.topSpeed = "330";
-    car3.buildYear ="2021";
-    car3.price  = "190000";
+    car3.engineType = "3.8L F6";
+    car3.horsePower = 572;
+    car3.topSpeed = 330;
+    car3.buildYear =2021;
+    car3.price  = 190000;
 
     Car car4;
     car4.brand ="BMW";
     car4.model = "M3";
     car4.engineType ="3.0L TB I6"; 
-    car4.horsePower = "473";
-    car4.topSpeed = "290";
-    car4.buildYear ="2020";
-    car4.price ="70000";
-   
+    car4.horsePower = 473;
+    car4.topSpeed = 290;
+    car4.buildYear = 2020;
+    car4.price = 70000;
+
     Car car5;
     car5.brand ="Mercedes-Benz";
     car5.model ="AMG-GT";
     car5.engineType = "4.0L V8"; 
-    car5.horsePower =  "523";
-    car5.topSpeed = "310";
-    car5.buildYear ="2019";
-    car5.price = "115000";
+    car5.horsePower =  523;
+    car5.topSpeed = 310;
+    car5.buildYear = 2019;
+    car5.price = 115000;
+
+        Car availableCars[numberAcars] = {car1, car2, car3, car4, car5};
     
-        Car availableCars[] = {car1, car2};
 
     //This is the welcome page that asks if you are an admin or guest and asks for your pw
     string userAnswer;
@@ -93,8 +98,8 @@ int main(){
     cout << "Please enter your password: " << endl;
     cin >> password;
 
-      while ((password != "guest.pw" && userAnswer == "guest") || (password != "admin.pw" && userAnswer == "admin")){
-        // if you dont use the correct pw for guest or admin, u have to try again
+      while ((password != "guest.pw" && password != "PREMIUMguest.pw" && userAnswer == "guest") || (password != "admin.pw" && userAnswer == "admin")){
+        // if you dont use the correct pw for guest or admin, u have to try again (including new PREMIUM guest pw)
         cout << "Please enter your correct password: " << endl;
         cin >> password;
     }
@@ -117,7 +122,7 @@ int main(){
     switch(view){
         case 'a': // dit geeft een lijst van available cars onder elkaar weer
             cout << "Which car would you like to view the specifications of? " << endl;
-            for (int i=0; i<2; i++){ 
+            for (int i=0; i<numberAcars; i++){ 
             cout << i+1 << ") " << availableCars[i].brand << ' ' << availableCars[i].model << endl;
              }
              cin >> carIndex;
@@ -139,6 +144,18 @@ int main(){
 
                 case 2:
                     car2.specs();
+                break;
+
+                case 3:
+                    car3.specs();
+                break;
+
+                case 4:
+                    car4.specs();
+                break;
+
+                case 5:
+                    car5.specs();
                 break;
             }
             
