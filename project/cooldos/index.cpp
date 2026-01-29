@@ -30,7 +30,7 @@ class Car {
 
 int main(){
 
-    int numberPcars; // number purchased cars
+    int numberPcars = 4; // number purchased cars
     int numberAcars = 5; // number available cars
     float premiumDiscount = 15; // discount percentage for premium guests
     
@@ -181,7 +181,7 @@ int main(){
         case 'b': // dit geeft een lijst van previously purchased cars onder elkaar weer 
             cout << "Which car would you like to view the specifications of? " << endl;
             for (int j=0; j<numberPcars; j++){
-            cout << j++ << ")" << purchasedCars[j].brand << ' ' << purchasedCars[j].model  << endl;
+            cout << j+1 << ") " << purchasedCars[j].brand << ' ' << purchasedCars[j].model  << endl;
              }
              cin >> historyIndex; // kies welke specs van auto's je wilt zien
                 purchasedCars[historyIndex -1].specs(); // shows specs of previously bought cars
