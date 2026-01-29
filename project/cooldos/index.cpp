@@ -144,17 +144,19 @@ int main(){
         cin >> password;
     }
 
-     if (password == "PREMIUMguest.pw") {
+     if (password == "PREMIUMguest.pw") { // if you are a premium guest, you get a discount on all available cars   
             for(int i=0; i<numberAcars; i++){ 
                 availableCars[i].price = availableCars[i].calculateDiscountedPrice(availableCars[i].price, premiumDiscount);
             }
         }
 
-    cout << "Please enter what you would like to view: " << endl;
+
+
+    cout << "Please enter what you would like to view: " << endl; 
 
     string viewOptions[]= { "(a) Available cars", "(b) Purchase history"}; // these are the options that u can view
 
-    for(int i=0; i<3; i++){ // dit geeft die opties onder elkaar weer
+    for(int i=0; i<3; i++){ // dit geeft die lijst onder elkaar weer
         cout << viewOptions[i] << endl;
     }
 
@@ -164,14 +166,16 @@ int main(){
     int carIndex;
     int historyIndex;
 
+
     switch(view){
         case 'a': // dit geeft een lijst van available cars onder elkaar weer
             cout << "Which car would you like to view the specifications of? " << endl;
             for (int i=0; i<numberAcars; i++){ 
             cout << i+1 << ") " << availableCars[i].brand << ' ' << availableCars[i].model << endl;
              }
-             cin >> carIndex;
-             availableCars[carIndex -1].specs(); // hier worden de specificaties van de gekozen auto weergegeven
+             cin >> carIndex; // je kan dus kiezen welke specs je wilt zien
+              availableCars[carIndex -1].specs(); // hier worden de specificaties van de gekozen auto weergegeven
+            
                 break;
         
         case 'b': // dit geeft een lijst van previously purchased cars onder elkaar weer 
@@ -179,14 +183,13 @@ int main(){
             for (int j=0; j<numberPcars; j++){
             cout << j++ << ")" << purchasedCars[j].brand << ' ' << purchasedCars[j].model  << endl;
              }
-             cin >> historyIndex;
+             cin >> historyIndex; // kies welke specs van auto's je wilt zien
                 purchasedCars[historyIndex -1].specs(); // shows specs of previously bought cars
-
+                
+                    
         break;
 
             }
-
-    
 
 
     return 0;
