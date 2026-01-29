@@ -30,7 +30,7 @@ class Car {
 
 int main(){
 
-    int numerPcars; // number purchased cars
+    int numberPcars; // number purchased cars
     int numberAcars = 5; // number available cars
     float premiumDiscount = 15; // discount percentage for premium guests
     
@@ -119,6 +119,7 @@ int main(){
 
 
         Car availableCars[numberAcars] = {car1, car2, car3, car4, car5};
+        Car purchasedCars[numberPcars] = {car6, car7, car8, car9};
     
 
     //This is the welcome page that asks if you are an admin or guest and asks for your pw
@@ -160,8 +161,6 @@ int main(){
     char view;
     cin >> view; // hier kan je kiezen welke van de opties je wilt zien
 
-    string purchaseHistory[] = {"Ford Ranger" , "Toyota Vitz"}; // previously purchased cars
-
     int carIndex;
 
     switch(view){
@@ -174,9 +173,10 @@ int main(){
                 break;
         
         case 'b': // dit geeft een lijst van previously purchased cars onder elkaar weer 
-             for (int j=0; j<2; j++){
-            cout << purchaseHistory[j] << endl;
+             for (int j=0; j<numberPcars; j++){
+            cout << j++ << ")" << purchasedCars[j].brand << ' ' << purchasedCars[j].model  << endl;
              }
+
         break;
 
             }
