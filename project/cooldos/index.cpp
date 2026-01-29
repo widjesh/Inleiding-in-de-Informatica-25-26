@@ -92,7 +92,7 @@ int main(){
     car7.brand = "Honda";
     car7.model ="Civic";
     car7.engineType = "2.0L I4"; 
-    car7.horsePower =  158
+    car7.horsePower =  158;
     car7.topSpeed = 200;
     car7.buildYear = 2020;
     car7.price = 24000;
@@ -170,6 +170,7 @@ int main(){
             cout << i+1 << ") " << availableCars[i].brand << ' ' << availableCars[i].model << endl;
              }
              cin >> carIndex;
+             availableCars[carIndex -1].specs(); // hier worden de specificaties van de gekozen auto weergegeven
                 break;
         
         case 'b': // dit geeft een lijst van previously purchased cars onder elkaar weer 
@@ -182,7 +183,7 @@ int main(){
             }
 
     
-            switch(carIndex){
+        /*  switch(carIndex){
                 case 1:
                      availableCars[0].specs();
                 break;
@@ -203,7 +204,7 @@ int main(){
                     availableCars[4].specs();
                 break;
             }
-            
+       */     
             
 
     return 0;
