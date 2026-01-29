@@ -79,6 +79,7 @@ int main(){
     car5.buildYear = 2019;
     car5.price = 115000;
 
+    Car car6;
     car6.brand = "Audi";
     car6.model ="RS5";
     car6.engineType = "2.9L TT V6"; 
@@ -87,6 +88,7 @@ int main(){
     car6.buildYear = 2021;
     car6.price = 75000;
 
+    Car car7;
     car7.brand = "Honda";
     car7.model ="Civic";
     car7.engineType = "2.0L I4"; 
@@ -95,6 +97,7 @@ int main(){
     car7.buildYear = 2020;
     car7.price = 24000;
 
+    Car car8;
     car8.brand = "Mazda";
     car8.model ="3";
     car8.engineType = "2.0 I4"; 
@@ -103,6 +106,7 @@ int main(){
     car8.buildYear = 2018;
     car8.price = 21000;
     
+    Car car9;
     car9.brand = "Hyundai";
     car9.model ="Elantra";
     car9.engineType = "2.0L I4"; 
