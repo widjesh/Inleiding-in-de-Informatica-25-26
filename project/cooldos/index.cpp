@@ -183,29 +183,7 @@ int main(){
             }
 
     
-        /*  switch(carIndex){
-                case 1:
-                     availableCars[0].specs();
-                break;
 
-                case 2:
-                    availableCars[1].specs();
-                break;
-
-                case 3:
-                    availableCars[2].specs();
-                break;
-
-                case 4:
-                    availableCars[3].specs();
-                break;
-
-                case 5:
-                    availableCars[4].specs();
-                break;
-            }
-       */     
-            
 
     return 0;
 }
