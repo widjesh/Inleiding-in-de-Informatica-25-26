@@ -162,6 +162,7 @@ int main(){
     cin >> view; // hier kan je kiezen welke van de opties je wilt zien
 
     int carIndex;
+    int historyIndex;
 
     switch(view){
         case 'a': // dit geeft een lijst van available cars onder elkaar weer
@@ -174,9 +175,12 @@ int main(){
                 break;
         
         case 'b': // dit geeft een lijst van previously purchased cars onder elkaar weer 
-             for (int j=0; j<numberPcars; j++){
+            cout << "Which car would you like to view the specifications of? " << endl;
+            for (int j=0; j<numberPcars; j++){
             cout << j++ << ")" << purchasedCars[j].brand << ' ' << purchasedCars[j].model  << endl;
              }
+             cin >> historyIndex;
+                purchasedCars[historyIndex -1].specs(); // shows specs of previously bought cars
 
         break;
 
