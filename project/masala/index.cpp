@@ -53,12 +53,9 @@ int main() {
         } else {
             cout << "Please put in A or ID(Case sensitive)" << endl;
             cin >> birdIDOrAll;
-        }
+        };
 
-          } else if (firstOption != 1 || 2) {
-             cout << "Please put in a valid number" << endl;
-             cin >> firstOption;
-           }
+
 
     if (firstOption == 2) {
         cout << "Please enter the administrator Password(Case Sensitive!)";
@@ -69,7 +66,7 @@ int main() {
             cout << "[1] to View Database" << endl;
             cout << "[2] to Add a New Bird" << endl;
             cout << "[3] to Remove a Bird" << endl;
-            cout << "[4] to Alter a Existing Bird" << endl;
+            cout << "[4] to Alter an Existing Bird" << endl;
             cin >> administratorChoice;
 
             if (administratorChoice == 1) {
@@ -81,6 +78,11 @@ int main() {
             cin >> userPasswordInput;
         }
     } 
+
+    if (firstOption != 1 || != 2) {
+       cout << "Please put in a valid number" << endl;
+       cin >> firstOption;
+     }
 
     return 0;
 }
