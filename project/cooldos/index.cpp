@@ -117,9 +117,8 @@ int main()
     car9.buildYear = 2019;
     car9.price = 20000;
 
-    Car availableCars[numberAcars] = {car1, car2, car3, car4, car5};
-    Car purchasedCars[numberPcars] = {car6, car7, car8, car9};
-
+   vector<Car> cars = {car1, car2, car3, car4, car5, car6, car7, car8, car9}; // bassicly an array but you can add and remove items
+    
     // This is the welcome page that asks if you are an admin or guest and asks for your pw
     string userAnswer;
     string password; // Guest password: guest.pw   Admin password: admin.pw
