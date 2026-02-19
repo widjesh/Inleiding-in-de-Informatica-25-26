@@ -47,19 +47,18 @@ int main() {
     std::cout << "Bent u geinteresseerd in een van onze cleanbots?\nVoer dan 'ilovecleanbots' in en druk op enter om meer details te zien over onze cleanbots en hun functies!.\n";
 
     std::string userInput;
-    std::cin >> userInput;
+    std::getline(std::cin, userInput);
     while(userInput != "ilovecleanbots") {  
         std::cout << "\numm... dat is niet correct! Probeer het nog eens: " << std::endl;
-        std::cin.ignore(1000, '\n');
         std::getline(std::cin, userInput);
     }
     std::cout << "\nGood job vro! Hier zijn onze cleanbots:\n\n";
     std::array<Cleanbot, 5> cleanbots = {
         Cleanbot("CleanMaster 3000", 189999.99, {"Automatisch stofzuigen", "Dweilfunctie", "App-besturing"}, 10),
         Cleanbot("eco-bot", 75999.99, {"Energiezuinig", "Stofzuigen en dweilen", "Lange batterijduur"}, 15),
-        Cleanbot("groombot", 56999.99, {"Speciaal voor huisdierenhaar", "HEPA-filter", "Zelfreinigend"}, 20),
-        Cleanbot("you are poor", 9999.99, {"Stofzuigen", "Eenvoudige bediening"}, 17),
-        Cleanbot("you are rich", 949999.99, {"AI-navigatie", "Spraakbesturing", "Automatische vuilnisbaklediging"}, 10)
+        Cleanbot("groom-bot", 56999.99, {"Speciaal voor huisdierenhaar", "HEPA-filter", "Zelfreinigend"}, 20),
+        Cleanbot("broke-bot", 9999.99, {"Stofzuigen", "Eenvoudige bediening"}, 17),
+        Cleanbot("rich-bot", 949999.99, {"AI-navigatie", "Spraakbesturing", "Automatische vuilnisbaklediging"}, 10)
     };
 
     for (int i = 0; i < cleanbots.size(); ++i) {
