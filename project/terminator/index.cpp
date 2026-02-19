@@ -17,7 +17,7 @@ public:
 
     void printSummary(int index) const {
         std::cout << std::setw(2) << index << ". " << name
-                  << " - SRD" << std::fixed << std::setprecision(2) << price
+                  << " - SRD " << std::fixed << std::setprecision(2) << price
                   << " (" << stock << " op voorraad)\n";
     }
 
@@ -32,5 +32,41 @@ public:
     }
 };
 
-int main
+int main() {
+    
+    std::cout << "           _                  _           _       _  " << std::endl;
+    std::cout << "          | |                | |         | |     | | " << std::endl;
+    std::cout << "       ___| | ___  __ _ _ __ | |__   ___ | |_ ___| | " << std::endl;
+    std::cout << "      / __| |/ _ \\/ _` | '_ \\| '_ \\ / _ \\| __/ __| | " << std::endl;
+    std::cout << "     | (__| |  __/ (_| | | | | |_) | (_) | |_\\__ \\_| " << std::endl;
+    std::cout << "      \\___|_|\\___|\\__,_|_| |_|_.__/ \\___/ \\__|___(_) " << std::endl;
+    std::cout << "                                                     " << std::endl;
+    std::cout << "                                                     " << std::endl;
+
+    std::cout << "\nWelkom bij cleanbots! Hier vindt u de beste cleanbots in de HELE WERELD!!!.\n";
+    std::cout << "Bent u geinteresseerd in een van onze cleanbots?\nVoer dan 'ilovecleanbots' in en druk op enter om meer details te zien over onze cleanbots en hun functies!.\n";
+
+    std::string userInput;
+    std::cin >> userInput;
+    while(userInput != "ilovecleanbots") {  
+        std::cout << "\numm... dat is niet correct! Probeer het nog eens: " << std::endl;
+        std::cin.ignore(1000, '\n');
+        std::getline(std::cin, userInput);
+    }
+    std::cout << "\nGood job vro! Hier zijn onze cleanbots:\n\n";
+    std::array<Cleanbot, 5> cleanbots = {
+        Cleanbot("CleanMaster 3000", 189999.99, {"Automatisch stofzuigen", "Dweilfunctie", "App-besturing"}, 10),
+        Cleanbot("eco-bot", 75999.99, {"Energiezuinig", "Stofzuigen en dweilen", "Lange batterijduur"}, 15),
+        Cleanbot("groombot", 56999.99, {"Speciaal voor huisdierenhaar", "HEPA-filter", "Zelfreinigend"}, 20),
+        Cleanbot("you are poor", 9999.99, {"Stofzuigen", "Eenvoudige bediening"}, 17),
+        Cleanbot("you are rich", 949999.99, {"AI-navigatie", "Spraakbesturing", "Automatische vuilnisbaklediging"}, 10)
+    };
+
+    for (int i = 0; i < cleanbots.size(); ++i) {
+        cleanbots[i].printSummary(i + 1);
+    }
+    
+    
+
 }
+
