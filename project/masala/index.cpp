@@ -48,7 +48,7 @@ Bird createNewBird() {
     cout << "Enter date" << endl;
     cin >> dateInAndOut;
 
-    return Bird bird(ID, birdName, birdSpecies, scientificName, typeOfInjury, dateInAndOut);
+    return Bird(ID, birdName, birdSpecies, scientificName, typeOfInjury, dateInAndOut);
     //hiervoor is de constructor nodig, maken van die objects door die parameters
 }
 
