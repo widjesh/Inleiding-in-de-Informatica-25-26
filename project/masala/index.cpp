@@ -31,3 +31,32 @@ int birdLookupAll() {
     return x;
 }
 
+if (firstOption == 2) {
+        cout << "Please enter the administrator Password(Case Sensitive!)";
+        cin >> userPasswordInput;
+        if (userPasswordInput == administratorPassword) {
+            cout << "Welcome administrator" << endl;
+            cout << "Please choose one of the following" << endl;
+            cout << "[1] to View Database" << endl;
+            cout << "[2] to Add a New Bird" << endl;
+            cout << "[3] to Remove a Bird" << endl;
+            cout << "[4] to Alter an Existing Bird" << endl;
+            cin >> administratorChoice;
+
+            if (administratorChoice == 1) {
+                cout << birdLookupAll() << endl;
+            }
+        }
+        else {
+            cout << "Wrong Password, please try again" << endl;
+            cin >> userPasswordInput;
+        }
+    } 
+
+    if (firstOption != 1 || != 2) {
+       cout << "Please put in a valid number" << endl;
+       cin >> firstOption;
+     }
+
+    return 0;
+}
