@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <fstream>
 
 
 using namespace std;
@@ -25,10 +26,15 @@ class Bird {
 
 };
 
+<<<<<<< HEAD
 //int saveNewBird() {
 
 }
+=======
+//void meaning no vaste data type als int of string ofzo
+>>>>>>> 977118978a98f392bcfc7793256d0d6327a8f91c
 
+   
 Bird createNewBird() {
     int ID;
     string birdName;
@@ -72,65 +78,100 @@ int main() {
     string userPasswordInput;
     string birdIDOrAll;
     int administratorChoice;
+    Bird object;
     string administratorPassword = "Masala";
     
     cout << "Welcome to our bird clinic" << endl;
 
     do{
-    cout << "Choose one of the following options" << endl;
-    cout << "Enter [1] to lookup birds" << endl;
-    cout << "Enter [2] to access birds database(Administrator Password Required)" << endl;
-    cin >> firstOption;
+        cout << "Choose one of the following options" << endl;
+        cout << "Enter [1] to lookup birds" << endl;
+        cout << "Enter [2] to access birds database(Administrator Password Required)" << endl;
+        cin >> firstOption;
 
 
-if (firstOption == 1 || firstOption == 2) { 
-    if (firstOption == 1) {
-    do { //do while loop to make sure user inputs either A or ID, if not it will ask again until they do
-        cout << "Welcome, do you want to view the whole database or search a specific bird?" << endl;
-        cout << "[A] for whole database" << endl;
-        cout << "[ID] for specific bird" << endl;
-        cout << "[R] to return to main menu" << endl; // To return to main menu, we will call the main function again (So we will start the whole process again, asking for the first option and so on)
-        cin >> birdIDOrAll;
+        if (firstOption == 1 || firstOption == 2) { 
+            
+            if (firstOption == 1) {
+                do { //do while loop to make sure user inputs either A or ID, if not it will ask again until they do
+                cout << "Welcome, do you want to view the whole database or search a specific bird?" << endl;
+                cout << "[A] for whole database" << endl;
+                cout << "[ID] for specific bird" << endl;
+                cout << "[R] to return to main menu" << endl; // To return to main menu, we will call the main function again (So we will start the whole process again, asking for the first option and so on)
+                cin >> birdIDOrAll;
 
-        if (birdIDOrAll == "A") {
-            cout << birdLookupAll() << endl;
-        } else if(birdIDOrAll == "ID") {
-            cout << birdLookupSpecific() << endl;
-        } else if (birdIDOrAll == "R") {
-            main();
-        } else {
-            cout << "Please put in A, ID, or R(Case sensitive)" << endl;
-            cin >> birdIDOrAll;
-         }   
-        }while (birdIDOrAll != "A" && birdIDOrAll != "ID" && birdIDOrAll != "R");
-    }
-    
+                if (birdIDOrAll == "A") {
+                    cout << birdLookupAll() << endl;
+                } 
+                
+                else if(birdIDOrAll == "ID") {
+                    cout << birdLookupSpecific() << endl;
+                } 
+                
+                else if (birdIDOrAll == "R") {
+                    main();
+                } 
+                
+                else {
+                    cout << "Please put in A, ID, or R(Case sensitive)" << endl;
+                    cin >> birdIDOrAll;
+                }   
+                } while (birdIDOrAll != "A" && birdIDOrAll != "ID" && birdIDOrAll != "R");
+            } 
+            
+            else if (firstOption == 2) {
+                do {    // do while loop to make sure user inputs correct password, if not it will ask again until they do
+                     cout << "Please enter the administrator Password(Case Sensitive!)" << endl;
+                     cin >> userPasswordInput;
 
- else if (firstOption == 2) {
-    do {    // do while loop to make sure user inputs correct password, if not it will ask again until they do
-            cout << "Please enter the administrator Password(Case Sensitive!)" << endl;
-            cin >> userPasswordInput;
+                        if (userPasswordInput == administratorPassword) {
+                            cout << "Welcome administrator" << endl;
+                            cout << "Please choose one of the following" << endl;
+                            cout << "[1] to View Database" << endl;
+                            cout << "[2] to Add a New Bird" << endl;
+                            cout << "[3] to Remove a Bird" << endl;
+                            cout << "[4] to Alter an Existing Bird" << endl;
+                            cout << "[5] to Return to Main Menu" << endl;   // To return to main menu, we will call the main function again (So we will start the whole process again, asking for the first option and so on)
+                            cin >> administratorChoice;
 
-        if (userPasswordInput == administratorPassword) {
-            cout << "Welcome administrator" << endl;
-            cout << "Please choose one of the following" << endl;
-            cout << "[1] to View Database" << endl;
-            cout << "[2] to Add a New Bird" << endl;
-            cout << "[3] to Remove a Bird" << endl;
-            cout << "[4] to Alter an Existing Bird" << endl;
-            cout << "[5] to Return to Main Menu" << endl;   // To return to main menu, we will call the main function again (So we will start the whole process again, asking for the first option and so on)
-            cin >> administratorChoice;
+                            if (administratorChoice == 1) {
+                                cout << birdLookupAll() << endl;
+                            } 
+                            
+                            else if (administratorChoice == 5) {
+                                main();
+                            }
+                        }
 
-            if (administratorChoice == 1) {
-                cout << birdLookupAll() << endl;
-            } else if (administratorChoice == 5) {
-                main();
-            } }
+                        if (userPasswordInput != administratorPassword) {
+                            cout << "Wrong Password, please try again." << endl;
+                        }
+                
+                    }while (userPasswordInput != administratorPassword);
+
+<<<<<<< HEAD
+            }
+            
+        }   
+            else {    
+                cout << "Please put in a valid number" << endl;           
+                    
+            }
+    } while (firstOption != 1 && firstOption != 2);
+=======
+            if (administratorChoice == 2) {
+                createNewBird();
+            }
 
             if (userPasswordInput != administratorPassword) {
+<<<<<<< HEAD
                // for (int i=0;i<3;i++)      
             cout << "Wrong Password, try again." << endl;
            // cin >> userPasswordInput;
+=======
+            cout << "Wrong Password, please try again." << endl;
+
+>>>>>>> 977118978a98f392bcfc7793256d0d6327a8f91c
         }
     
 }while (userPasswordInput != administratorPassword);
@@ -139,6 +180,7 @@ if (firstOption == 1 || firstOption == 2) {
 }   else {    cout << "Please put in a valid number" << endl;           
            }
         }while (firstOption != 1 && firstOption != 2);
+>>>>>>> 9decb62b720799a987704cd9236b762d733ef08f
 
     return 0;
 }        
