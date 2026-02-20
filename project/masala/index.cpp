@@ -17,9 +17,9 @@ class Bird {
 
 };
 
-int createNewBird() {
+/*int createNewBird() {
 
-}
+}*/
 
 int birdLookupSpecific( ) {
     int test = 5;
@@ -41,9 +41,11 @@ int main() {
     cout << "Enter [1] to lookup birds" << endl;
     cout << "Enter [2] to access birds database(Administrator Password Required)" << endl;
     cin >> firstOption;
-    cout << firstOption << endl;
 
- if (firstOption == 1) {
+
+if (firstOption == 1 || firstOption == 2) {
+    if (firstOption == 1) {
+    do {
         cout << "Welcome, do you want to view the whole database or search a specific bird?" << endl;
         cout << "[A] for whole database" << endl;
         cout << "[ID] for specific bird" << endl;
@@ -56,11 +58,15 @@ int main() {
         } else {
             cout << "Please put in A or ID(Case sensitive)" << endl;
             cin >> birdIDOrAll;
-        };
+         }   
+        }while (birdIDOrAll != "A" && birdIDOrAll != "ID");
+    }
+    
 
- if (firstOption == 2) {
-        cout << "Please enter the administrator Password(Case Sensitive!)";
-        cin >> userPasswordInput;
+ else if (firstOption == 2) {
+    do {    cout << "Please enter the administrator Password(Case Sensitive!)";
+            cin >> userPasswordInput;
+
         if (userPasswordInput == administratorPassword) {
             cout << "Welcome administrator" << endl;
             cout << "Please choose one of the following" << endl;
@@ -73,17 +79,17 @@ int main() {
             if (administratorChoice == 1) {
                 cout << birdLookupAll() << endl;
             }
-        }
-        else {
-            cout << "Wrong Password, please try again" << endl;
-            cin >> userPasswordInput;
-        }
-    } 
 
-    if (firstOption != 1 || != 2) {
-       cout << "Please put in a valid number" << endl;
-       cin >> firstOption;
-     }
+            if (userPasswordInput != administratorPassword) {
+            cout << "Wrong Password, please try again." << endl;
+        }
+    }
+    } while (userPasswordInput != administratorPassword);
+
+}
+}   else {    cout << "Please put in a valid number" << endl;
+            cin >> firstOption;
+           }
 
     return 0;
 }        
