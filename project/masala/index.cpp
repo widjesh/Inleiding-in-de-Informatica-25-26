@@ -41,7 +41,7 @@ int main() {
     int administratorChoice;
     string administratorPassword = "Masala";
     
-    cout << "Welcome to our bird clinique" << endl;
+    cout << "Welcome to our bird clinic" << endl;
     cout << "Please choose one of the following options" << endl; 
 
     do{
@@ -101,14 +101,8 @@ if (firstOption == 1 || firstOption == 2) {
     }
 }while (userPasswordInput != administratorPassword);
 
-<<<<<<< HEAD
-
-}   } else {    cout << "Please put in a valid number" << endl;
-            cin >> firstOption;
-=======
 }
 }   else {    cout << "Please put in a valid number" << endl;           
->>>>>>> 13a44d9e37a43af9ade2e976b938dba607a78f78
            }
         }while (firstOption != 1 && firstOption != 2);
 
