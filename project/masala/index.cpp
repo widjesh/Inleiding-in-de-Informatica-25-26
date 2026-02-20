@@ -49,17 +49,20 @@ if (firstOption == 1 || firstOption == 2) {
         cout << "Welcome, do you want to view the whole database or search a specific bird?" << endl;
         cout << "[A] for whole database" << endl;
         cout << "[ID] for specific bird" << endl;
+        cout << "[R] to return to main menu" << endl;
         cin >> birdIDOrAll;
 
         if (birdIDOrAll == "A") {
             cout << birdLookupAll() << endl;
         } else if(birdIDOrAll == "ID") {
             cout << birdLookupSpecific() << endl;
+        } else if (birdIDOrAll == "R") {
+            main();
         } else {
-            cout << "Please put in A or ID(Case sensitive)" << endl;
+            cout << "Please put in A, ID, or R(Case sensitive)" << endl;
             cin >> birdIDOrAll;
          }   
-        }while (birdIDOrAll != "A" && birdIDOrAll != "ID");
+        }while (birdIDOrAll != "A" && birdIDOrAll != "ID" && birdIDOrAll != "R");
     }
     
 
