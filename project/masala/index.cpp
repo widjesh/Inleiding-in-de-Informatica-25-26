@@ -25,7 +25,7 @@ class Bird {
 
 };
 
-int saveNewBird() {
+//int saveNewBird() {
 
 }
 
@@ -75,7 +75,6 @@ int main() {
     string administratorPassword = "Masala";
     
     cout << "Welcome to our bird clinic" << endl;
-    cout << "Please choose one of the following options" << endl; 
 
     do{
     cout << "Choose one of the following options" << endl;
@@ -129,7 +128,9 @@ if (firstOption == 1 || firstOption == 2) {
             } }
 
             if (userPasswordInput != administratorPassword) {
-            cout << "Wrong Password, please try again." << endl;
+               // for (int i=0;i<3;i++)      
+            cout << "Wrong Password, try again." << endl;
+           // cin >> userPasswordInput;
         }
     
 }while (userPasswordInput != administratorPassword);
