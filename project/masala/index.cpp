@@ -31,3 +31,14 @@ int birdLookupAll() {
     return x;
 }
 
+int main() {
+    int firstOption;
+    string userPasswordInput;
+    string birdIDOrAll;
+    int administratorChoice;
+    string administratorPassword = "Masala";
+    cout << "Welcome, please choose one of the following options" << endl;
+    cout << "Enter [1] to lookup birds" << endl;
+    cout << "Enter [2] to access birds database(Administrator Password Required)" << endl;
+    cin >> firstOption;
+    cout << firstOption << endl;
