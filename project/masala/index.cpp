@@ -37,7 +37,12 @@ int main() {
     string birdIDOrAll;
     int administratorChoice;
     string administratorPassword = "Masala";
-    cout << "Welcome, please choose one of the following options" << endl;
+    
+    cout << "Welcome to our bird clinique" << endl;
+    cout << "Please choose one of the following options" << endl; 
+
+    do{
+    cout << "Choose one of the following options" << endl;
     cout << "Enter [1] to lookup birds" << endl;
     cout << "Enter [2] to access birds database(Administrator Password Required)" << endl;
     cin >> firstOption;
@@ -91,9 +96,9 @@ if (firstOption == 1 || firstOption == 2) {
      while (userPasswordInput != administratorPassword);
 
 }
-}   else {    cout << "Please put in a valid number" << endl;
-            cin >> firstOption;
+}   else {    cout << "Please put in a valid number" << endl;           
            }
+        }while (firstOption != 1 && firstOption != 2);
 
     return 0;
 }        
