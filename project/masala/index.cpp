@@ -27,18 +27,7 @@ class Bird {
 };
 
 //void meaning no vaste data type als int of string ofzo
-/*
-void saveNewBirdToTextFile() {
-    ofstream outfile("bird_objects_list_saved.txt", ios::app);
-    if((outfile.is_open())) {
-        outfile << Bird << endl;
-        outFile.close();
-        cout << "\n Succesfully saved to Text File \n" << endl;
-    } else {
-        cout << "Something went wrong, please contact administrator" << endl;
-    }
-}
-    */
+
    
 Bird createNewBird() {
     int ID;
