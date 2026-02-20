@@ -20,9 +20,37 @@ class Bird {
     Bird(int ID, string birdName, string birdSpecies, string scientificName, string typeOfInjury, string dateInAndOut) : ID(ID), birdName(birdName), birdType(birdType), birdSpecies(birdSpecies), scientificName(scientificName), typeOfInjury(typeOfInjury), dateInAndOut(dateInAndOut) {}; //constructor met parameters
 };
 
-/*int createNewBird() {
+int saveNewBird() {
 
-}*/
+}
+
+Bird createNewBird() {
+    int ID;
+    string birdName;
+    string birdType;
+    string birdSpecies;
+    string scientificName;
+    string typeOfInjury;
+    string dateInAndOut;
+
+    cout << "Enter ID" << endl;
+    cin >> ID;
+    cout << "Enter name of bird" << endl;
+    cin >> birdName;
+    cout << "Enter type of bird" << endl;
+    cin >> birdName;
+    cout << "Enter birdSpecies" << endl;
+    cin >> birdSpecies;
+    cout << "Enter scientific name" << endl;
+    cin >> scientificName;
+    cout << "Enter type of injury" << endl;
+    cin >> typeOfInjury;
+    cout << "Enter date" << endl;
+    cin >> dateInAndOut;
+
+    return Bird bird(ID, birdName, birdSpecies, scientificName, typeOfInjury, dateInAndOut);
+    //hiervoor is de constructor nodig, maken van die objects door die parameters
+}
 
 int birdLookupSpecific( ) {
     int test = 5;
