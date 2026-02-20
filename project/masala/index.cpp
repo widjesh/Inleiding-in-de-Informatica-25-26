@@ -79,13 +79,13 @@ if (firstOption == 1 || firstOption == 2) {
 
             if (administratorChoice == 1) {
                 cout << birdLookupAll() << endl;
-            }
+            } }
 
             if (userPasswordInput != administratorPassword) {
             cout << "Wrong Password, please try again." << endl;
         }
     }
-    } while (userPasswordInput != administratorPassword);
+     while (userPasswordInput != administratorPassword);
 
 }
 }   else {    cout << "Please put in a valid number" << endl;
