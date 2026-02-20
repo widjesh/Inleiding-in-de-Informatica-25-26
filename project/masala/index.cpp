@@ -90,7 +90,7 @@ if (firstOption == 1 || firstOption == 2) {
         cout << "Welcome, do you want to view the whole database or search a specific bird?" << endl;
         cout << "[A] for whole database" << endl;
         cout << "[ID] for specific bird" << endl;
-        cout << "[R] to return to main menu" << endl;
+        cout << "[R] to return to main menu" << endl; // To return to main menu, we will call the main function again (So we will start the whole process again, asking for the first option and so on)
         cin >> birdIDOrAll;
 
         if (birdIDOrAll == "A") {
@@ -119,7 +119,7 @@ if (firstOption == 1 || firstOption == 2) {
             cout << "[2] to Add a New Bird" << endl;
             cout << "[3] to Remove a Bird" << endl;
             cout << "[4] to Alter an Existing Bird" << endl;
-            cout << "[5] to Return to Main Menu" << endl;   
+            cout << "[5] to Return to Main Menu" << endl;   // To return to main menu, we will call the main function again (So we will start the whole process again, asking for the first option and so on)
             cin >> administratorChoice;
 
             if (administratorChoice == 1) {
