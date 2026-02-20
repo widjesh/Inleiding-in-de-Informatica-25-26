@@ -18,6 +18,11 @@ class Bird {
         Bird() {}; //global constructor
 
     Bird(int ID, string birdName, string birdSpecies, string scientificName, string typeOfInjury, string dateInAndOut) : ID(ID), birdName(birdName), birdType(birdType), birdSpecies(birdSpecies), scientificName(scientificName), typeOfInjury(typeOfInjury), dateInAndOut(dateInAndOut) {}; //constructor met parameters
+
+    void display() {
+        cout << "/n Created new Bird Object" << endl;
+    }
+
 };
 
 int saveNewBird() {
