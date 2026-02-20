@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <fstream>
 
 
 using namespace std;
@@ -26,17 +27,8 @@ class Bird {
 };
 
 //void meaning no vaste data type als int of string ofzo
-void saveNewBirdToTextFile() {
-    ofstream outfile("bird_objects_list_saved.txt", ios::app);
-    if((outfile.is_open())) {
-        outFile << Bird << endl;
-        outFile.close();
-        cout << "\n Succesfully saved to Text File \n" << endl;
-    } else {
-        cout << "Something went wrong, please contact administrator" << endl;
-    }
-}
 
+   
 Bird createNewBird() {
     int ID;
     string birdName;
@@ -80,6 +72,7 @@ int main() {
     string userPasswordInput;
     string birdIDOrAll;
     int administratorChoice;
+    Bird object;
     string administratorPassword = "Masala";
     
     cout << "Welcome to our bird clinic" << endl;
@@ -151,6 +144,7 @@ int main() {
                 
                     }while (userPasswordInput != administratorPassword);
 
+<<<<<<< HEAD
             }
             
         }   
@@ -159,6 +153,23 @@ int main() {
                     
             }
     } while (firstOption != 1 && firstOption != 2);
+=======
+            if (administratorChoice == 2) {
+                createNewBird();
+            }
+
+            if (userPasswordInput != administratorPassword) {
+            cout << "Wrong Password, please try again." << endl;
+
+        }
+    
+}while (userPasswordInput != administratorPassword);
+
+}
+}   else {    cout << "Please put in a valid number" << endl;           
+           }
+        }while (firstOption != 1 && firstOption != 2);
+>>>>>>> 9decb62b720799a987704cd9236b762d733ef08f
 
     return 0;
 }        
