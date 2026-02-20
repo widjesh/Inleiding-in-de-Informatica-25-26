@@ -43,9 +43,9 @@ int main() {
     cin >> firstOption;
 
 
-if (firstOption == 1 || firstOption == 2) {
+if (firstOption == 1 || firstOption == 2) { 
     if (firstOption == 1) {
-    do {
+    do { //do while loop to make sure user inputs either A or ID, if not it will ask again until they do
         cout << "Welcome, do you want to view the whole database or search a specific bird?" << endl;
         cout << "[A] for whole database" << endl;
         cout << "[ID] for specific bird" << endl;
@@ -64,7 +64,8 @@ if (firstOption == 1 || firstOption == 2) {
     
 
  else if (firstOption == 2) {
-    do {    cout << "Please enter the administrator Password(Case Sensitive!)" << endl;
+    do {    // do while loop to make sure user inputs correct password, if not it will ask again until they do
+            cout << "Please enter the administrator Password(Case Sensitive!)" << endl;
             cin >> userPasswordInput;
 
         if (userPasswordInput == administratorPassword) {
