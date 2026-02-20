@@ -78,20 +78,23 @@ if (firstOption == 1 || firstOption == 2) {
             cout << "[2] to Add a New Bird" << endl;
             cout << "[3] to Remove a Bird" << endl;
             cout << "[4] to Alter an Existing Bird" << endl;
+            cout << "[5] to Return to Main Menu" << endl;   
             cin >> administratorChoice;
 
             if (administratorChoice == 1) {
                 cout << birdLookupAll() << endl;
-            } }
+            } else if (administratorChoice == 5) {
+                main();
+            }
 
             if (userPasswordInput != administratorPassword) {
             cout << "Wrong Password, please try again." << endl;
         }
     }
-     while (userPasswordInput != administratorPassword);
+}while (userPasswordInput != administratorPassword);
 
-}
-}   else {    cout << "Please put in a valid number" << endl;
+
+}   } else {    cout << "Please put in a valid number" << endl;
             cin >> firstOption;
            }
 
