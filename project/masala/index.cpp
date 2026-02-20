@@ -12,9 +12,12 @@ class Bird {
         string birdSpecies;
         string scientificName;
         string typeOfInjury;
-        string dateIn;
-        string dateOut;
+        string dateInAndOut;
+      
 
+        Bird() {}; //global constructor
+
+    Bird(int ID, string birdName, string birdSpecies, string scientificName, string typeOfInjury, string dateInAndOut) : ID(ID), birdName(birdName), birdType(birdType), birdSpecies(birdSpecies), scientificName(scientificName), typeOfInjury(typeOfInjury), dateInAndOut(dateInAndOut) {}; //constructor met parameters
 };
 
 /*int createNewBird() {
