@@ -42,3 +42,18 @@ int main() {
     cout << "Enter [2] to access birds database(Administrator Password Required)" << endl;
     cin >> firstOption;
     cout << firstOption << endl;
+
+ if (firstOption == 1) {
+        cout << "Welcome, do you want to view the whole database or search a specific bird?" << endl;
+        cout << "[A] for whole database" << endl;
+        cout << "[ID] for specific bird" << endl;
+        cin >> birdIDOrAll;
+
+        if (birdIDOrAll == "A") {
+            cout << birdLookupAll() << endl;
+        } else if(birdIDOrAll == "ID") {
+            cout << birdLookupSpecific() << endl;
+        } else {
+            cout << "Please put in A or ID(Case sensitive)" << endl;
+            cin >> birdIDOrAll;
+        };
