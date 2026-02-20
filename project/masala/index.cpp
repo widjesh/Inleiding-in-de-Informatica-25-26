@@ -64,7 +64,7 @@ if (firstOption == 1 || firstOption == 2) {
     
 
  else if (firstOption == 2) {
-    do {    cout << "Please enter the administrator Password(Case Sensitive!)";
+    do {    cout << "Please enter the administrator Password(Case Sensitive!)" << endl;
             cin >> userPasswordInput;
 
         if (userPasswordInput == administratorPassword) {
