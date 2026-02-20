@@ -75,4 +75,3 @@ if (firstOption == 2) {
 
     return 0;
 }
->>>>>>> 6e457c3c275ae1d0a1b4cf0b4b7a1caf0ad577df
