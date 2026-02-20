@@ -126,12 +126,12 @@ if (firstOption == 1 || firstOption == 2) {
                 cout << birdLookupAll() << endl;
             } else if (administratorChoice == 5) {
                 main();
-            }
+            } }
 
             if (userPasswordInput != administratorPassword) {
             cout << "Wrong Password, please try again." << endl;
         }
-    }
+    
 }while (userPasswordInput != administratorPassword);
 
 }
