@@ -26,13 +26,7 @@ class Bird {
 
 };
 
-<<<<<<< HEAD
-//int saveNewBird() {
-
-}
-=======
 //void meaning no vaste data type als int of string ofzo
->>>>>>> 977118978a98f392bcfc7793256d0d6327a8f91c
 
    
 Bird createNewBird() {
@@ -149,7 +143,7 @@ int main() {
                 
                     }while (userPasswordInput != administratorPassword);
 
-<<<<<<< HEAD
+
             }
             
         }   
@@ -158,29 +152,29 @@ int main() {
                     
             }
     } while (firstOption != 1 && firstOption != 2);
-=======
+
             if (administratorChoice == 2) {
                 createNewBird();
             }
 
             if (userPasswordInput != administratorPassword) {
-<<<<<<< HEAD
-               // for (int i=0;i<3;i++)      
-            cout << "Wrong Password, try again." << endl;
-           // cin >> userPasswordInput;
-=======
-            cout << "Wrong Password, please try again." << endl;
 
->>>>>>> 977118978a98f392bcfc7793256d0d6327a8f91c
-        }
+                // for (int i=0;i<3;i++)      
+                cout << "Wrong Password, try again." << endl;
+                // cin >> userPasswordInput;
+
+                cout << "Wrong Password, please try again." << endl;
+
+
+            }
     
-}while (userPasswordInput != administratorPassword);
+    }while (userPasswordInput != administratorPassword);
 
 }
 }   else {    cout << "Please put in a valid number" << endl;           
            }
         }while (firstOption != 1 && firstOption != 2);
->>>>>>> 9decb62b720799a987704cd9236b762d733ef08f
+
 
     return 0;
 }        
