@@ -132,11 +132,16 @@ int main() {
                                 cout << birdLookupAll() << endl;
                             } 
                             
+                            else if (administratorChoice == 2) {
+                                createNewBird();
+                            }
+                            
                             else if (administratorChoice == 5) {
                                 main();
                             }
                         }
 
+                        
                         if (userPasswordInput != administratorPassword) {
                             cout << "Wrong Password, please try again." << endl;
                         }
@@ -153,11 +158,7 @@ int main() {
             }
     } while (firstOption != 1 && firstOption != 2);
 
-            if (administratorChoice == 2) {
-                createNewBird();
-            }
-
-            if (userPasswordInput != administratorPassword) {
+            /*if (userPasswordInput != administratorPassword) {
 
                 // for (int i=0;i<3;i++)      
                 cout << "Wrong Password, try again." << endl;
@@ -166,15 +167,7 @@ int main() {
                 cout << "Wrong Password, please try again." << endl;
 
 
-            }
-    
-    }while (userPasswordInput != administratorPassword);
-
-}
-}   else {    cout << "Please put in a valid number" << endl;           
-           }
-        }while (firstOption != 1 && firstOption != 2);
-
+            }*/
 
     return 0;
 }        
