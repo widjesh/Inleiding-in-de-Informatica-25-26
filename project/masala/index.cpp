@@ -18,7 +18,7 @@ class Bird {
 
         Bird() {}; //global constructor
 
-    Bird(int ID, string birdName, string birdSpecies, string scientificName, string typeOfInjury, string dateInAndOut) : ID(ID), birdName(birdName), birdType(birdType), birdSpecies(birdSpecies), scientificName(scientificName), typeOfInjury(typeOfInjury), dateInAndOut(dateInAndOut) {}; //constructor met parameters
+    Bird(int ID, string birdName, string birdType, string birdSpecies, string scientificName, string typeOfInjury, string dateInAndOut) : ID(ID), birdName(birdName), birdType(birdType), birdSpecies(birdSpecies), scientificName(scientificName), typeOfInjury(typeOfInjury), dateInAndOut(dateInAndOut) {}; //constructor met parameters
 
     void display() {
         cout << "\n Created new Bird Object" << endl;
@@ -53,7 +53,7 @@ Bird createNewBird() {
     cout << "Enter date" << endl;
     cin >> dateInAndOut;
 
-    return Bird(ID, birdName, birdSpecies, scientificName, typeOfInjury, dateInAndOut);
+    return Bird(ID, birdName, birdType, birdSpecies, scientificName, typeOfInjury, dateInAndOut);
     //hiervoor is de constructor nodig, maken van die objects door die parameters
 }
 
