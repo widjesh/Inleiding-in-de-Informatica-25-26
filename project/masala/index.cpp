@@ -132,7 +132,6 @@ int main() {
                     cout << "Please enter the administrator Password(Case Sensitive!)" << endl;
                     cin >> userPasswordInput;
 
-<<<<<<< HEAD
                         if (userPasswordInput == administratorPassword) {
                             cout << "Welcome administrator" << endl;
                             cout << "Please choose one of the following" << endl;
@@ -156,17 +155,6 @@ int main() {
                                 main();
                             }
                         }
-=======
-                    if (userPasswordInput == administratorPassword) {
-                        cout << "Welcome administrator" << endl;
-                        cout << "Please choose one of the following" << endl;
-                        cout << "[1] to View Database" << endl;
-                        cout << "[2] to Add a New Bird" << endl;
-                        cout << "[3] to Remove a Bird" << endl;
-                        cout << "[4] to Alter an Existing Bird" << endl;
-                        cout << "[5] to Return to Main Menu" << endl;   // To return to main menu, we will call the main function again (So we will start the whole process again, asking for the first option and so on)
-                        cin >> administratorChoice;
->>>>>>> 42be1fee2d5ae3d855d9964fa085e50d7afeb606
 
                         if (administratorChoice == 1) {
                             cout << birdLookupAll() << endl;
@@ -179,7 +167,7 @@ int main() {
                         else if (administratorChoice == 5) {
                             main();
                         }
-                    }
+                    
 
                     
                     if (userPasswordInput != administratorPassword) {
