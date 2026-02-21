@@ -238,5 +238,62 @@ int main()
         }
     }
 
+    if (password == "admin.pw")
+         int choice;
+
+    string changeOption [] = {
+        "(1). View all cars",
+        "(2). Add a new car",
+        "(3). Remove a car or mark as sold" };
+
+    for (int i = 0; i < 3; i++)
+    {
+        cout << changeOption[i] << endl;
+    }
+
+     {     cout << "Choose what you wish to do" << endl;
+        cin >> choice;
+        
+       
+        if (choice >= 1 && choice <= 3)
+            {
+            switch (choice)
+            {
+            case 1:
+                for (const auto &car : cars)
+                {
+                    car.specs();
+                    cout << endl;
+                }
+                break;
+
+            case 2:
+            {
+                Car newCar;
+                cout << "Enter brand: ";
+                cin >> newCar.brand;
+                cout << "Enter model: ";
+                cin >> newCar.model;
+                cout << "Enter engine type: ";
+                cin >> newCar.engineType;
+                cout << "Enter horse power: ";
+                cin >> newCar.horsePower;
+                cout << "Enter top speed: ";
+                cin >> newCar.topSpeed;
+                cout << "Enter build year: ";
+                cin >> newCar.buildYear;
+                cout << "Enter price: ";
+                cin >> newCar.price;
+                cars.push_back(newCar);
+                cout << "New car added successfully!" << endl;
+            }
+            break;
+                case 3:
+                    {
+        }
+    }
+
+}
+
     return 0;
 }
