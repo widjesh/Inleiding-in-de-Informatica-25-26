@@ -164,7 +164,7 @@ int main() {
                                     
                                     cin >> administratorChoice2;
                                     if (administratorChoice2 == "R") {
-                                        break;
+                                        administratorMenu();
                                     } 
                                     
                                     else if (administratorChoice2 == "1") {
@@ -172,8 +172,7 @@ int main() {
                                         bird.display();
                                     }
                                 } while (true); 
-                                administratorMenu(); // if you want to return to the administrator menu after adding a bird, you get brought back to the menu and can choose what you want to do next
-                                    
+                                
                             } else if (administratorChoice2 == "1") {
                                     Bird bird = createNewBird();
                                     bird.display();
