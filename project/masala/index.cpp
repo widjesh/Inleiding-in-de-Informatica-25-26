@@ -27,6 +27,19 @@ class Bird {
 };
 
 //void meaning no vaste data type als int of string ofzo
+/*
+void saveBird( const Bird& p, const string& filename) {
+    ofstream outfile(filename, ios::app);
+
+    if(outfile.is_open()) {
+        outfile << p.ID << " " << p.birdName << endl;
+        cout << "\nSaved " << p.birdName << "to " << filename << endl;
+
+    } else{
+        cout << "\n Error, Please contact support";
+    }      
+}
+    */
 
    
 Bird createNewBird() {
@@ -133,7 +146,8 @@ int main() {
                             } 
                             
                             else if (administratorChoice == 2) {
-                                createNewBird();
+                                Bird bird = createNewBird();
+                                bird.display();
                             }
                             
                             else if (administratorChoice == 5) {
