@@ -118,8 +118,8 @@ int main()
     car9.buildYear = 2019;
     car9.price = 20000;
 
-   vector<Car> AvailableCars = {car1, car2, car3, car4, car5}; // bassicly an array but you can add and remove items
-   vector<Car> PurchasedCars = {car6, car7, car8, car9};
+   vector<Car> availableCars = {car1, car2, car3, car4, car5}; // bassicly an array but you can add and remove items
+   vector<Car> purchasedCars = {car6, car7, car8, car9};
     
     // This is the welcome page that asks if you are an admin or guest and asks for your pw
     string userAnswer;
