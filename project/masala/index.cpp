@@ -81,16 +81,16 @@ int birdLookupAll() {
 }
 
 int administratorMenu() {
-    int administratorChoice2;
+    int administratorChoice;
     cout << "Please choose one of the following" << endl;
     cout << "[1] to View Database" << endl;
     cout << "[2] to Add a New Bird" << endl;
     cout << "[3] to Remove a Bird" << endl;
     cout << "[4] to Alter an Existing Bird" << endl;
     cout << "[5] to Return to Main Menu" << endl;   // To return to main menu, we will call the main function again (So we will start the whole process again, asking for the first option and so on)
-    cin >> administratorChoice2;
+    cin >> administratorChoice;
 
-    return administratorChoice2;
+    return administratorChoice;
 }
 
 int main() {
@@ -101,7 +101,6 @@ int main() {
     Bird object;
     string administratorPassword = "Masala";
     int i;
-    string administratorChoice2;
     
     cout << "Welcome to our bird clinic" << endl;
 
@@ -149,6 +148,7 @@ int main() {
                         if (userPasswordInput == administratorPassword) {
                             cout << "Welcome administrator" << endl;
                             administratorChoice = administratorMenu();
+                            
 
                             if (administratorChoice == 1) {
                                 cout << birdLookupAll() << endl;
@@ -158,25 +158,22 @@ int main() {
                                 Bird bird = createNewBird();
                                 bird.display();
 
-                                do {
-                                    cout << "[R] to go back to administrator menu" << endl;
+                                while (administratorChoice == 2) {
+                                    cout << "[0] to go back to administrator menu" << endl;
                                     cout << "[1] to add another bird" << endl;
                                     
-                                    cin >> administratorChoice2;
-                                    if (administratorChoice2 == "R") {
+                                    cin >> administratorChoice;
+                                    if (administratorChoice == 0) {
                                         administratorMenu();
                                     } 
                                     
-                                    else if (administratorChoice2 == "1") {
+                                    else if (administratorChoice == 1) {
                                         Bird bird = createNewBird();
                                         bird.display();
                                     }
-                                } while (true); 
+                                } 
                                 
-                            } else if (administratorChoice2 == "1") {
-                                    Bird bird = createNewBird();
-                                    bird.display();
-                                }
+                            }
                             
                             
                             else if (administratorChoice == 5) {
