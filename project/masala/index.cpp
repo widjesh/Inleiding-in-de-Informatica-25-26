@@ -161,7 +161,6 @@ int main() {
                                 Bird bird = createNewBird();
                                 bird.display();
 
-                                while (administratorChoice == 2) {
                                     do{
                                     cout << "[0] to go back to administrator menu" << endl;
                                     cout << "[1] to add another bird" << endl;
@@ -177,7 +176,6 @@ int main() {
                                     }
                                 }while (administratorChoice2==1);
                                 
-                                } 
                                 
                             }
                             
@@ -204,7 +202,6 @@ int main() {
                 } 
                 cout << "Acces denied1." << endl;
                 return 0;
-                 //   }while (userPasswordInput != administratorPassword);
 
 
             }        
