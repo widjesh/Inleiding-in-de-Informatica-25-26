@@ -69,7 +69,7 @@ void addCar(vector<Car> &cars, int &carCount)
     cin >> newCar.model;
 
     cout << "Enter car enginetype: ";
-    cin >> newCar.enginType;
+    cin >> newCar.engineType;
 
      cout << "Enter car horsepower: ";
     cin >> newCar.horsePower;
