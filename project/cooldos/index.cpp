@@ -57,6 +57,68 @@ void deleteCar(vector<Car> &cars, int &carCount)
         cout << "Invalid selection.\n";
     }
 }
+void adminMenu(vector<Car> aCars, int vectorSize)
+{ // function for admin menu
+
+    char adminChoice;
+    int adminNumChoice;
+
+    while (true)
+    {
+        cout << "(a) Available cars" << endl;
+        cout << "(b) Remove cars" << endl;
+        cout << "(c) Add cars" << endl;
+        cout << "(d) Change car price" << endl;
+        cout << "(e) Exit application" << endl;
+        cin >> adminChoice;
+
+        switch (adminChoice)
+        {
+        case 'e':
+            return;
+
+        case 'a':
+            while (true)
+            {
+                cout << "Please select which car you would like to view" << endl;
+
+                for (int i = 0; i < vectorSize; i++)
+                {
+                    cout << (i + 1) << ") " << aCars[i].brand << " " << aCars[i].model << endl;
+                }
+                cout << "(0) return to menu" << endl;
+                cin >> adminNumChoice;
+
+                if (adminNumChoice == 0)
+                {
+                    break;
+                }
+                else if (adminNumChoice > 0 && adminNumChoice <= vectorSize)
+                {
+                    aCars[adminNumChoice - 1].specs();
+                }
+                while (true)
+                {
+                    cout << "(0) Back to available cars list" << endl;
+                    cin >> adminNumChoice;
+                    if (adminNumChoice == 0)
+                    {
+                        break;
+                    }
+                }
+            }
+            break;
+
+        case 'b':
+            deleteCar(aCars, vectorSize);
+            break;
+
+        case 'c':
+
+        case 'd':
+        }
+    }
+}
 
 int main()
 {
@@ -324,3 +386,4 @@ int main()
 
         return 0;
     }
+}
