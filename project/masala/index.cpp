@@ -104,12 +104,12 @@ int main() {
     string administratorPassword = "Masala";
     int i;
     
-    cout << "Welcome to our bird clinic" << endl;
+    cout << "WELCOME TO OUR BIRD CLINIC\n" << endl;
 
     do{
-        cout << "Choose one of the following options" << endl;
+        cout << "Choose one of the following options:" << endl;
         cout << "Enter [1] to lookup birds" << endl;
-        cout << "Enter [2] to access birds database(Administrator Password Required)" << endl;
+        cout << "Enter [2] to access birds database (Administrator Password Required)" << endl;
         cin >> firstOption;
 
 
@@ -144,21 +144,21 @@ int main() {
             
             else if (firstOption == 2) {
                 for(i=0;i<3;i++){
-                    cout << "Please enter the administrator Password(Case Sensitive!)1" << endl;
+                    cout << "Please enter the administrator Password(Case Sensitive!)" << endl;
                     cin >> userPasswordInput;
                     
 
                         if (userPasswordInput == administratorPassword) {
-                            startOfAdministratorMenu:
                             cout << "Welcome administrator" << endl;
                             cout << "Please choose one of the following" << endl;
+                            startOfAdministratorMenu:
+                            cout << "\nASMINISTRATOR MENU:" << endl;
                             cout << "[1] to View Database" << endl;
                             cout << "[2] to Add a New Bird" << endl;
                             cout << "[3] to Remove a Bird" << endl;
                             cout << "[4] to Alter an Existing Bird" << endl;
                             cout << "[5] to Return to Main Menu" << endl;   // To return to main menu, we will call the main function again (So we will start the whole process again, asking for the first option and so on)
                             cin >> administratorChoice;
-                          //administratorChoice = administratorMenu();
                             
 
                             if (administratorChoice == 1) {
@@ -171,7 +171,6 @@ int main() {
                                 bird.display();
 
                               do {     
-                                do{
                                     cout << "\n[0] to go back to administrator menu" << endl;
                                     cout << "[1] to add another bird" << endl;
                                     
@@ -185,9 +184,8 @@ int main() {
                                     }
 
                                     else {
-                                        cout << "Please put in a valid number";
+                                        cout << "Please put in a valid number" << endl;
                                 }
-                                }while (administratorChoice2==1);
                             }while (administratorChoice2 != 0 && administratorChoice2 !=1);
                                 
                                 
@@ -208,19 +206,19 @@ int main() {
                     
                     if (userPasswordInput != administratorPassword) {
                         if (i<2){
-                            cout<< "Wrong Password, please try again." << endl;
+                            cout<< "Wrong Password, please try again" << endl;
                             cout << "You have " << 2-i << " attempt";
                             if (i<1){
-                                cout<< "s left." << endl;
+                                cout<< "s left" << endl;
                             }
                             else if (i==1){
-                                cout << " left." << endl;
+                                cout << " left!" << endl;
                             }
                         }
                         
                     } 
                 } 
-                cout << "Acces denied1." << endl;
+                cout << "Acces denied...exiting" << endl;
                 return 0;
 
 
