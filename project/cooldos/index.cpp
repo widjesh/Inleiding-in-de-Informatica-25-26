@@ -68,7 +68,16 @@ void addCar(vector<Car> &cars, int &carCount)
     cout << "Enter car model: ";
     cin >> newCar.model;
 
-    cout << "Enter car year: ";
+    cout << "Enter car enginetype: ";
+    cin >> newCar.enginType;
+
+     cout << "Enter car horsepower: ";
+    cin >> newCar.horsePower;
+
+     cout << "Enter car speed: ";
+    cin >> newCar.topSpeed;
+
+     cout << "Enter car year: ";
     cin >> newCar.buildYear;
 
     cout << "Enter car price: ";
