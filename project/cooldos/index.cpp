@@ -57,6 +57,58 @@ void deleteCar(vector<Car> &cars, int &carCount)
         cout << "Invalid selection.\n";
     }
 }
+//add function
+void addCar(vector<Car> &cars, int &carCount)
+{
+    Car newCar;
+
+    cout << "Enter car brand: ";
+    cin >> newCar.brand;
+
+    cout << "Enter car model: ";
+    cin >> newCar.model;
+
+    cout << "Enter car year: ";
+    cin >> newCar.buildYear;
+
+    cout << "Enter car price: ";
+    cin >> newCar.price;
+
+    // add the car to the vector
+    cars.push_back(newCar);
+
+    carCount++;
+
+    cout << "Car added successfully.\n";
+}
+void changePrice(vector<Car>& aCars, int& vectorSize) { //function for updating price of cars
+    int adminNumChoice;
+    
+    while (true) {
+    cout << "Please select car to change price of: " << endl;
+    for (int i = 0; i < vectorSize; i++) {
+        cout << (i + 1) << ") " << aCars[i].brand << " " << aCars[i].model << endl;
+    }
+    cout << "0) Cancel " << endl;
+    cin >> adminNumChoice;
+    
+    if (adminNumChoice == 0) {
+        return ;
+    }
+    else if (adminNumChoice > 0 && adminNumChoice <= vectorSize) {
+        cout << "enter new price for " << aCars[adminNumChoice - 1].brand << " " << aCars[adminNumChoice - 1].model << ": \n";
+        cout << "$"; cin >> aCars[adminNumChoice - 1].price;
+        cout << "price updated!!" << aCars[adminNumChoice - 1].brand << " " << aCars[adminNumChoice - 1].model << " now costs $" << aCars[adminNumChoice - 1].price<< endl;
+    } while (true) {
+        cout << "(0) return to menu" << endl;
+        cin >> adminNumChoice;
+        if (adminNumChoice == 0) {
+            return;
+        }
+    }
+    
+    }
+}
 void adminMenu(vector<Car> aCars, int vectorSize)
 { // function for admin menu
 
@@ -114,13 +166,15 @@ void adminMenu(vector<Car> aCars, int vectorSize)
             break;
 
         case 'c':
+        addCar(aCars, vectorSize);
 
         case 'd':
+            changePrice[aCars, vectorSize];
+            break;
         }
     }
 }
-
-int main()
+int main(){
 {
 
     int numberPcars = 4;        // number purchased cars
@@ -242,12 +296,12 @@ int main()
             availableCars[i].price = availableCars[i].calculateDiscountedPrice(availableCars[i].price, premiumDiscount);
         }
     }
-
+if (userAnswer == "guest"){
     while (true)
     {
         cout << "Please enter what you would like to view: " << endl;
 
-        string viewOptions[] = {"(a) Available cars", "(b) Purchase history", "(d) Delete a car (admin only)", "(e) Exit Cooldos Motors!"}; // these are the options that u can view
+        string viewOptions[] = {"(a) Available cars", "(b) Purchase history",  "(e) Exit Cooldos Motors!"}; // these are the options that u can view
 
         for (int i = 0; i < 3; i++)
         { // dit geeft die lijst onder elkaar weer
@@ -327,7 +381,16 @@ int main()
             return 0;
         }
     }
-
+}
+    else if (userAnswer == "admin")
+        cout << "poopensharten"<< endl;
+adminMenu(availableCars, numberAcars); // calls function for admin menu
+}
+return 0;
+}
+    
+    
+    
     if (password == "admin.pw")
         int choice;
 
