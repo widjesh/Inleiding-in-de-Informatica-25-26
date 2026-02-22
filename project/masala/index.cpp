@@ -94,6 +94,7 @@ int administratorMenu() {
 }
 
 int main() {
+    startOfProgram:
     int firstOption;
     string userPasswordInput;
     string birdIDOrAll;
@@ -130,7 +131,7 @@ int main() {
                 } 
                 
                 else if (birdIDOrAll == "R") {
-                    main();
+                    goto startOfProgram;
                 } 
                 
                 else {
@@ -175,9 +176,8 @@ int main() {
                                 
                             }
                             
-                            
                             else if (administratorChoice == 5) {
-                                main();
+                                goto startOfProgram;
                             }
                         }
                     
