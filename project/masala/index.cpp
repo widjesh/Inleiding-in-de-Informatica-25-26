@@ -196,6 +196,12 @@ int main() {
                             else if (administratorChoice == 5) {
                                 goto startOfProgram;
                             }
+                            
+
+                            else {
+                                cout << "Please put in a valid number" << endl;
+                                    goto startOfAdministratorMenu;
+                            }
                         }
                     
 
