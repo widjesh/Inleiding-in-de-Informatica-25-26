@@ -21,7 +21,7 @@ class Bird {
     Bird(int ID, string birdName, string birdType, string birdSpecies, string scientificName, string typeOfInjury, string dateInAndOut) : ID(ID), birdName(birdName), birdType(birdType), birdSpecies(birdSpecies), scientificName(scientificName), typeOfInjury(typeOfInjury), dateInAndOut(dateInAndOut) {}; //constructor met parameters
 
     void display() {
-        cout << "\n Created new Bird Object" << endl;
+        cout << "\nCreated new Bird Object" << endl;
     }
 
 };
@@ -98,6 +98,7 @@ int main() {
     string userPasswordInput;
     string birdIDOrAll;
     int administratorChoice;
+    int administratorChoice2;
     Bird object;
     string administratorPassword = "Masala";
     int i;
@@ -142,8 +143,9 @@ int main() {
             
             else if (firstOption == 2) {
                 for(i=0;i<3;i++){
-                    cout << "Please enter the administrator Password(Case Sensitive!)" << endl;
+                    cout << "Please enter the administrator Password(Case Sensitive!)1" << endl;
                     cin >> userPasswordInput;
+                    
 
                         if (userPasswordInput == administratorPassword) {
                             cout << "Welcome administrator" << endl;
@@ -159,18 +161,21 @@ int main() {
                                 bird.display();
 
                                 while (administratorChoice == 2) {
+                                    do{
                                     cout << "[0] to go back to administrator menu" << endl;
                                     cout << "[1] to add another bird" << endl;
                                     
-                                    cin >> administratorChoice;
-                                    if (administratorChoice == 0) {
+                                    cin >> administratorChoice2;
+                                    if (administratorChoice2 == 0) {
                                         administratorMenu();
                                     } 
                                     
-                                    else if (administratorChoice == 1) {
+                                    else if (administratorChoice2 == 1) {
                                         Bird bird = createNewBird();
                                         bird.display();
                                     }
+                                }while (administratorChoice2==1);
+                                
                                 } 
                                 
                             }
