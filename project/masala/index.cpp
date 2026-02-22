@@ -169,8 +169,9 @@ int main() {
                                 Bird bird = createNewBird();
                                 bird.display();
 
-                                    do{
-                                    cout << "[0] to go back to administrator menu" << endl;
+                              do {     
+                                do{
+                                    cout << "\n[0] to go back to administrator menu" << endl;
                                     cout << "[1] to add another bird" << endl;
                                     
                                     cin >> administratorChoice2;
@@ -182,7 +183,12 @@ int main() {
                                         Bird bird = createNewBird();
                                         bird.display();
                                     }
+
+                                    else {
+                                        cout << "Please put in a valid number";
+                                }
                                 }while (administratorChoice2==1);
+                            }while (administratorChoice2 != 0 && administratorChoice2 !=1);
                                 
                                 
                             }
