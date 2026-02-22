@@ -167,9 +167,10 @@ void adminMenu(vector<Car> aCars, int vectorSize)
 
         case 'c':
         addCar(aCars, vectorSize);
+            break;
 
         case 'd':
-            changePrice[aCars, vectorSize];
+            changePrice(aCars, vectorSize);
             break;
         }
     }
