@@ -29,8 +29,8 @@ public:
         return price = price - (price * premiumDiscount / 100);
     } // function for calculating price after discount (in class because it uses variables that are in the class)
 };
-//delete function
-void deleteCar(vector<Car>& cars, int& carCount)
+// delete function
+void deleteCar(vector<Car> &cars, int &carCount)
 {
     int deleteIndex;
 
@@ -146,9 +146,9 @@ int main()
     car9.buildYear = 2019;
     car9.price = 20000;
 
-   vector<Car> availableCars = {car1, car2, car3, car4, car5}; // bassicly an array but you can add and remove items
-   vector<Car> purchasedCars = {car6, car7, car8, car9};
-    
+    vector<Car> availableCars = {car1, car2, car3, car4, car5}; // bassicly an array but you can add and remove items
+    vector<Car> purchasedCars = {car6, car7, car8, car9};
+
     // This is the welcome page that asks if you are an admin or guest and asks for your pw
     string userAnswer;
     string password; // Guest password: guest.pw   Admin password: admin.pw
@@ -185,7 +185,7 @@ int main()
     {
         cout << "Please enter what you would like to view: " << endl;
 
-        string viewOptions[] = {"(a) Available cars", "(b) Purchase history","(d) Delete a car (admin only)", "(e) Exit Cooldos Motors!"}; // these are the options that u can view
+        string viewOptions[] = {"(a) Available cars", "(b) Purchase history", "(d) Delete a car (admin only)", "(e) Exit Cooldos Motors!"}; // these are the options that u can view
 
         for (int i = 0; i < 3; i++)
         { // dit geeft die lijst onder elkaar weer
@@ -259,32 +259,6 @@ int main()
                 }
             }
             break;
-              case 'd':
-        {
-            if (userAnswer != "admin")
-            {
-                cout << "Only admins can delete cars.\n";
-                break;
-            }
-
-            char deleteChoice;
-
-            cout << "Delete from:\n";
-            cout << "(a) Available cars\n";
-            cout << "(b) Purchased cars\n";
-            cout << "(e) Exit Cooldos Motors!\n";
-            cin >> deleteChoice;
-
-            if (deleteChoice == 'a')
-                deleteCar(availableCars, numberAcars);
-            else if (deleteChoice == 'b')
-                deleteCar(purchasedCars, numberPcars);
-            else
-                cout << "Invalid option.\n";
-
-            break;
-        }
-
 
         case 'e':
             cout << "Thank you for visiting Cooldos Motors!" << endl;
@@ -293,24 +267,24 @@ int main()
     }
 
     if (password == "admin.pw")
-         int choice;
+        int choice;
 
-    string changeOption [] = {
+    string changeOption[] = {
         "(1). View all cars",
         "(2). Add a new car",
-        "(3). Remove a car or mark as sold" };
+        "(3). Remove a car or mark as sold"};
 
     for (int i = 0; i < 3; i++)
     {
         cout << changeOption[i] << endl;
     }
 
-     {     cout << "Choose what you wish to do" << endl;
+    {
+        cout << "Choose what you wish to do" << endl;
         cin >> choice;
-        
-       
+
         if (choice >= 1 && choice <= 3)
-            {
+        {
             switch (choice)
             {
             case 1:
@@ -342,12 +316,11 @@ int main()
                 cout << "New car added successfully!" << endl;
             }
             break;
-                case 3:
-                    {
+            case 3:
+            {
+            }
+            }
         }
+
+        return 0;
     }
-
-}
-
-    return 0;
-}
