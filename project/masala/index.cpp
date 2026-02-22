@@ -149,6 +149,7 @@ int main() {
                     
 
                         if (userPasswordInput == administratorPassword) {
+                            startOfAdministratorMenu:
                             cout << "Welcome administrator" << endl;
                             administratorChoice = administratorMenu();
                             
@@ -167,7 +168,7 @@ int main() {
                                     
                                     cin >> administratorChoice2;
                                     if (administratorChoice2 == 0) {
-                                        administratorMenu();
+                                         goto startOfAdministratorMenu;
                                     } 
                                     
                                     else if (administratorChoice2 == 1) {
