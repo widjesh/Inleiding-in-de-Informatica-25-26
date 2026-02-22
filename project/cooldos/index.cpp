@@ -29,6 +29,34 @@ public:
         return price = price - (price * premiumDiscount / 100);
     } // function for calculating price after discount (in class because it uses variables that are in the class)
 };
+//delete function
+void deleteCar(vector<Car>& cars, int& carCount)
+{
+    int deleteIndex;
+
+    cout << "Enter the number of the car you want to delete:\n";
+
+    for (int i = 0; i < carCount; i++)
+    {
+        cout << i + 1 << ") "
+             << cars[i].brand << " "
+             << cars[i].model << endl;
+    }
+
+    cout << "(0) Cancel\n";
+    cin >> deleteIndex;
+
+    if (deleteIndex > 0 && deleteIndex <= carCount)
+    {
+        cars.erase(cars.begin() + (deleteIndex - 1));
+        carCount--;
+        cout << "Car deleted successfully.\n";
+    }
+    else if (deleteIndex != 0)
+    {
+        cout << "Invalid selection.\n";
+    }
+}
 
 int main()
 {
@@ -157,7 +185,7 @@ int main()
     {
         cout << "Please enter what you would like to view: " << endl;
 
-        string viewOptions[] = {"(a) Available cars", "(b) Purchase history", "(e) Exit Cooldos Motors!"}; // these are the options that u can view
+        string viewOptions[] = {"(a) Available cars", "(b) Purchase history","(d) Delete a car (admin only)", "(e) Exit Cooldos Motors!"}; // these are the options that u can view
 
         for (int i = 0; i < 3; i++)
         { // dit geeft die lijst onder elkaar weer
@@ -231,6 +259,32 @@ int main()
                 }
             }
             break;
+              case 'd':
+        {
+            if (userAnswer != "admin")
+            {
+                cout << "Only admins can delete cars.\n";
+                break;
+            }
+
+            char deleteChoice;
+
+            cout << "Delete from:\n";
+            cout << "(a) Available cars\n";
+            cout << "(b) Purchased cars\n";
+            cout << "(e) Exit Cooldos Motors!\n";
+            cin >> deleteChoice;
+
+            if (deleteChoice == 'a')
+                deleteCar(availableCars, numberAcars);
+            else if (deleteChoice == 'b')
+                deleteCar(purchasedCars, numberPcars);
+            else
+                cout << "Invalid option.\n";
+
+            break;
+        }
+
 
         case 'e':
             cout << "Thank you for visiting Cooldos Motors!" << endl;
