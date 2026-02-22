@@ -166,6 +166,7 @@ int main() {
                             } 
                             
                             else if (administratorChoice == 2) {
+                                startOfCreateNewBird:
                                 Bird bird = createNewBird();
                                 bird.display();
 
@@ -180,8 +181,7 @@ int main() {
                                     } 
                                     
                                     else if (administratorChoice2 == 1) {
-                                        Bird bird = createNewBird();
-                                        bird.display();
+                                        goto startOfCreateNewBird;
                                     }
 
                                     else {
@@ -213,7 +213,7 @@ int main() {
                             if (i<1){
                                 cout<< "s left." << endl;
                             }
-                            else if (i=1){
+                            else if (i==1){
                                 cout << " left." << endl;
                             }
                         }
