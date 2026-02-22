@@ -390,7 +390,3 @@ adminMenu(availableCars, numberAcars); // calls function for admin menu
 return 0;
 }
  
-
-        return 0;
-    }
-}
