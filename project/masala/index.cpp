@@ -80,7 +80,7 @@ int birdLookupAll() {
     return x;
 }
 
-int administratorMenu() {
+/*int administratorMenu() {
     int administratorChoice;
     cout << "Please choose one of the following" << endl;
     cout << "[1] to View Database" << endl;
@@ -91,7 +91,7 @@ int administratorMenu() {
     cin >> administratorChoice;
 
     return administratorChoice;
-}
+}*/
 
 int main() {
     startOfProgram:
@@ -151,7 +151,14 @@ int main() {
                         if (userPasswordInput == administratorPassword) {
                             startOfAdministratorMenu:
                             cout << "Welcome administrator" << endl;
-                            administratorChoice = administratorMenu();
+                            cout << "Please choose one of the following" << endl;
+                            cout << "[1] to View Database" << endl;
+                            cout << "[2] to Add a New Bird" << endl;
+                            cout << "[3] to Remove a Bird" << endl;
+                            cout << "[4] to Alter an Existing Bird" << endl;
+                            cout << "[5] to Return to Main Menu" << endl;   // To return to main menu, we will call the main function again (So we will start the whole process again, asking for the first option and so on)
+                            cin >> administratorChoice;
+                          //administratorChoice = administratorMenu();
                             
 
                             if (administratorChoice == 1) {
