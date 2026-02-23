@@ -94,7 +94,7 @@ int birdLookupAll() {
 }*/
 
 int main() {
-    startOfProgram:
+  //  startOfProgram:
     int firstOption;
     string userPasswordInput;
     string birdIDOrAll;
@@ -105,7 +105,7 @@ int main() {
     int i;
     
     cout << "WELCOME TO OUR BIRD CLINIC\n" << endl;
-
+    startOfProgram:
     do{
         cout << "Choose one of the following options:" << endl;
         cout << "Enter [1] to lookup birds" << endl;
@@ -116,8 +116,8 @@ int main() {
         if (firstOption == 1 || firstOption == 2) { 
             
             if (firstOption == 1) {
-                do { //do while loop to make sure user inputs either A or ID, if not it will ask again until they do
                 cout << "Welcome, do you want to view the whole database or search a specific bird?" << endl;
+                do { //do while loop to make sure user inputs either A or ID, if not it will ask again until they do
                 cout << "[A] for whole database" << endl;
                 cout << "[ID] for specific bird" << endl;
                 cout << "[R] to return to main menu" << endl; // To return to main menu, we will call the main function again (So we will start the whole process again, asking for the first option and so on)
@@ -136,8 +136,7 @@ int main() {
                 } 
                 
                 else {
-                    cout << "Please put in A, ID, or R(Case sensitive)" << endl;
-                    cin >> birdIDOrAll;
+                    cout << "Please put in a valid input:" << endl;
                 }   
                 } while (birdIDOrAll != "A" && birdIDOrAll != "ID" && birdIDOrAll != "R");
             } 
