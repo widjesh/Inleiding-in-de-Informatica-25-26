@@ -29,8 +29,162 @@ public:
         return price = price - (price * premiumDiscount / 100);
     } // function for calculating price after discount (in class because it uses variables that are in the class)
 };
+// delete function
+void deleteCar(vector<Car> &cars, int &carCount)
+{
+    int deleteIndex;
 
-int main()
+    cout << "Enter the number of the car you want to delete:\n";
+
+    for (int i = 0; i < carCount; i++)
+    {
+        cout << i + 1 << ") "
+             << cars[i].brand << " "
+             << cars[i].model << endl;
+    }
+
+    cout << "(0) Cancel\n";
+    cin >> deleteIndex;
+
+    if (deleteIndex > 0 && deleteIndex <= carCount)
+    {
+        cars.erase(cars.begin() + (deleteIndex - 1));
+        carCount--;
+        cout << "Car deleted successfully.\n";
+    }
+    else if (deleteIndex != 0)
+    {
+        cout << "Invalid selection.\n";
+    }
+}
+//add function
+void addCar(vector<Car> &cars, int &carCount)
+{
+    Car newCar;
+
+    cout << "Enter car brand: ";
+    cin >> newCar.brand;
+
+    cout << "Enter car model: ";
+    cin >> newCar.model;
+
+    cout << "Enter car enginetype: ";
+    cin >> newCar.engineType;
+
+     cout << "Enter car horsepower: ";
+    cin >> newCar.horsePower;
+
+     cout << "Enter car speed: ";
+    cin >> newCar.topSpeed;
+
+     cout << "Enter car year: ";
+    cin >> newCar.buildYear;
+
+    cout << "Enter car price: ";
+    cin >> newCar.price;
+
+    // add the car to the vector
+    cars.push_back(newCar);
+
+    carCount++;
+
+    cout << "Car added successfully.\n";
+}
+void changePrice(vector<Car>& aCars, int& vectorSize) { //function for updating price of cars
+    int adminNumChoice;
+    
+    while (true) {
+    cout << "Please select car to change price of: " << endl;
+    for (int i = 0; i < vectorSize; i++) {
+        cout << (i + 1) << ") " << aCars[i].brand << " " << aCars[i].model << endl;
+    }
+    cout << "0) Cancel " << endl;
+    cin >> adminNumChoice;
+    
+    if (adminNumChoice == 0) {
+        return ;
+    }
+    else if (adminNumChoice > 0 && adminNumChoice <= vectorSize) {
+        cout << "enter new price for " << aCars[adminNumChoice - 1].brand << " " << aCars[adminNumChoice - 1].model << ": \n";
+        cout << "$"; cin >> aCars[adminNumChoice - 1].price;
+        cout << "price updated!!" << aCars[adminNumChoice - 1].brand << " " << aCars[adminNumChoice - 1].model << " now costs $" << aCars[adminNumChoice - 1].price<< endl;
+    } while (true) {
+        cout << "(0) return to menu" << endl;
+        cin >> adminNumChoice;
+        if (adminNumChoice == 0) {
+            return;
+        }
+    }
+    
+    }
+}
+void adminMenu(vector<Car> aCars, int vectorSize)
+{ // function for admin menu
+
+    char adminChoice;
+    int adminNumChoice;
+
+    while (true)
+    {
+        cout << "(a) Available cars" << endl;
+        cout << "(b) Remove cars" << endl;
+        cout << "(c) Add cars" << endl;
+        cout << "(d) Change car price" << endl;
+        cout << "(e) Exit application" << endl;
+        cin >> adminChoice;
+
+        switch (adminChoice)
+        {
+        case 'e':
+            return;
+
+        case 'a':
+            while (true)
+            {
+                cout << "Please select which car you would like to view" << endl;
+
+                for (int i = 0; i < vectorSize; i++)
+                {
+                    cout << (i + 1) << ") " << aCars[i].brand << " " << aCars[i].model << endl;
+                }
+                cout << "(0) return to menu" << endl;
+                cin >> adminNumChoice;
+
+                if (adminNumChoice == 0)
+                {
+                    break;
+                }
+                else if (adminNumChoice > 0 && adminNumChoice <= vectorSize)
+                {
+                    aCars[adminNumChoice - 1].specs();
+                }
+                while (true)
+                {
+                    cout << "(0) Back to available cars list" << endl;
+                    cin >> adminNumChoice;
+                    if (adminNumChoice == 0)
+                    {
+                        break;
+                    }
+                }
+            }
+            break;
+
+        case 'b':
+            deleteCar(aCars, vectorSize);
+            break;
+
+        case 'c':
+        addCar(aCars, vectorSize);
+            break;
+
+        case 'd':
+            changePrice(aCars, vectorSize);
+            break;
+        }
+    }
+}
+int main(){
 {
 
     int numberPcars = 4;        // number purchased cars
@@ -118,9 +272,9 @@ int main()
     car9.buildYear = 2019;
     car9.price = 20000;
 
-   vector<Car> availableCars = {car1, car2, car3, car4, car5}; // bassicly an array but you can add and remove items
-   vector<Car> purchasedCars = {car6, car7, car8, car9};
-    
+    vector<Car> availableCars = {car1, car2, car3, car4, car5}; // bassicly an array but you can add and remove items
+    vector<Car> purchasedCars = {car6, car7, car8, car9};
+
     // This is the welcome page that asks if you are an admin or guest and asks for your pw
     string userAnswer;
     string password; // Guest password: guest.pw   Admin password: admin.pw
@@ -152,12 +306,12 @@ int main()
             availableCars[i].price = availableCars[i].calculateDiscountedPrice(availableCars[i].price, premiumDiscount);
         }
     }
-
+if (userAnswer == "guest"){
     while (true)
     {
         cout << "Please enter what you would like to view: " << endl;
 
-        string viewOptions[] = {"(a) Available cars", "(b) Purchase history", "(e) Exit Cooldos Motors!"}; // these are the options that u can view
+        string viewOptions[] = {"(a) Available cars", "(b) Purchase history",  "(e) Exit Cooldos Motors!"}; // these are the options that u can view
 
         for (int i = 0; i < 3; i++)
         { // dit geeft die lijst onder elkaar weer
@@ -237,63 +391,11 @@ int main()
             return 0;
         }
     }
-
-    if (password == "admin.pw")
-         int choice;
-
-    string changeOption [] = {
-        "(1). View all cars",
-        "(2). Add a new car",
-        "(3). Remove a car or mark as sold" };
-
-    for (int i = 0; i < 3; i++)
-    {
-        cout << changeOption[i] << endl;
-    }
-
-     {     cout << "Choose what you wish to do" << endl;
-        cin >> choice;
-        
-       
-        if (choice >= 1 && choice <= 3)
-            {
-            switch (choice)
-            {
-            case 1:
-                for (const auto &car : cars)
-                {
-                    car.specs();
-                    cout << endl;
-                }
-                break;
-
-            case 2:
-            {
-                Car newCar;
-                cout << "Enter brand: ";
-                cin >> newCar.brand;
-                cout << "Enter model: ";
-                cin >> newCar.model;
-                cout << "Enter engine type: ";
-                cin >> newCar.engineType;
-                cout << "Enter horse power: ";
-                cin >> newCar.horsePower;
-                cout << "Enter top speed: ";
-                cin >> newCar.topSpeed;
-                cout << "Enter build year: ";
-                cin >> newCar.buildYear;
-                cout << "Enter price: ";
-                cin >> newCar.price;
-                cars.push_back(newCar);
-                cout << "New car added successfully!" << endl;
-            }
-            break;
-                case 3:
-                    {
-        }
-    }
-
 }
-
-    return 0;
+    else if (userAnswer == "admin")
+        cout << "poopensharten"<< endl;
+adminMenu(availableCars, numberAcars); // calls function for admin menu
 }
+return 0;
+}
+ 
