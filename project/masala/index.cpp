@@ -181,7 +181,7 @@ int main() {
                                     } 
                                     
                                     else if (administratorChoice2 == 1) {
-                                        goto startOfCreateNewBird;
+                                       // goto startOfCreateNewBird;
                                     }
 
                                     else {
