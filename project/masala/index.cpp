@@ -27,19 +27,19 @@ class Bird {
 };
 
 //void meaning no vaste data type als int of string ofzo
-/*
-void saveBird( const Bird& p, const string& filename) {
+
+void saveBird( const Bird& bird, const string& filename) {
     ofstream outfile(filename, ios::app);
 
     if(outfile.is_open()) {
-        outfile << p.ID << " " << p.birdName << endl;
-        cout << "\nSaved " << p.birdName << "to " << filename << endl;
+        outfile << bird.ID << " " << bird.birdName << " "<< bird.birdType<< " "<< bird.birdSpecies << " " << bird.scientificName << " " << bird.typeOfInjury << " " << bird.dateInAndOut << endl;
+        cout << "\nSaved " << bird.birdName << "to " << filename << endl;
 
     } else{
         cout << "\n Error, Please contact support";
     }      
 }
-    */
+    
 
    
 Bird createNewBird() {
