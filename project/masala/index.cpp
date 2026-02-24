@@ -165,9 +165,11 @@ int main() {
                             } 
                             
                             else if (administratorChoice == 2) {
-                                startOfCreateNewBird:
-                                Bird bird = createNewBird();
-                                bird.display();
+                               
+                                Bird bird(createNewBird());
+                                saveBird(bird, "bird_objects_list_saved.txt");
+                                bird.display(); 
+                                
 
                               do {     
                                     cout << "\n[0] to go back to administrator menu" << endl;
