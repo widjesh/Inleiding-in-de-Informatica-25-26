@@ -33,7 +33,7 @@ void saveBird( const Bird& bird, const string& filename) {
 
     if(outfile.is_open()) {
         outfile << bird.ID << " " << bird.birdName << " "<< bird.birdType<< " "<< bird.birdSpecies << " " << bird.scientificName << " " << bird.typeOfInjury << " " << bird.dateInAndOut << endl;
-        cout << "\nSaved " << bird.birdName << "to " << filename << endl;
+        cout << "\nSaved " << bird.birdName << " to " << filename << endl;
 
     } else{
         cout << "\n Error, Please contact support";
@@ -51,7 +51,7 @@ Bird createNewBird() {
     string typeOfInjury;
     string dateInAndOut;
 
-    cout << "Enter ID" << endl;
+    cout << "\nEnter ID" << endl;
     cin >> ID;
     cout << "Enter name of bird" << endl;
     cin >> birdName;
@@ -165,6 +165,7 @@ int main() {
                             } 
                             
                             else if (administratorChoice == 2) {
+                                startOfCreateNewBird:
                                
                                 Bird bird(createNewBird());
                                 saveBird(bird, "bird_objects_list_saved.txt");
@@ -181,7 +182,7 @@ int main() {
                                     } 
                                     
                                     else if (administratorChoice2 == 1) {
-                                       // goto startOfCreateNewBird;
+                                       goto startOfCreateNewBird;
                                     }
 
                                     else {
