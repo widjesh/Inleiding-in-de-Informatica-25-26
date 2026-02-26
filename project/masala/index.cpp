@@ -142,10 +142,35 @@ int main() {
             } 
             
             else if (firstOption == 2) {
+
+              
                 for(i=0;i<3;i++){
-                    cout << "Please enter the administrator Password(Case Sensitive!)" << endl;
+                    while (userPasswordInput != administratorPassword ){
+                    cout << "Please enter the administrator Password (Case Sensitive!)" << endl;
                     cin >> userPasswordInput;
+
+                        if (userPasswordInput == administratorPassword){
+                            continue;;
+                        }
                     
+                       if (userPasswordInput != administratorPassword) {
+                        if (i<2){
+                            cout<< "Wrong Password, please try again" << endl;
+                            cout << "You have " << 2-i << " attempt";
+                            if (i<1){
+                                cout<< "s left" << endl;
+                            }
+                            else if (i==1){
+                                cout << " left!" << endl;
+                            }
+                        }
+                        
+                    }  
+                    cout << "Acces denied...exiting" << endl;
+                    return 0;
+
+                    } } 
+                  
 
                         if (userPasswordInput == administratorPassword) {
                             cout << "Welcome administrator" << endl;
@@ -206,26 +231,25 @@ int main() {
                     
 
                     
-                    if (userPasswordInput != administratorPassword) {
-                        if (i<2){
-                            cout<< "Wrong Password, please try again" << endl;
-                            cout << "You have " << 2-i << " attempt";
-                            if (i<1){
-                                cout<< "s left" << endl;
-                            }
-                            else if (i==1){
-                                cout << " left!" << endl;
-                            }
-                        }
+                    // if (userPasswordInput != administratorPassword) {
+                    //     if (i<2){
+                    //         cout<< "Wrong Password, please try again" << endl;
+                    //         cout << "You have " << 2-i << " attempt";
+                    //         if (i<1){
+                    //             cout<< "s left" << endl;
+                    //         }
+                    //         else if (i==1){
+                    //             cout << " left!" << endl;
+                    //         }
+                    //     }
                         
-                    } 
+                    // } 
                 } 
-                cout << "Acces denied...exiting" << endl;
-                return 0;
+               
 
 
             }        
-        }   
+
             else {    
                 cout << "Please put in a valid number" << endl;           
                     
