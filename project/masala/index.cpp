@@ -144,13 +144,14 @@ int main() {
             else if (firstOption == 2) {
 
               
-                for(i=0;i<3;i++){
-                    while (userPasswordInput != administratorPassword ){
+                
+                   // do{
+                        for(i=0;i<3;i++){
                     cout << "Please enter the administrator Password (Case Sensitive!)" << endl;
                     cin >> userPasswordInput;
 
                         if (userPasswordInput == administratorPassword){
-                            continue;;
+                            break;
                         }
                     
                        if (userPasswordInput != administratorPassword) {
@@ -163,13 +164,17 @@ int main() {
                             else if (i==1){
                                 cout << " left!" << endl;
                             }
+                            
+                        } 
+                        if (i==2){
+                            cout << "Acces denied...exiting" << endl;
+                            return 0;
                         }
-                        
                     }  
-                    cout << "Acces denied...exiting" << endl;
-                    return 0;
+                   
 
-                    } } 
+                    } 
+              //  } while (userPasswordInput != administratorPassword );
                   
 
                         if (userPasswordInput == administratorPassword) {
