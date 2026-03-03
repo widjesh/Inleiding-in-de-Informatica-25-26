@@ -65,7 +65,34 @@ int main() {
         cleanbots[i].printSummary(i + 1);
     }
     
-    
+    std::cout << "\nVoer het nummer van de cleanbot die u wilt kopen: ";
+    int choice = 0;
+    std::cin >> choice;
+
+    if(choice < 1 || choice > (int)cleanbots.size()) {
+        std::cout << "Ongeldige keuze.\n";
+        
+    }
+    Cleanbot& selected = cleanbots[choice-1];
+
+    if(selected.stock <= 0) {
+        std::cout << "Sorry, deze cleanbot is niet op voorraad.\n";
+       
+    }
+
+    selected.printDetails();
+
+    std::cout << "Wilt u doorgaan met betalen voor deze cleanbot? (ja/nee): ";
+    std::string payConfirm;
+    std::cin >> payConfirm;
+
+    if(payConfirm == "ja") {
+        selected.stock--;
+        std::cout << "Bedankt voor uw aankoop van " << selected.name << "! Uw betaling van SRD "
+                  << std::fixed << std::setprecision(2) << selected.price << " is gelukt.\n";
+        std::cout << "Resterende voorraad: " << selected.stock << std::endl;
+    } else {
+        std::cout << "Aankoop geannuleerd.\n";
+    }
 
 }
-
