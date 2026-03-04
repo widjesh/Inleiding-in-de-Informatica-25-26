@@ -186,7 +186,7 @@ int main() {
                                 } else {
                                     // You can now loop through the vector to use the data
                                     for (const auto& bird : myBirds){
-                                        cout << " Bird Name: " << bird.ID << " " << bird.birdName << endl;
+                                        cout << " Bird: " << bird.ID << " " << bird.birdName << " " << bird.birdType << " " << bird.birdSpecies << " " << bird.scientificName << " " << bird.typeOfInjury << " " << bird.dateInAndOut << endl;
                                     }
                                 }
                 } 
