@@ -76,10 +76,27 @@ int birdLookupAll() {
 }
 
 
-int birdLookupSpecific( ) {
-    int test = 5;
-    return test;
+Bird birdLookupSpecific(int targetID, const string& filename ) {
+    vector<Bird> birdList = birdlookupAll(filename); //je called die function om alle birds te zien
+    bool found = false;
+
+    // loop through the vector to find the matching id
+    for (const auto& b : birdList) {
+        if (b.ID == targetID) {
+            cout << "\n--- BIRD FOUND ---" << endl;
+            return b;
+            found = true;
+            break; // Exit loop once found
+        }
+    }
+    if(!found){
+        cout << "\nError : Bird with ID "<< targetID <<" not found in the database."<< endl;
+    }
+    //if !found krijg je een illegal instruction error, dus might make a dummy bird to return
+
 };
+
+
 
 
 /*int administratorMenu() {
@@ -130,7 +147,12 @@ int main() {
                 } 
                 
                 else if(birdIDOrAll == "ID") {
-                    cout << birdLookupSpecific() << endl;
+                    int searchID;
+                    cout << "please enter the ID of the bird you would like to view"<< endl;
+                    cin >> searchID;
+
+                    Bird foundbird = birdlookupspecific(searchID, "saveBirdsTest3.txt");
+                    cout << foundBird.ID << " " << foundbird.birdName << " " << foundbird.birdType << " " << foundbirdd.birdSpecies << " " << foundbird.birdSpecies << " " << foundbird.typeOfInjury << " " << foundbird.dateInAndOut << endl;
                 } 
                 
                 else if (birdIDOrAll == "R") {
