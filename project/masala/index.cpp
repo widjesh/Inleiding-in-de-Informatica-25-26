@@ -3,6 +3,7 @@
 #include <fstream>
 #include <string>
 #include <sstream>
+#include <algorithm> // Required for std::remove_if bij function om bird te removen
 
 
 using namespace std;
@@ -131,6 +132,49 @@ Bird birdLookupSpecific(int targetID, const string& filename ) {
 
 };
 
+/*
+//De logic behind de function van removeBirdByID is hetzelfde als van birdLookupSpecific
+//De gebruikt de birdLookupAll function om alle saved birds op te roepen en te zetten in een vector
+//Je gaat dan door alle birds en kijken welke ID matched met de ID die is ingevoerd
+//Bij birdLookupSpecific dan ga je gewoon de bird returnen die matched met de ID die je hebt ingevoerd
+//Maar bij deze ga je de bird deleten uit de vector die matched met de ID die je invoerd(vandaar birdList.erase)
+//en dan overwrite het de originele file met de vector waarvan de bird die je wilt is weggehaald
+*/
+
+void removeBirdByID(int targetID, const string& filename) {
+    // 1. LOAD all birds into a vector
+    vector<Bird> birdList = birdLookupAll(filename); 
+    bool found = false;
+
+    // 2. REMOVE the bird with the matching ID
+    // We use a simple loop or std::remove_if
+    for (auto it = birdList.begin(); it != birdList.end(); ++it) {
+        if (it->ID == targetID) {
+            cout << "Removing: " << it->birdName << " (ID: " << it->ID << ")" << endl;
+            birdList.erase(it); //haalt de bird weg die matched met de ID die je hebt ingevoerd
+            found = true;
+            break; // Stop once we find and remove the bird
+        }
+    }
+
+    if (!found) {
+        cout << "Bird with ID " << targetID << " not found." << endl;
+        return;
+    }
+
+    // 3. OVERWRITE the file with the updated list
+    ofstream outfile(filename, ios::trunc); // 'trunc' clears the old file
+    if (outfile.is_open()) {
+        for (const auto& b : birdList) {
+            // Save in the exact same format (ID,Name,Type...)
+            outfile << b.ID << "," << b.birdName << "," << b.birdType << "," 
+                    << b.birdSpecies << "," << b.scientificName << "," 
+                    << b.typeOfInjury << "," << b.dateInAndOut << endl;
+        }
+        outfile.close();
+        cout << "Database updated successfully." << endl;
+    }
+}
 
 
 
@@ -238,7 +282,7 @@ int main() {
                                 } else {
                                     // You can now loop through the vector to use the data
                                     for (const auto& bird : myBirds){
-                                        cout << " Bird Name: " << bird.ID << " " << bird.birdName << endl;
+                                        cout << " Bird: " << bird.ID << " " << bird.birdName << " " << bird.birdType << " " << bird.birdSpecies << " " << bird.scientificName << " " << bird.typeOfInjury << " " << bird.dateInAndOut << endl;
                                     }
                                 }
                             } 
@@ -270,6 +314,15 @@ int main() {
                                 
                                 
                             }
+
+                            else if (administratorChoice == 3) {
+                                int idToRemove;
+                                cout << "Enter the ID of the bird you wish to remove: ";
+                                cin >> idToRemove;
+    
+                                removeBirdByID(idToRemove, "bird_objects_list_saved.txt");
+                            }
+
                             
                             else if (administratorChoice == 5) {
                                 goto startOfProgram;
