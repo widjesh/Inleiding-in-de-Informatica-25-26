@@ -51,12 +51,12 @@ Bird createNewBird() {
     string typeOfInjury;
     string dateInAndOut;
 
-    cout << "\nEnter ID" << endl;
+    cout << "Enter ID" << endl;
     cin >> ID;
     cout << "Enter name of bird" << endl;
     cin >> birdName;
     cout << "Enter type of bird" << endl;
-    cin >> birdName;
+    cin >> birdType;
     cout << "Enter birdSpecies" << endl;
     cin >> birdSpecies;
     cout << "Enter scientific name" << endl;
@@ -70,15 +70,17 @@ Bird createNewBird() {
     //hiervoor is de constructor nodig, maken van die objects door die parameters
 }
 
+int birdLookupAll() {
+    int x = 6;
+    return x;
+}
+
+
 int birdLookupSpecific( ) {
     int test = 5;
     return test;
 };
 
-int birdLookupAll() {
-    int x = 6;
-    return x;
-}
 
 /*int administratorMenu() {
     int administratorChoice;
@@ -142,40 +144,10 @@ int main() {
             } 
             
             else if (firstOption == 2) {
-
-              
-                
-                   // do{
-                        for(i=0;i<3;i++){
-                    cout << "Please enter the administrator Password (Case Sensitive!)" << endl;
+                for(i=0;i<3;i++){
+                    cout << "Please enter the administrator Password(Case Sensitive!)" << endl;
                     cin >> userPasswordInput;
-
-                        if (userPasswordInput == administratorPassword){
-                            break;
-                        }
                     
-                       if (userPasswordInput != administratorPassword) {
-                        if (i<2){
-                            cout<< "Wrong Password, please try again" << endl;
-                            cout << "You have " << 2-i << " attempt";
-                            if (i<1){
-                                cout<< "s left" << endl;
-                            }
-                            else if (i==1){
-                                cout << " left!" << endl;
-                            }
-                            
-                        } 
-                        if (i==2){
-                            cout << "Acces denied...exiting" << endl;
-                            return 0;
-                        }
-                    }  
-                   
-
-                    } 
-              //  } while (userPasswordInput != administratorPassword );
-                  
 
                         if (userPasswordInput == administratorPassword) {
                             cout << "Welcome administrator" << endl;
@@ -195,7 +167,6 @@ int main() {
                             } 
                             
                             else if (administratorChoice == 2) {
-                                startOfCreateNewBird:
                                
                                 Bird bird(createNewBird());
                                 saveBird(bird, "bird_objects_list_saved.txt");
@@ -212,7 +183,7 @@ int main() {
                                     } 
                                     
                                     else if (administratorChoice2 == 1) {
-                                       goto startOfCreateNewBird;
+                                       // goto startOfCreateNewBird;
                                     }
 
                                     else {
@@ -236,25 +207,26 @@ int main() {
                     
 
                     
-                    // if (userPasswordInput != administratorPassword) {
-                    //     if (i<2){
-                    //         cout<< "Wrong Password, please try again" << endl;
-                    //         cout << "You have " << 2-i << " attempt";
-                    //         if (i<1){
-                    //             cout<< "s left" << endl;
-                    //         }
-                    //         else if (i==1){
-                    //             cout << " left!" << endl;
-                    //         }
-                    //     }
+                    if (userPasswordInput != administratorPassword) {
+                        if (i<2){
+                            cout<< "Wrong Password, please try again" << endl;
+                            cout << "You have " << 2-i << " attempt";
+                            if (i<1){
+                                cout<< "s left" << endl;
+                            }
+                            else if (i==1){
+                                cout << " left!" << endl;
+                            }
+                        }
                         
-                    // } 
+                    } 
                 } 
-               
+                cout << "Acces denied...exiting" << endl;
+                return 0;
 
 
             }        
-
+        }   
             else {    
                 cout << "Please put in a valid number" << endl;           
                     
