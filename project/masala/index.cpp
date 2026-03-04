@@ -197,7 +197,7 @@ int main() {
                     cin >> searchID;
 
                     Bird foundbird = birdLookupSpecific(searchID, "bird_objects_list_saved.txt");
-                    cout << foundbird.ID << " " << foundbird.birdName << " " << foundbird.birdType << " " << foundbird.birdSpecies << " " << foundbird.birdSpecies << " " << foundbird.typeOfInjury << " " << foundbird.dateInAndOut << endl;
+                    cout << foundbird.ID << " " << foundbird.birdName << " " << foundbird.birdType << " " << foundbird.birdSpecies << " " << foundbird.scientificName << " " << foundbird.typeOfInjury << " " << foundbird.dateInAndOut << endl;
                 } 
                 
                 else if (birdIDOrAll == "R") {
