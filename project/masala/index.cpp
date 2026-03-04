@@ -220,7 +220,17 @@ int main() {
                             
 
                             if (administratorChoice == 1) {
-                                cout << birdLookupAll() << endl;
+                                vector<Bird> myBirds = birdLookupAll("bird_objects_list_saved.txt");
+                                
+                                //Checkk if the list is empty (in case the file didnt open)
+                                if (myBirds.empty()){
+                                    cout << "No birds found or file could not be opened." << endl;
+                                } else {
+                                    // You can now loop through the vector to use the data
+                                    for (const auto& bird : myBirds){
+                                        cout << " Bird Name: " << bird.ID << " " << bird.birdName << endl;
+                                    }
+                                }
                             } 
                             
                             else if (administratorChoice == 2) {
