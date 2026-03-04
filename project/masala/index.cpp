@@ -1,6 +1,8 @@
 #include <iostream>
 #include <vector>
 #include <fstream>
+#include <string>
+#include <sstream>
 
 
 using namespace std;
@@ -32,7 +34,7 @@ void saveBird( const Bird& bird, const string& filename) {
     ofstream outfile(filename, ios::app);
 
     if(outfile.is_open()) {
-        outfile << bird.ID << " " << bird.birdName << " "<< bird.birdType<< " "<< bird.birdSpecies << " " << bird.scientificName << " " << bird.typeOfInjury << " " << bird.dateInAndOut << endl;
+        outfile << bird.ID << "," << bird.birdName << ","<< bird.birdType<< ","<< bird.birdSpecies << "," << bird.scientificName << "," << bird.typeOfInjury << "," << bird.dateInAndOut << endl;
         cout << "\nSaved " << bird.birdName << " to " << filename << endl;
 
     } else{
@@ -70,9 +72,42 @@ Bird createNewBird() {
     //hiervoor is de constructor nodig, maken van die objects door die parameters
 }
 
-int birdLookupAll() {
-    int x = 6;
-    return x;
+vector<Bird> birdLookupAll(const string& filename) {
+    vector<Bird> birdList;
+    ifstream infile(filename);
+
+    if(!infile.is_open()) {
+        cerr << "Could not open file: " << filename << endl;
+        return birdList;
+    }
+
+    string line;
+    while (getline(infile, line)) {
+        if (line.empty()) continue; //Skip empty lines
+
+        stringstream ss(line); //ss zorgt ervoor dat we de lange zin met komma's kunnen omzetten naar individuele woorden
+        string tempID, birdName, birdType, birdSpecies, scientificName, typeOfInjury, dateInAndOut;
+
+        //nu wordt er een onderscheid gemaakt van de woorden. de woorden zijn opgeslagen met een komma tussen hun, dus we zeggen gebruik die komma om een onderscheid te maken tussen die woorden
+        getline(ss, tempID, ',');
+        getline(ss, birdName, ',');
+        getline(ss, birdType, ',');
+        getline(ss, birdSpecies, ',');
+        getline(ss, scientificName, ',');
+        getline(ss, typeOfInjury, ',');
+        getline(ss, dateInAndOut, ',');
+
+        try {
+            int ID = stoi(tempID); //voor die getline hadden we voor ID een string gebruikt, we gaan deze string nu omzetten naar een integer
+            birdList.push_back(Bird(ID, birdName, birdType, birdSpecies, scientificName, typeOfInjury, dateInAndOut))
+        } catch (const exception& e) {
+            cerr << "Error parsing line: " << line << " (" << e.what() << ")" << endl
+        }
+
+    }
+
+    infile.close();
+    return birdList;
 }
 
 
