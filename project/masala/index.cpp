@@ -99,9 +99,9 @@ vector<Bird> birdLookupAll(const string& filename) {
 
         try {
             int ID = stoi(tempID); //voor die getline hadden we voor ID een string gebruikt, we gaan deze string nu omzetten naar een integer
-            birdList.push_back(Bird(ID, birdName, birdType, birdSpecies, scientificName, typeOfInjury, dateInAndOut))
+            birdList.push_back(Bird(ID, birdName, birdType, birdSpecies, scientificName, typeOfInjury, dateInAndOut));
         } catch (const exception& e) {
-            cerr << "Error parsing line: " << line << " (" << e.what() << ")" << endl
+            cerr << "Error parsing line: " << line << " (" << e.what() << ")" << endl;
         }
 
     }
@@ -112,7 +112,7 @@ vector<Bird> birdLookupAll(const string& filename) {
 
 
 Bird birdLookupSpecific(int targetID, const string& filename ) {
-    vector<Bird> birdList = birdlookupAll(filename); //je called die function om alle birds te zien
+    vector<Bird> birdList = birdLookupAll(filename); //je called die function om alle birds te zien
     bool found = false;
 
     // loop through the vector to find the matching id
@@ -178,7 +178,17 @@ int main() {
                 cin >> birdIDOrAll;
 
                 if (birdIDOrAll == "A") {
-                    cout << birdLookupAll() << endl;
+                    vector<Bird> myBirds = birdLookupAll("bird_objects_list_saved.txt");
+                                
+                                //Check if the list is empty (in case the file didnt open)
+                                if (myBirds.empty()){
+                                    cout << "No birds found or file could not be opened." << endl;
+                                } else {
+                                    // You can now loop through the vector to use the data
+                                    for (const auto& bird : myBirds){
+                                        cout << " Bird Name: " << bird.ID << " " << bird.birdName << endl;
+                                    }
+                                }
                 } 
                 
                 else if(birdIDOrAll == "ID") {
@@ -186,8 +196,8 @@ int main() {
                     cout << "please enter the ID of the bird you would like to view"<< endl;
                     cin >> searchID;
 
-                    Bird foundbird = birdlookupspecific(searchID, "bird_objects_list_saved.txt");
-                    cout << foundBird.ID << " " << foundbird.birdName << " " << foundbird.birdType << " " << foundbirdd.birdSpecies << " " << foundbird.birdSpecies << " " << foundbird.typeOfInjury << " " << foundbird.dateInAndOut << endl;
+                    Bird foundbird = birdLookupSpecific(searchID, "bird_objects_list_saved.txt");
+                    cout << foundbird.ID << " " << foundbird.birdName << " " << foundbird.birdType << " " << foundbird.birdSpecies << " " << foundbird.birdSpecies << " " << foundbird.typeOfInjury << " " << foundbird.dateInAndOut << endl;
                 } 
                 
                 else if (birdIDOrAll == "R") {
@@ -222,7 +232,7 @@ int main() {
                             if (administratorChoice == 1) {
                                 vector<Bird> myBirds = birdLookupAll("bird_objects_list_saved.txt");
                                 
-                                //Checkk if the list is empty (in case the file didnt open)
+                                //Check if the list is empty (in case the file didnt open)
                                 if (myBirds.empty()){
                                     cout << "No birds found or file could not be opened." << endl;
                                 } else {
