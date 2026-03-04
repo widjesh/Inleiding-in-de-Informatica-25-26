@@ -186,7 +186,7 @@ int main() {
                     cout << "please enter the ID of the bird you would like to view"<< endl;
                     cin >> searchID;
 
-                    Bird foundbird = birdlookupspecific(searchID, "saveBirdsTest3.txt");
+                    Bird foundbird = birdlookupspecific(searchID, "bird_objects_list_saved.txt");
                     cout << foundBird.ID << " " << foundbird.birdName << " " << foundbird.birdType << " " << foundbirdd.birdSpecies << " " << foundbird.birdSpecies << " " << foundbird.typeOfInjury << " " << foundbird.dateInAndOut << endl;
                 } 
                 
