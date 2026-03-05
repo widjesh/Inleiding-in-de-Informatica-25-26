@@ -10,7 +10,7 @@ using namespace std;
 
 class Bird {
     public:
-        int ID; 
+        string ID; 
         string birdName;
         string birdType;
         string birdSpecies;
@@ -21,7 +21,7 @@ class Bird {
 
         Bird() {}; //global constructor
 
-    Bird(int ID, string birdName, string birdType, string birdSpecies, string scientificName, string typeOfInjury, string dateInAndOut) : ID(ID), birdName(birdName), birdType(birdType), birdSpecies(birdSpecies), scientificName(scientificName), typeOfInjury(typeOfInjury), dateInAndOut(dateInAndOut) {}; //constructor met parameters
+    Bird(string ID, string birdName, string birdType, string birdSpecies, string scientificName, string typeOfInjury, string dateInAndOut) : ID(ID), birdName(birdName), birdType(birdType), birdSpecies(birdSpecies), scientificName(scientificName), typeOfInjury(typeOfInjury), dateInAndOut(dateInAndOut) {}; //constructor met parameters
 
     void display() {
         cout << "\nCreated new Bird Object" << endl;
@@ -46,7 +46,7 @@ void saveBird( const Bird& bird, const string& filename) {
 
    
 Bird createNewBird() {
-    int ID;
+    string ID;
     string birdName;
     string birdType;
     string birdSpecies;
@@ -99,7 +99,7 @@ vector<Bird> birdLookupAll(const string& filename) {
         getline(ss, dateInAndOut, ',');
 
         try {
-            int ID = stoi(tempID); //voor die getline hadden we voor ID een string gebruikt, we gaan deze string nu omzetten naar een integer
+            string ID =(tempID); //voor die getline hadden we voor ID een string gebruikt, we gaan deze string nu omzetten naar een integer
             birdList.push_back(Bird(ID, birdName, birdType, birdSpecies, scientificName, typeOfInjury, dateInAndOut));
         } catch (const exception& e) {
             cerr << "Error parsing line: " << line << " (" << e.what() << ")" << endl;
@@ -112,7 +112,7 @@ vector<Bird> birdLookupAll(const string& filename) {
 }
 
 
-Bird birdLookupSpecific(int targetID, const string& filename ) {
+Bird birdLookupSpecific(string targetID, const string& filename ) {
     vector<Bird> birdList = birdLookupAll(filename); //je called die function om alle birds te zien
     bool found = false;
 
@@ -142,7 +142,7 @@ Bird birdLookupSpecific(int targetID, const string& filename ) {
 //en dan overwrite het de originele file met de vector waarvan de bird die je wilt is weggehaald
 */
 
-void removeBirdByID(int targetID, const string& filename) {
+void removeBirdByID(string targetID, const string& filename) {
     // 1. LOAD all birds into a vector
     vector<Bird> birdList = birdLookupAll(filename); 
     bool found = false;
@@ -182,7 +182,7 @@ de edit bird attribute function werkt met dezelfde logica als de remove bird fun
 roep de loadAllBirds function, kijk waar de ID'overeenkomen en dan edit je de attribute en "update" je de file door het te overwriten
 */
 
-void editBirdAttribute(int targetID, const string& filename) {
+void editBirdAttribute(string targetID, const string& filename) {
     // 1. Load all birds into a vector
     vector<Bird> birdList = birdLookupAll(filename);
     bool found = false;
@@ -288,7 +288,7 @@ int main() {
                 } 
                 
                 else if(birdIDOrAll == "ID") {
-                    int searchID;
+                    string searchID;
                     cout << "please enter the ID of the bird you would like to view"<< endl;
                     cin >> searchID;
 
@@ -368,19 +368,19 @@ int main() {
                             }
 
                             else if (administratorChoice == 3) {
-                                int idToRemove;
+                                string IDToRemove;
                                 cout << "Enter the ID of the bird you wish to remove: ";
-                                cin >> idToRemove;
+                                cin >> IDToRemove;
     
-                                removeBirdByID(idToRemove, "bird_objects_list_saved.txt");
+                                removeBirdByID(IDToRemove, "bird_objects_list_saved.txt");
                             }
 
                             else if (administratorChoice == 4){
-                                int idToEdit;
+                                string IDToEdit;
                                 cout << "Enter the ID of the bird you wish to edit";
-                                cin >> idToEdit;
+                                cin >> IDToEdit;
 
-                                editBirdAttribute(idToEdit, "bird_objects_list_saved.txt");
+                                editBirdAttribute(IDToEdit, "bird_objects_list_saved.txt");
                             }
 
                             
