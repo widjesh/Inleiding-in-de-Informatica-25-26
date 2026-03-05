@@ -372,6 +372,14 @@ int main() {
                                 removeBirdByID(idToRemove, "bird_objects_list_saved.txt");
                             }
 
+                            else if (admnistratorchoice == 4){
+                                int idToEdit;
+                                cout << "Enter the ID of the bird you wish to edit";
+                                cin >> idToEdit;
+
+                                editBirdAttribute(idToEdit, "bird_objects_list_saved.txt");
+                            }
+
                             
                             else if (administratorChoice == 5) {
                                 goto startOfProgram;
