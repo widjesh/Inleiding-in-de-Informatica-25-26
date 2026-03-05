@@ -260,7 +260,9 @@ int main() {
         cin >> firstOption;
 
 
-        if (firstOption == 1 || firstOption == 2) { 
+        if (firstOption != 1 || firstOption != 2) { 
+
+        cout << "Please put in a valid number" << endl; 
             
             if (firstOption == 1) {
                 cout << "Welcome, do you want to view the whole database or search a specific bird?" << endl;
@@ -372,7 +374,7 @@ int main() {
                                 removeBirdByID(idToRemove, "bird_objects_list_saved.txt");
                             }
 
-                            else if (admnistratorchoice == 4){
+                            else if (administratorChoice == 4){
                                 int idToEdit;
                                 cout << "Enter the ID of the bird you wish to edit";
                                 cin >> idToEdit;
@@ -414,10 +416,9 @@ int main() {
 
             }        
         }   
-            else {    
-                cout << "Please put in a valid number" << endl;           
+             
+                          
                     
-            }
     } while (firstOption != 1 && firstOption != 2);
 
     return 0;
