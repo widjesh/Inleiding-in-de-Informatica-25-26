@@ -67,7 +67,8 @@ Bird createNewBird() {
     cout << "Enter type of injury" << endl;
     cin >> typeOfInjury;
     cout << "Enter date" << endl;
-    cin >> dateInAndOut;
+    getline(cin, dateInAndOut)
+  //  cin >> dateInAndOut;
 
     return Bird(ID, birdName, birdType, birdSpecies, scientificName, typeOfInjury, dateInAndOut);
     //hiervoor is de constructor nodig, maken van die objects door die parameters
@@ -396,7 +397,6 @@ int main() {
                         }
                     
 
-                    
                     if (userPasswordInput != administratorPassword) {
                         if (i<2){
                             cout<< "Wrong Password, please try again" << endl;
