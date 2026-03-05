@@ -176,6 +176,55 @@ void removeBirdByID(int targetID, const string& filename) {
     }
 }
 
+/*
+de edit bird attribute function werkt met dezelfde logica als de remove bird function
+roep de loadAllBirds function, kijk waar de ID'overeenkomen en dan edit je de attribute en "update" je de file door het te overwriten
+*/
+
+void editBirdAttribute(int targetID, const string& filename) {
+    // 1. Load all birds into a vector
+    vector<Bird> birdList = birdLookupAll(filename);
+    bool found = false;
+
+    // 2. Find the bird and let the user pick an attribute
+    for (auto& b : birdList) {
+        if (b.ID == targetID) {
+            found = true;
+            int choice;
+            cout << "\nBird Found: " << b.birdName << endl;
+            cout << "Which attribute would you like to edit?" << endl;
+            cout << "[1] ID  [2] Name  [3] Type  [4] Species  [5] Scientific Name  [6] Type of Injury  [7] Date in/out\nChoice: ";
+            cin >> choice;
+
+            // Use getline(cin >> ws, ...) to handle spaces in user input
+            if (choice == 1) { cout << "Enter new ID: "; getline(cin >> ws, b.ID); }
+            else if (choice == 2) { cout << "Enter new type: "; getline(cin >> ws, b.birdName); }
+            else if (choice == 3) { cout << "Enter new type: "; getline(cin >> ws, b.birdType); }
+            else if (choice == 4) { cout << "Enter new species: "; getline(cin >> ws, b.birdSpecies); }
+            else if (choice == 5) { cout << "Enter new type: "; getline(cin >> ws, b.scientificName); }
+            else if (choice == 6) { cout << "Enter new injury: "; getline(cin >> ws, b.typeOfInjury); }
+            else if (choice == 7) { cout << "Enter new dates: "; getline(cin >> ws, b.dateInAndOut); }
+            
+            cout << "Attribute updated in memory!" << endl;
+            break;
+        }
+    }
+
+    if (!found) {
+        cout << "Bird ID " << targetID << " not found." << endl;
+        return;
+    }
+
+    // 3. Overwrite the file with the updated vector
+    ofstream outfile(filename, ios::trunc); 
+    for (const auto& b : birdList) {
+        outfile << b.ID << "," << b.birdName << "," << b.birdType << "," 
+                << b.birdSpecies << "," << b.scientificName << "," 
+                << b.typeOfInjury << "," << b.dateInAndOut << endl;
+    }
+    outfile.close();
+    cout << "Changes saved to " << filename << " successfully." << endl;
+}
 
 
 /*int administratorMenu() {
