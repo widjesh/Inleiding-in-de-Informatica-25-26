@@ -55,19 +55,25 @@ Bird createNewBird() {
     string dateInAndOut;
 
     cout << "Enter ID" << endl;
-    cin >> ID;
+    getline(cin >> ws, ID);
+   // cin >> ID;
     cout << "Enter name of bird" << endl;
-    cin >> birdName;
+    getline(cin >> ws, birdName);
+   // cin >> birdName;
     cout << "Enter type of bird" << endl;
-    cin >> birdType;
+    getline(cin >> ws, birdType);
+   // cin >> birdType;
     cout << "Enter birdSpecies" << endl;
-    cin >> birdSpecies;
+    getline(cin >> ws, birdSpecies);
+   // cin >> birdSpecies;
     cout << "Enter scientific name" << endl;
-    cin >> scientificName;
+    getline(cin >> ws, scientificName);
+   // cin >> scientificName;
     cout << "Enter type of injury" << endl;
-    cin >> typeOfInjury;
+    getline(cin >> ws, typeOfInjury);
+   // cin >> typeOfInjury;
     cout << "Enter date" << endl;
-    getline(cin, dateInAndOut)
+    getline(cin >> ws, dateInAndOut);
   //  cin >> dateInAndOut;
 
     return Bird(ID, birdName, birdType, birdSpecies, scientificName, typeOfInjury, dateInAndOut);
