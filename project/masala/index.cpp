@@ -396,7 +396,6 @@ int main() {
                         }
                     
 
-                    
                     if (userPasswordInput != administratorPassword) {
                         if (i<2){
                             cout<< "Wrong Password, please try again" << endl;
