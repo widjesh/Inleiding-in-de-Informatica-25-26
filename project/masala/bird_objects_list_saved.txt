@@ -1,4 +1,8 @@
 1,Ishaan,Oedit,Amalesh,Sewratan,IDK,Today
 2,IDK,IDK,IDK,IDK,IDK,IDK
 3,t,t,t,t,t,tt
+<<<<<<< HEAD
 2,2,2,2,2,2,2
+=======
+3,4,3,4,3,4,5
+>>>>>>> f157352e56034bc0d7f19ff03b6841aadb4367d3

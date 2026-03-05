@@ -99,7 +99,7 @@ vector<Bird> birdLookupAll(const string& filename) {
         getline(ss, dateInAndOut, ',');
 
         try {
-            string ID = (tempID); //voor die getline hadden we voor ID een string gebruikt, we gaan deze string nu omzetten naar een integer
+            int ID = stoi(tempID); //voor die getline hadden we voor ID een string gebruikt, we gaan deze string nu omzetten naar een integer
             birdList.push_back(Bird(ID, birdName, birdType, birdSpecies, scientificName, typeOfInjury, dateInAndOut));
         } catch (const exception& e) {
             cerr << "Error parsing line: " << line << " (" << e.what() << ")" << endl;
@@ -368,19 +368,19 @@ int main() {
                             }
 
                             else if (administratorChoice == 3) {
-                                string idToRemove;
+                                int idToRemove;
                                 cout << "Enter the ID of the bird you wish to remove: ";
-                                cin >> idToRemove;
+                                cin >> IDToRemove;
     
-                                removeBirdByID(idToRemove, "bird_objects_list_saved.txt");
+                                removeBirdByID(IDToRemove, "bird_objects_list_saved.txt");
                             }
 
                             else if (administratorChoice == 4){
-                                string idToEdit;
+                                int idToEdit;
                                 cout << "Enter the ID of the bird you wish to edit";
-                                cin >> idToEdit;
+                                cin >> IDToEdit;
 
-                                editBirdAttribute(idToEdit, "bird_objects_list_saved.txt");
+                                editBirdAttribute(IDToEdit, "bird_objects_list_saved.txt");
                             }
 
                             
