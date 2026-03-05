@@ -128,7 +128,8 @@ Bird birdLookupSpecific(int targetID, const string& filename ) {
     if(!found){
         cout << "\nError : Bird with ID "<< targetID <<" not found in the database."<< endl;
     }
-    //if !found krijg je een illegal instruction error, dus might make a dummy bird to return
+     return Bird();
+
 
 };
 
@@ -414,10 +415,8 @@ int main() {
                 return 0;
 
 
-            }        
-             
-                          
-                    
+            }              
+
     } while (firstOption != 1 && firstOption != 2);
 
     return 0;
