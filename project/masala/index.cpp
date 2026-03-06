@@ -267,10 +267,9 @@ int main() {
         cout << "Enter [2] to access birds database (Administrator Password Required)" << endl;
         cin >> firstOption;
 
-        if (firstOption != 1 || firstOption != 2) { 
 
-        cout << "Please put in a valid number" << endl; 
-        }
+        if (firstOption == 1 || firstOption == 2) { 
+
             if (firstOption == 1) {
                 cout << "Welcome, do you want to view the whole database or search a specific bird?" << endl;
                 do { //do while loop to make sure user inputs either A or ID, if not it will ask again until they do
@@ -420,7 +419,10 @@ int main() {
                 return 0;
 
 
-            }              
+            }   
+        } else {
+            cout << "Please put in a valid number" << endl;
+        }           
 
     } while (firstOption != 1 && firstOption != 2);
 
