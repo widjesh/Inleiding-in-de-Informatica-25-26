@@ -267,7 +267,6 @@ int main() {
         cout << "Enter [2] to access birds database (Administrator Password Required)" << endl;
         cin >> firstOption;
 
-
         if (firstOption != 1 || firstOption != 2) { 
 
         cout << "Please put in a valid number" << endl; 
