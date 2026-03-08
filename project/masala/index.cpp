@@ -274,96 +274,97 @@ int main() {
                 cout << "Welcome, do you want to view the whole database or search a specific bird?" << endl;
                 startOflookup:
                 do { //do while loop to make sure user inputs either A or ID, if not it will ask again until they do
-                cout << "[A] for whole database" << endl;
-                cout << "[ID] for specific bird" << endl;
-                cout << "[R] to return to main menu" << endl; // To return to main menu, we will call the main function again (So we will start the whole process again, asking for the first option and so on)
-                cin >> birdIDOrAll;
+                    cout << "[A] for whole database" << endl;
+                    cout << "[ID] for specific bird" << endl;
+                    cout << "[R] to return to main menu" << endl; // To return to main menu, we will call the main function again (So we will start the whole process again, asking for the first option and so on)
+                    cin >> birdIDOrAll;
 
-                if (birdIDOrAll == "A") {
-                    startOfA:
-                    vector<Bird> myBirds = birdLookupAll("bird_objects_list_saved.txt");
-                                
-                                //Check if the list is empty (in case the file didnt open)
-                                if (myBirds.empty()){
-                                    cout << "No birds found or file could not be opened." << endl;
-                                } else {
-                                    // You can now loop through the vector to use the data
-                                    for (const auto& bird : myBirds){
-                                        cout << " Bird: " << bird.ID << " " << bird.birdName << " " << bird.birdType << " " << bird.birdSpecies << " " << bird.scientificName << " " << bird.typeOfInjury << " " << bird.dateInAndOut << endl;
-                                    }
+                    if (birdIDOrAll == "A") {
+                        startOfA:
+                        vector<Bird> myBirds = birdLookupAll("bird_objects_list_saved.txt");
+                                    
+                        //Check if the list is empty (in case the file didnt open)
+                        if (myBirds.empty()){
+                                cout << "No birds found or file could not be opened." << endl;
+                        } 
+                            
+                        else {
+                            // You can now loop through the vector to use the data
+                            for (const auto& bird : myBirds){
+                                cout << " Bird: " << bird.ID << " " << bird.birdName << " " << bird.birdType << " " << bird.birdSpecies << " " << bird.scientificName << " " << bird.typeOfInjury << " " << bird.dateInAndOut << endl;
+                            }
+                        }
+                                        
+                        cout << "\n[0] to go back to administrator menu" << endl;
+                        cin >> administratorChoice2;
+                                        
+                        if (administratorChoice2 == 0) {
+                            goto startOflookup;
+                        }
+
+                        else {
+                            while (true){
+                                cout << "Please put in a valid number" << endl;
+                                cout << "\n[0] to go back to administrator menu" << endl;
+                                cin >> administratorChoice2;
+                                                
+                                if (administratorChoice2 == 0) {
+                                        goto startOflookup;
                                 }
-                                     
-                                    cout << "\n[0] to go back to administrator menu" << endl;
-                                    
-                                    cin >> administratorChoice2;
-                                    
-                                    if (administratorChoice2 == 0) {
-                                         goto startOflookup;
-                                    }
+                            }
+                        } 
+                    } 
+                    
+                    else if(birdIDOrAll == "ID") {
+                        startOfID:
+                        string searchID;
+                        cout << "please enter the ID of the bird you would like to view"<< endl;
+                        cin >> searchID;
 
-                                    else {
-                                        while (true){
-                                             cout << "Please put in a valid number" << endl;
-                                             cout << "\n[0] to go back to administrator menu" << endl;
-                                             cin >> administratorChoice2;
-                                             
-                                              if (administratorChoice2 == 0) {
-                                                 goto startOflookup;
-                                              }
-                                        }
-                                    } 
-                
-            } 
-                
-                else if(birdIDOrAll == "ID") {
-                    startOfID:
-                    string searchID;
-                    cout << "please enter the ID of the bird you would like to view"<< endl;
-                    cin >> searchID;
+                        Bird foundbird = birdLookupSpecific(searchID, "bird_objects_list_saved.txt");
+                        cout << foundbird.ID << " " << foundbird.birdName << " " << foundbird.birdType << " " << foundbird.birdSpecies << " " << foundbird.scientificName << " " << foundbird.typeOfInjury << " " << foundbird.dateInAndOut << endl;
 
-                    Bird foundbird = birdLookupSpecific(searchID, "bird_objects_list_saved.txt");
-                    cout << foundbird.ID << " " << foundbird.birdName << " " << foundbird.birdType << " " << foundbird.birdSpecies << " " << foundbird.scientificName << " " << foundbird.typeOfInjury << " " << foundbird.dateInAndOut << endl;
+                        do {     
+                            cout << "\n[0] to go back to administrator menu" << endl;
+                            cout << "[1] to continue" << endl;
+                                        
+                            cin >> administratorChoice2;
+                            if (administratorChoice2 == 0) {
+                                goto startOflookup;
+                            } 
+                                        
+                            else if (administratorChoice2 == 1) {
+                            goto startOfID;
+                            }
 
-                    do {     
-                                    cout << "\n[0] to go back to administrator menu" << endl;
+                            else {
+                                while (true){
+                                    cout << "Please put in a valid number" << endl;
+                                    cout << "[0] to go back to administrator menu" << endl;
                                     cout << "[1] to continue" << endl;
-                                    
+
                                     cin >> administratorChoice2;
+                                                
                                     if (administratorChoice2 == 0) {
-                                         goto startOflookup;
-                                    } 
-                                    
+                                        goto startOflookup;
+                                    }
                                     else if (administratorChoice2 == 1) {
                                         goto startOfID;
                                     }
-
-                                    else {
-                                        while (true){
-                                             cout << "Please put in a valid number" << endl;
-                                             cout << "[0] to go back to administrator menu" << endl;
-                                             cout << "[1] to continue" << endl;
-
-                                             cin >> administratorChoice2;
-                                             
-                                              if (administratorChoice2 == 0) {
-                                                 goto startOflookup;
-                                              }
-                                                else if (administratorChoice2 == 1) {
-                                                    goto startOfID;
-                                                }
-                                        }
                                 }
-                            }while (administratorChoice2 != 0 && administratorChoice2 !=1);
-                                
-                } 
-                
-                else if (birdIDOrAll == "R") {
-                    goto startOfProgram;
-                } 
-                
-                else {
-                    cout << "Please put in a valid input:" << endl;
-                }   
+                            }
+                            
+                        }while (administratorChoice2 != 0 && administratorChoice2 !=1);
+                                    
+                    } 
+                    
+                    else if (birdIDOrAll == "R") {
+                        goto startOfProgram;
+                    } 
+                    
+                    else {
+                        cout << "Please put in a valid input:" << endl;
+                    }   
                 } while (birdIDOrAll != "A" && birdIDOrAll != "ID" && birdIDOrAll != "R");
             } 
             
@@ -386,8 +387,8 @@ int main() {
                                 cout << " left!" << endl;
                             }
                         }else if (i==2){
-                              cout << "Acces denied...exiting" << endl;
-                              return 0;
+                            cout << "Acces denied...exiting" << endl;
+                            return 0;
                         }
                         
                     } 
@@ -395,95 +396,190 @@ int main() {
               
                     
 
-                        if (userPasswordInput == administratorPassword) {
-                            cout << "Welcome administrator" << endl;
-                            cout << "Please choose one of the following" << endl;
-                            startOfAdministratorMenu:
-                            cout << "\nASMINISTRATOR MENU:" << endl;
-                            cout << "[1] to View Database" << endl;
-                            cout << "[2] to Add a New Bird" << endl;
-                            cout << "[3] to Remove a Bird" << endl;
-                            cout << "[4] to Alter an Existing Bird" << endl;
-                            cout << "[5] to Return to Main Menu" << endl;   // To return to main menu, we will call the main function again (So we will start the whole process again, asking for the first option and so on)
-                            cin >> administratorChoice;
-                            
+                if (userPasswordInput == administratorPassword) {
+                    cout << "Welcome administrator" << endl;
+                    cout << "Please choose one of the following" << endl;
+                    startOfAdministratorMenu:
+                    cout << "\nASMINISTRATOR MENU:" << endl;
+                    cout << "[1] to View Database" << endl;
+                    cout << "[2] to Add a New Bird" << endl;
+                    cout << "[3] to Remove a Bird" << endl;
+                    cout << "[4] to Alter an Existing Bird" << endl;
+                    cout << "[5] to Return to Main Menu" << endl;   // To return to main menu, we will call the main function again (So we will start the whole process again, asking for the first option and so on)
+                    cin >> administratorChoice;
+                        
 
-                            if (administratorChoice == 1) {
-                                vector<Bird> myBirds = birdLookupAll("bird_objects_list_saved.txt");
-                                
-                                //Check if the list is empty (in case the file didnt open)
-                                if (myBirds.empty()){
-                                    cout << "No birds found or file could not be opened." << endl;
-                                } else {
-                                    // You can now loop through the vector to use the data
-                                    for (const auto& bird : myBirds){
-                                        cout << " Bird: " << bird.ID << " " << bird.birdName << " " << bird.birdType << " " << bird.birdSpecies << " " << bird.scientificName << " " << bird.typeOfInjury << " " << bird.dateInAndOut << endl;
-                                    }
-                                }
-                            } 
-                            
-                            else if (administratorChoice == 2) {
-                               
-                                Bird bird(createNewBird());
-                                saveBird(bird, "bird_objects_list_saved.txt");
-                                bird.display(); 
-                                
-
-                              do {     
-                                    cout << "\n[0] to go back to administrator menu" << endl;
-                                    cout << "[1] to add another bird" << endl;
-                                    
-                                    cin >> administratorChoice2;
-                                    if (administratorChoice2 == 0) {
-                                         goto startOfAdministratorMenu;
-                                    } 
-                                    
-                                    else if (administratorChoice2 == 1) {
-                                       // goto startOfCreateNewBird;
-                                    }
-
-                                    else {
-                                        cout << "Please put in a valid number" << endl;
-                                }
-                            }while (administratorChoice2 != 0 && administratorChoice2 !=1);
-                                
-                                
-                            }
-
-                            else if (administratorChoice == 3) {
-                                string IDToRemove;
-                                cout << "Enter the ID of the bird you wish to remove: ";
-                                cin >> IDToRemove;
-    
-                                removeBirdByID(IDToRemove, "bird_objects_list_saved.txt");
-                            }
-
-                            else if (administratorChoice == 4){
-                                string IDToEdit;
-                                cout << "Enter the ID of the bird you wish to edit";
-                                cin >> IDToEdit;
-
-                                editBirdAttribute(IDToEdit, "bird_objects_list_saved.txt");
-                            }
-
-                            
-                            else if (administratorChoice == 5) {
-                                goto startOfProgram;
-                            }
-                            
-
-                            else {
-                                cout << "Please put in a valid number" << endl;
-                                    goto startOfAdministratorMenu;
+                    if (administratorChoice == 1) {
+                        vector<Bird> myBirds = birdLookupAll("bird_objects_list_saved.txt");
+                        
+                        //Check if the list is empty (in case the file didnt open)
+                        if (myBirds.empty()){
+                            cout << "No birds found or file could not be opened." << endl;
+                        } 
+                        else {
+                            // You can now loop through the vector to use the data
+                            for (const auto& bird : myBirds){
+                                cout << " Bird: " << bird.ID << " " << bird.birdName << " " << bird.birdType << " " << bird.birdSpecies << " " << bird.scientificName << " " << bird.typeOfInjury << " " << bird.dateInAndOut << endl;
                             }
                         }
+
+                        cout << "\n[0] to go back to administrator menu" << endl;
+                                
+                        cin >> administratorChoice2;
+                                
+                        if (administratorChoice2 == 0) {
+                                goto startOfAdministratorMenu;
+                        }
+
+                        else {
+                            while (true){
+                                    cout << "Please put in a valid number" << endl;
+                                    cout << "\n[0] to go back to administrator menu" << endl;
+                                    cin >> administratorChoice2;
+                                    
+                                    if (administratorChoice2 == 0) {
+                                        goto startOfAdministratorMenu;
+                                    }
+                            }
+                        }
+                    } 
+                        
+                    else if (administratorChoice == 2) {
+                        startOfCreateNewBird:
+                        Bird bird(createNewBird());
+                        saveBird(bird, "bird_objects_list_saved.txt");
+                        bird.display(); 
+                        
+
+                        do {     
+                            cout << "\n[0] to go back to administrator menu" << endl;
+                            cout << "[1] to add another bird" << endl;
+                            
+                            cin >> administratorChoice2;
+                            if (administratorChoice2 == 0) {
+                                goto startOfAdministratorMenu;
+                            } 
+                            
+                            else if (administratorChoice2 == 1) {
+                                goto startOfCreateNewBird;
+                            }
+
+                            else {
+                                while (true){
+                                    cout << "Please put in a valid number" << endl;
+                                    cout << "\n[0] to go back to administrator menu" << endl;
+                                    cout << "[1] to add another bird" << endl;
+
+                                    cin >> administratorChoice2;
+                                    
+                                    if (administratorChoice2 == 0) {
+                                        goto startOfAdministratorMenu;
+                                    }
+                                    else if (administratorChoice2 == 1) {
+                                        goto startOfCreateNewBird;
+                                    }
+                                }
+                            }
+                        }while (administratorChoice2 != 0 && administratorChoice2 !=1);
+                            
+                            
+                    }
+
+                    else if (administratorChoice == 3) {
+                        startOfRemoveBird:
+                        string IDToRemove;
+                        cout << "Enter the ID of the bird you wish to remove: ";
+                        cin >> IDToRemove;
+
+                        removeBirdByID(IDToRemove, "bird_objects_list_saved.txt");
+
+                        do {     
+                            cout << "\n[0] to go back to administrator menu" << endl;
+                            cout << "[1] to remove another bird" << endl;
+                            
+                            cin >> administratorChoice2;
+                            if (administratorChoice2 == 0) {
+                                goto startOfAdministratorMenu;
+                            } 
+                            
+                            else if (administratorChoice2 == 1) {
+                                goto startOfRemoveBird;
+                            }
+
+                            else {
+                                while (true){
+                                    cout << "Please put in a valid number" << endl;
+                                    cout << "\n[0] to go back to administrator menu" << endl;
+                                    cout << "[1] to remove another bird" << endl;
+
+                                    cin >> administratorChoice2;
+                                    
+                                    if (administratorChoice2 == 0) {
+                                        goto startOfAdministratorMenu;
+                                    }
+                                    else if (administratorChoice2 == 1) {
+                                        goto startOfRemoveBird;
+                                    }
+                                }
+                            }
+                        } while (administratorChoice2 != 0 && administratorChoice2 !=1);
+                    }
+
+                    else if (administratorChoice == 4) {
+                        startOfEditBird:
+                        string IDToEdit;
+                        cout << "Enter the ID of the bird you wish to edit";
+                        cin >> IDToEdit;
+
+                        editBirdAttribute(IDToEdit, "bird_objects_list_saved.txt");
+
+                        do {     
+                            cout << "\n[0] to go back to administrator menu" << endl;
+                            cout << "[1] to edit another bird" << endl;
+                            
+                            cin >> administratorChoice2;
+                            if (administratorChoice2 == 0) {
+                                goto startOfAdministratorMenu;
+                            } 
+                            
+                            else if (administratorChoice2 == 1) {
+                                goto startOfEditBird;
+                            }
+
+                            else {
+                                while (true){
+                                    cout << "Please put in a valid number" << endl;
+                                    cout << "\n[0] to go back to administrator menu" << endl;
+                                    cout << "[1] to edit another bird" << endl;
+
+                                    cin >> administratorChoice2;
+                                    
+                                    if (administratorChoice2 == 0) {
+                                        goto startOfAdministratorMenu;
+                                    }
+                                        else if (administratorChoice2 == 1) {
+                                        goto startOfEditBird;
+                                        }
+                                }
+                            }
+                        } while (administratorChoice2 != 0 && administratorChoice2 !=1);
+                    }
+
+                        
+                    else if (administratorChoice == 5) {
+                        goto startOfProgram;
+                    }
                     
 
-                    
-
-
+                    else {
+                        cout << "Please put in a valid number" << endl;
+                        goto startOfAdministratorMenu;
+                    }
+                }
             }   
-        } else {
+        } 
+        
+        else {
             cout << "Please put in a valid number" << endl;
         }           
 
