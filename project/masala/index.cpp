@@ -272,6 +272,7 @@ int main() {
 
             if (firstOption == 1) {
                 cout << "Welcome, do you want to view the whole database or search a specific bird?" << endl;
+                startOflookup:
                 do { //do while loop to make sure user inputs either A or ID, if not it will ask again until they do
                 cout << "[A] for whole database" << endl;
                 cout << "[ID] for specific bird" << endl;
@@ -279,6 +280,7 @@ int main() {
                 cin >> birdIDOrAll;
 
                 if (birdIDOrAll == "A") {
+                    startOfA:
                     vector<Bird> myBirds = birdLookupAll("bird_objects_list_saved.txt");
                                 
                                 //Check if the list is empty (in case the file didnt open)
@@ -290,15 +292,69 @@ int main() {
                                         cout << " Bird: " << bird.ID << " " << bird.birdName << " " << bird.birdType << " " << bird.birdSpecies << " " << bird.scientificName << " " << bird.typeOfInjury << " " << bird.dateInAndOut << endl;
                                     }
                                 }
-                } 
+                                     
+                                    cout << "\n[0] to go back to administrator menu" << endl;
+                                    
+                                    cin >> administratorChoice2;
+                                    
+                                    if (administratorChoice2 == 0) {
+                                         goto startOflookup;
+                                    }
+
+                                    else {
+                                        while (true){
+                                             cout << "Please put in a valid number" << endl;
+                                             cout << "\n[0] to go back to administrator menu" << endl;
+                                             cin >> administratorChoice2;
+                                             
+                                              if (administratorChoice2 == 0) {
+                                                 goto startOflookup;
+                                              }
+                                        }
+                                    } 
+                
+            } 
                 
                 else if(birdIDOrAll == "ID") {
+                    startOfID:
                     string searchID;
                     cout << "please enter the ID of the bird you would like to view"<< endl;
                     cin >> searchID;
 
                     Bird foundbird = birdLookupSpecific(searchID, "bird_objects_list_saved.txt");
                     cout << foundbird.ID << " " << foundbird.birdName << " " << foundbird.birdType << " " << foundbird.birdSpecies << " " << foundbird.scientificName << " " << foundbird.typeOfInjury << " " << foundbird.dateInAndOut << endl;
+
+                    do {     
+                                    cout << "\n[0] to go back to administrator menu" << endl;
+                                    cout << "[1] to continue" << endl;
+                                    
+                                    cin >> administratorChoice2;
+                                    if (administratorChoice2 == 0) {
+                                         goto startOflookup;
+                                    } 
+                                    
+                                    else if (administratorChoice2 == 1) {
+                                        goto startOfID;
+                                    }
+
+                                    else {
+                                        while (true){
+                                             cout << "Please put in a valid number" << endl;
+                                             cout << "[0] to go back to administrator menu" << endl;
+                                             cout << "[1] to continue" << endl;
+
+                                             cin >> administratorChoice2;
+                                             
+                                              if (administratorChoice2 == 0) {
+                                                 goto startOflookup;
+                                              }
+                                                else if (administratorChoice2 == 1) {
+                                                    goto startOfID;
+                                                }
+                                        }
+                                }
+                            }while (administratorChoice2 != 0 && administratorChoice2 !=1);
+                                
                 } 
                 
                 else if (birdIDOrAll == "R") {
