@@ -178,6 +178,11 @@ void removeBirdByID(string targetID, const string& filename) {
     }
 }
 
+void exitOption(){
+    cout << "Exiting the program..." <<endl;
+    exit(0);
+}
+
 /*
 de edit bird attribute function werkt met dezelfde logica als de remove bird function
 roep de loadAllBirds function, kijk waar de ID'overeenkomen en dan edit je de attribute en "update" je de file door het te overwriten
@@ -193,6 +198,8 @@ void editBirdAttribute(string targetID, const string& filename) {
         if (b.ID == targetID) {
             found = true;
             int choice;
+            int attempts = 0;
+            int alterChoice;
             cout << "\nBird Found: " << b.birdName << endl;
 
             do{
@@ -201,6 +208,8 @@ void editBirdAttribute(string targetID, const string& filename) {
             cin >> choice;
 
             if (choice >=1 && choice <=7){
+
+            attempts = 0;
             // Use getline(cin >> ws, ...) to handle spaces in user input
             if (choice == 1) { cout << "Enter new ID: "; getline(cin >> ws, b.ID); }
             else if (choice == 2) { cout << "Enter new type: "; getline(cin >> ws, b.birdName); }
@@ -212,12 +221,40 @@ void editBirdAttribute(string targetID, const string& filename) {
             
             cout << "\nAttribute updated in memory!" << endl;
 
-           
+            // 3. Overwrite the file with the updated vector
+            ofstream outfile(filename, ios::trunc); 
+            for (const auto& b : birdList) {
+                outfile << b.ID << "," << b.birdName << "," << b.birdType << "," 
+                        << b.birdSpecies << "," << b.scientificName << "," 
+                        << b.typeOfInjury << "," << b.dateInAndOut << endl;
+            }
+            outfile.close();
+            cout << "Changes saved to " << filename << " successfully." << endl;
         
             }
 
-            else {
+            else if (choice <1 || choice >7){
+
+                attempts++;
                 cout << "\nPlease enter a valid input" << endl;
+                if (attempts>=3){
+                    cout << "Would you like to leave?" << endl;
+                    cout << "[0] to exit the program" << endl;
+                    cout << "[1] to leave the alter bird option" << endl;
+                    cout << "[2] to continue altering bird" << endl;
+                    cin >> alterChoice;
+                    if (alterChoice==0){
+                        exitOption();
+                    }
+                    else if (alterChoice==1){
+                        return;
+                    }
+                    else if (alterChoice==2){
+                        //attempts=0; kan, maar zoniet dan "verplicht" het de user om gelijk een goeie input te zetten of het menu te verlaten
+                        continue;
+                    }
+                }
+                
             }
             }while (choice <1 || choice >7);
         }
@@ -227,23 +264,7 @@ void editBirdAttribute(string targetID, const string& filename) {
         cout << "\nBird ID " << targetID << " not found." << endl;
         return;
     }
-
-     // 3. Overwrite the file with the updated vector
-            ofstream outfile(filename, ios::trunc); 
-            for (const auto& b : birdList) {
-                outfile << b.ID << "," << b.birdName << "," << b.birdType << "," 
-                        << b.birdSpecies << "," << b.scientificName << "," 
-                        << b.typeOfInjury << "," << b.dateInAndOut << endl;
-            }
-            outfile.close();
-            cout << "Changes saved to " << filename << " successfully." << endl;
-
  
-}
-
-void exitOption(){
-    cout << "Exiting the program..." <<endl;
-    exit(0);
 }
 
 int main() {
