@@ -235,11 +235,11 @@ void exitOption(){
 
 int main() {
   //  startOfProgram:
-    int firstOption;
+    string firstOption;
     string userPasswordInput;
     string birdIDOrAll;
-    int administratorChoice;
-    int administratorChoice2;
+    string administratorChoice;
+    string administratorChoice2;
     Bird object;
     string administratorPassword = "Masala";
     int i;
