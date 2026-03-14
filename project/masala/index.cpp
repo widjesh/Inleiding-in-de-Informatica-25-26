@@ -3,6 +3,7 @@
 #include <fstream>
 #include <string>
 #include <sstream>
+#include <cstdlib>
 #include <algorithm> // Required for std::remove_if bij function om bird te removen
 
 
@@ -234,6 +235,11 @@ void editBirdAttribute(string targetID, const string& filename) {
     cout << "Changes saved to " << filename << " successfully." << endl;
 }
 
+void exitOption(){
+    cout << "Exiting the program..." <<endl;
+    exit(0);
+}
+
 
 /*int administratorMenu() {
     int administratorChoice;
@@ -271,10 +277,10 @@ int main() {
         if (firstOption == 1 || firstOption == 2) { 
 
             if (firstOption == 1) {
-                cout << "Welcome, do you want to view the whole database or search a specific bird?" << endl;
+                cout << "\nWelcome, do you want to view the whole database or search a specific bird?" << endl;
                 startOflookup:
                 do { //do while loop to make sure user inputs either A or ID, if not it will ask again until they do
-                    cout << "[A] for whole database" << endl;
+                    cout << "\n[A] for whole database" << endl;
                     cout << "[ID] for specific bird" << endl;
                     cout << "[R] to return to main menu" << endl; // To return to main menu, we will call the main function again (So we will start the whole process again, asking for the first option and so on)
                     cin >> birdIDOrAll;
@@ -295,21 +301,30 @@ int main() {
                             }
                         }
                                         
-                        cout << "\n[0] to go back to administrator menu" << endl;
+                        cout << "\n[1] to go back to administrator menu" << endl;
+                        cout << "[0] to exit the program" << endl;
                         cin >> administratorChoice2;
                                         
-                        if (administratorChoice2 == 0) {
+                        if (administratorChoice2 == 1) {
                             goto startOflookup;
+                        }
+
+                        else if (administratorChoice2==0){
+                            exitOption();
                         }
 
                         else {
                             while (true){
                                 cout << "Please put in a valid number" << endl;
-                                cout << "\n[0] to go back to administrator menu" << endl;
+                                cout << "\n[1] to go back to administrator menu" << endl;
+                                cout << "[0] to exit the program" << endl;
                                 cin >> administratorChoice2;
                                                 
-                                if (administratorChoice2 == 0) {
+                                if (administratorChoice2 == 1) {
                                         goto startOflookup;
+                                }
+                                 else if (administratorChoice2==0){
+                                   exitOption();
                                 }
                             }
                         } 
@@ -325,36 +340,42 @@ int main() {
                         cout << foundbird.ID << " " << foundbird.birdName << " " << foundbird.birdType << " " << foundbird.birdSpecies << " " << foundbird.scientificName << " " << foundbird.typeOfInjury << " " << foundbird.dateInAndOut << endl;
 
                         do {     
-                            cout << "\n[0] to go back to administrator menu" << endl;
-                            cout << "[1] to continue" << endl;
+                            cout << "\n[1] to go back to administrator menu" << endl;
+                            cout << "[2] to continue" << endl;
+                            cout << "[0] to exit the program" << endl;
                                         
                             cin >> administratorChoice2;
-                            if (administratorChoice2 == 0) {
+                            if (administratorChoice2 == 1) {
                                 goto startOflookup;
                             } 
                                         
-                            else if (administratorChoice2 == 1) {
+                            else if (administratorChoice2 == 2) {
                             goto startOfID;
                             }
 
-                            else {
-                                while (true){
-                                    cout << "Please put in a valid number" << endl;
-                                    cout << "[0] to go back to administrator menu" << endl;
-                                    cout << "[1] to continue" << endl;
+                            else if (administratorChoice2==0){
+                            exitOption();
+                            }
 
-                                    cin >> administratorChoice2;
+                            else {
+                              //  while (true){
+                                    cout << "Please put in a valid number" << endl;
+                                //     cout << "[1] to go back to administrator menu" << endl;
+                                //     cout << "[2] to continue" << endl;
+                                //     cout << "[0] to exit the program" << endl;
+
+                                //     cin >> administratorChoice2;
                                                 
-                                    if (administratorChoice2 == 0) {
-                                        goto startOflookup;
-                                    }
-                                    else if (administratorChoice2 == 1) {
-                                        goto startOfID;
-                                    }
-                                }
+                                //     if (administratorChoice2 == 1) {
+                                //         goto startOflookup;
+                                //     }
+                                //     else if (administratorChoice2 == 2) {
+                                //         goto startOfID;
+                                //     }
+                                // }
                             }
                             
-                        }while (administratorChoice2 != 0 && administratorChoice2 !=1);
+                        }while (administratorChoice2 != 0 && administratorChoice2 !=1 && administratorChoice2!=2);
                                     
                     } 
                     
@@ -422,26 +443,33 @@ int main() {
                                 cout << " Bird: " << bird.ID << " " << bird.birdName << " " << bird.birdType << " " << bird.birdSpecies << " " << bird.scientificName << " " << bird.typeOfInjury << " " << bird.dateInAndOut << endl;
                             }
                         }
-
-                        cout << "\n[0] to go back to administrator menu" << endl;
+                        do{
+                        cout << "\n[1] to go back to administrator menu" << endl;
+                        cout << "[0] to exit the program" << endl;
                                 
                         cin >> administratorChoice2;
                                 
-                        if (administratorChoice2 == 0) {
+                        if (administratorChoice2 == 1) {
                                 goto startOfAdministratorMenu;
                         }
 
-                        else {
-                            while (true){
-                                    cout << "Please put in a valid number" << endl;
-                                    cout << "\n[0] to go back to administrator menu" << endl;
-                                    cin >> administratorChoice2;
-                                    
-                                    if (administratorChoice2 == 0) {
-                                        goto startOfAdministratorMenu;
-                                    }
-                            }
+                        else if (administratorChoice2==0){
+                            exitOption();
                         }
+
+                        else {
+                           // while (true){
+                                    cout << "Please put in a valid number" << endl;
+                                    // cout << "\n[1] to go back to administrator menu" << endl;
+                                    // cout << "[0] to exit the program" << endl;
+                                    // cin >> administratorChoice2;
+                                    
+                                    // if (administratorChoice2 == 1) {
+                                    //     goto startOfAdministratorMenu;
+                                    // }
+                            // }
+                        } 
+                    }while (administratorChoice2!=0 && administratorChoice2!=1);
                     } 
                         
                     else if (administratorChoice == 2) {
@@ -452,35 +480,41 @@ int main() {
                         
 
                         do {     
-                            cout << "\n[0] to go back to administrator menu" << endl;
-                            cout << "[1] to add another bird" << endl;
-                            
+                            cout << "\n[1] to go back to administrator menu" << endl;
+                            cout << "[2] to add another bird" << endl;
+                            cout << "[0] to exit the program" << endl;
                             cin >> administratorChoice2;
-                            if (administratorChoice2 == 0) {
+
+                            if (administratorChoice2 == 1) {
                                 goto startOfAdministratorMenu;
                             } 
                             
-                            else if (administratorChoice2 == 1) {
+                            else if (administratorChoice2 == 2) {
                                 goto startOfCreateNewBird;
                             }
 
-                            else {
-                                while (true){
-                                    cout << "Please put in a valid number" << endl;
-                                    cout << "\n[0] to go back to administrator menu" << endl;
-                                    cout << "[1] to add another bird" << endl;
-
-                                    cin >> administratorChoice2;
-                                    
-                                    if (administratorChoice2 == 0) {
-                                        goto startOfAdministratorMenu;
-                                    }
-                                    else if (administratorChoice2 == 1) {
-                                        goto startOfCreateNewBird;
-                                    }
-                                }
+                            else if (administratorChoice2==0){
+                            exitOption();
                             }
-                        }while (administratorChoice2 != 0 && administratorChoice2 !=1);
+
+                            else {
+                               // while (true){
+                                    cout << "Please put in a valid number" << endl;
+                                    // cout << "\n[1] to go back to administrator menu" << endl;
+                                    // cout << "[2] to add another bird" << endl;
+                                    // cout << "[0] to exit the program" << endl;
+
+                                    // cin >> administratorChoice2;
+                                    
+                                    // if (administratorChoice2 == 1) {
+                                    //     goto startOfAdministratorMenu;
+                                    // }
+                                    // else if (administratorChoice2 == 2) {
+                                    //     goto startOfCreateNewBird;
+                                    // }
+                             //   }
+                            }
+                        }while (administratorChoice2 != 0 && administratorChoice2 !=1 && administratorChoice2 !=2);
                             
                             
                     }
@@ -494,35 +528,40 @@ int main() {
                         removeBirdByID(IDToRemove, "bird_objects_list_saved.txt");
 
                         do {     
-                            cout << "\n[0] to go back to administrator menu" << endl;
-                            cout << "[1] to remove another bird" << endl;
+                            cout << "\n[1] to go back to administrator menu" << endl;
+                            cout << "[2] to remove another bird" << endl;
+                            cout << "[0] to exit the program" << endl;
                             
                             cin >> administratorChoice2;
-                            if (administratorChoice2 == 0) {
+                            if (administratorChoice2 == 1) {
                                 goto startOfAdministratorMenu;
                             } 
                             
-                            else if (administratorChoice2 == 1) {
+                            else if (administratorChoice2 == 2) {
                                 goto startOfRemoveBird;
                             }
 
-                            else {
-                                while (true){
-                                    cout << "Please put in a valid number" << endl;
-                                    cout << "\n[0] to go back to administrator menu" << endl;
-                                    cout << "[1] to remove another bird" << endl;
-
-                                    cin >> administratorChoice2;
-                                    
-                                    if (administratorChoice2 == 0) {
-                                        goto startOfAdministratorMenu;
-                                    }
-                                    else if (administratorChoice2 == 1) {
-                                        goto startOfRemoveBird;
-                                    }
-                                }
+                            else if (administratorChoice2==0){
+                            exitOption();
                             }
-                        } while (administratorChoice2 != 0 && administratorChoice2 !=1);
+
+                            else {
+                              //  while (true){
+                                    cout << "Please put in a valid number" << endl;
+                                //     cout << "\n[0] to go back to administrator menu" << endl;
+                                //     cout << "[1] to remove another bird" << endl;
+
+                                //     cin >> administratorChoice2;
+                                    
+                                //     if (administratorChoice2 == 0) {
+                                //         goto startOfAdministratorMenu;
+                                //     }
+                                //     else if (administratorChoice2 == 1) {
+                                //         goto startOfRemoveBird;
+                                //     }
+                                // }
+                            }
+                        } while (administratorChoice2 != 0 && administratorChoice2 !=1 && administratorChoice2!=2);
                     }
 
                     else if (administratorChoice == 4) {
@@ -534,35 +573,40 @@ int main() {
                         editBirdAttribute(IDToEdit, "bird_objects_list_saved.txt");
 
                         do {     
-                            cout << "\n[0] to go back to administrator menu" << endl;
-                            cout << "[1] to edit another bird" << endl;
+                            cout << "\n[1] to go back to administrator menu" << endl;
+                            cout << "[2] to edit another bird" << endl;
+                            cout << "[0] to exit the program" << endl;
                             
                             cin >> administratorChoice2;
-                            if (administratorChoice2 == 0) {
+                            if (administratorChoice2 == 1) {
                                 goto startOfAdministratorMenu;
                             } 
                             
-                            else if (administratorChoice2 == 1) {
+                            else if (administratorChoice2 == 2) {
                                 goto startOfEditBird;
                             }
 
-                            else {
-                                while (true){
-                                    cout << "Please put in a valid number" << endl;
-                                    cout << "\n[0] to go back to administrator menu" << endl;
-                                    cout << "[1] to edit another bird" << endl;
-
-                                    cin >> administratorChoice2;
-                                    
-                                    if (administratorChoice2 == 0) {
-                                        goto startOfAdministratorMenu;
-                                    }
-                                        else if (administratorChoice2 == 1) {
-                                        goto startOfEditBird;
-                                        }
-                                }
+                            else if (administratorChoice2==0){
+                            exitOption();
                             }
-                        } while (administratorChoice2 != 0 && administratorChoice2 !=1);
+
+                            else {
+                              //  while (true){
+                                    cout << "Please put in a valid number" << endl;
+                                //     cout << "\n[0] to go back to administrator menu" << endl;
+                                //     cout << "[1] to edit another bird" << endl;
+
+                                //     cin >> administratorChoice2;
+                                    
+                                //     if (administratorChoice2 == 0) {
+                                //         goto startOfAdministratorMenu;
+                                //     }
+                                //         else if (administratorChoice2 == 1) {
+                                //         goto startOfEditBird;
+                                //         }
+                                // }
+                            }
+                        } while (administratorChoice2 != 0 && administratorChoice2 !=1 && administratorChoice2!=2);
                     }
 
                         
