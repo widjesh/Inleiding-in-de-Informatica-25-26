@@ -295,8 +295,8 @@ int main() {
 
                         else {
                             while (true){
-                                cout << "Please put in a valid number" << endl;
-                                cout << "\n[0] to exit the program" << endl;
+                                cout << "\nPlease put in a valid number" << endl;
+                                cout << "[0] to exit the program" << endl;
                                 cout << "[1] to go back to administrator menu" << endl;
                                 
                                 cin >> administratorChoice2;
@@ -339,7 +339,7 @@ int main() {
                             }
 
                             else {
-                                    cout << "Please put in a valid number" << endl;
+                                    cout << "\nPlease put in a valid number" << endl;
                             }
                             
                         }while (administratorChoice2 != 0 && administratorChoice2 !=1 && administratorChoice2!=2);
@@ -351,7 +351,7 @@ int main() {
                     } 
                     
                     else {
-                        cout << "Please put in a valid input:" << endl;
+                        cout << "\nPlease put in a valid input:" << endl;
                     }   
                 } while (birdIDOrAll != "A" && birdIDOrAll != "ID" && birdIDOrAll != "R");
             } 
@@ -467,7 +467,7 @@ int main() {
                     else if (administratorChoice == 3) {
                         startOfRemoveBird:
                         string IDToRemove;
-                        cout << "Enter the ID of the bird you wish to remove: ";
+                        cout << "\nEnter the ID of the bird you wish to remove: ";
                         cin >> IDToRemove;
 
                         removeBirdByID(IDToRemove, "bird_objects_list_saved.txt");
@@ -491,7 +491,7 @@ int main() {
                             }
 
                             else {
-                                    cout << "Please put in a valid number" << endl;
+                                    cout << "\nPlease put in a valid number" << endl;
                             }
                         } while (administratorChoice2 != 0 && administratorChoice2 !=1 && administratorChoice2!=2);
                     }
@@ -499,7 +499,7 @@ int main() {
                     else if (administratorChoice == 4) {
                         startOfEditBird:
                         string IDToEdit;
-                        cout << "Enter the ID of the bird you wish to edit:" << endl;
+                        cout << "\nEnter the ID of the bird you wish to edit:" << endl;
                         cin >> IDToEdit;
 
                         editBirdAttribute(IDToEdit, "bird_objects_list_saved.txt");
@@ -523,7 +523,7 @@ int main() {
                             }
 
                             else {
-                                    cout << "Please put in a valid number" << endl;
+                                    cout << "\nPlease put in a valid number" << endl;
                             }
                         } while (administratorChoice2 != 0 && administratorChoice2 !=1 && administratorChoice2!=2);
                     }
@@ -535,7 +535,7 @@ int main() {
                     
 
                     else {
-                        cout << "Please put in a valid number" << endl;
+                        cout << "\nPlease put in a valid number" << endl;
                         goto startOfAdministratorMenu;
                     }
                 }
@@ -543,7 +543,7 @@ int main() {
         } 
         
         else {
-            cout << "Please put in a valid number" << endl;
+            cout << "\nPlease put in a valid number" << endl;
         }           
 
     } while (firstOption != 1 && firstOption != 2);
