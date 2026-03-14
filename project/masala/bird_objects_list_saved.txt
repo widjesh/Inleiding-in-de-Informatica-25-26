@@ -7,3 +7,4 @@
 2,k,k,k,k,k,k
 3,d,d,d,d,d,d
 3,3,3,3,3,3,3
+1,Stitch,Macaw,Ara,Ara ararauna,Check-up,14/03/2026
