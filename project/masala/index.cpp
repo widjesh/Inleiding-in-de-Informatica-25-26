@@ -194,10 +194,13 @@ void editBirdAttribute(string targetID, const string& filename) {
             found = true;
             int choice;
             cout << "\nBird Found: " << b.birdName << endl;
-            cout << "Which attribute would you like to edit?" << endl;
+
+            do{
+            cout << "\nWhich attribute would you like to edit?" << endl;
             cout << "[1] ID  [2] Name  [3] Type  [4] Species  [5] Scientific Name  [6] Type of Injury  [7] Date in/out\nChoice: ";
             cin >> choice;
 
+            if (choice >=1 && choice <=7){
             // Use getline(cin >> ws, ...) to handle spaces in user input
             if (choice == 1) { cout << "Enter new ID: "; getline(cin >> ws, b.ID); }
             else if (choice == 2) { cout << "Enter new type: "; getline(cin >> ws, b.birdName); }
@@ -207,8 +210,16 @@ void editBirdAttribute(string targetID, const string& filename) {
             else if (choice == 6) { cout << "Enter new injury: "; getline(cin >> ws, b.typeOfInjury); }
             else if (choice == 7) { cout << "Enter new dates: "; getline(cin >> ws, b.dateInAndOut); }
             
-            cout << "Attribute updated in memory!" << endl;
-            break;
+            cout << "\nAttribute updated in memory!" << endl;
+
+           
+        
+            }
+
+            else {
+                cout << "\nPlease enter a valid input" << endl;
+            }
+            }while (choice <1 || choice >7);
         }
     }
 
@@ -217,15 +228,17 @@ void editBirdAttribute(string targetID, const string& filename) {
         return;
     }
 
-    // 3. Overwrite the file with the updated vector
-    ofstream outfile(filename, ios::trunc); 
-    for (const auto& b : birdList) {
-        outfile << b.ID << "," << b.birdName << "," << b.birdType << "," 
-                << b.birdSpecies << "," << b.scientificName << "," 
-                << b.typeOfInjury << "," << b.dateInAndOut << endl;
-    }
-    outfile.close();
-    cout << "Changes saved to " << filename << " successfully." << endl;
+     // 3. Overwrite the file with the updated vector
+            ofstream outfile(filename, ios::trunc); 
+            for (const auto& b : birdList) {
+                outfile << b.ID << "," << b.birdName << "," << b.birdType << "," 
+                        << b.birdSpecies << "," << b.scientificName << "," 
+                        << b.typeOfInjury << "," << b.dateInAndOut << endl;
+            }
+            outfile.close();
+            cout << "Changes saved to " << filename << " successfully." << endl;
+
+ 
 }
 
 void exitOption(){
