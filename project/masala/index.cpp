@@ -280,8 +280,8 @@ int main() {
                             }
                         }
                         
-                        cout << "[0] to exit the program" << endl;                
-                        cout << "\n[1] to go back to administrator menu" << endl;
+                        cout << "\n[0] to exit the program" << endl;                
+                        cout << "[1] to go back to administrator menu" << endl;
                         
                         cin >> administratorChoice2;
                                         
@@ -296,8 +296,8 @@ int main() {
                         else {
                             while (true){
                                 cout << "Please put in a valid number" << endl;
-                                cout << "[0] to exit the program" << endl;
-                                cout << "\n[1] to go back to administrator menu" << endl;
+                                cout << "\n[0] to exit the program" << endl;
+                                cout << "[1] to go back to administrator menu" << endl;
                                 
                                 cin >> administratorChoice2;
                                                 
@@ -321,8 +321,8 @@ int main() {
                         cout << foundbird.ID << " " << foundbird.birdName << " " << foundbird.birdType << " " << foundbird.birdSpecies << " " << foundbird.scientificName << " " << foundbird.typeOfInjury << " " << foundbird.dateInAndOut << endl;
 
                         do {     
-                            cout << "[0] to exit the program" << endl;
-                            cout << "\n[1] to go back to administrator menu" << endl;
+                            cout << "\n[0] to exit the program" << endl;
+                            cout << "[1] to go back to administrator menu" << endl;
                             cout << "[2] to continue" << endl;
                                         
                             cin >> administratorChoice2;
@@ -411,8 +411,8 @@ int main() {
                             }
                         }
                         do{
-                            cout << "[0] to exit the program" << endl;
-                            cout << "\n[1] to go back to administrator menu" << endl;
+                            cout << "\n[0] to exit the program" << endl;
+                            cout << "[1] to go back to administrator menu" << endl;
                         
                                 
                             cin >> administratorChoice2;
@@ -439,8 +439,8 @@ int main() {
                         
 
                         do {     
-                            cout << "[0] to exit the program" << endl;
-                            cout << "\n[1] to go back to administrator menu" << endl;
+                            cout << "\n[0] to exit the program" << endl;
+                            cout << "[1] to go back to administrator menu" << endl;
                             cout << "[2] to add another bird" << endl;
                             cin >> administratorChoice2;
 
@@ -473,8 +473,8 @@ int main() {
                         removeBirdByID(IDToRemove, "bird_objects_list_saved.txt");
 
                         do {
-                            cout << "[0] to exit the program" << endl;     
-                            cout << "\n[1] to go back to administrator menu" << endl;
+                            cout << "\n[0] to exit the program" << endl;     
+                            cout << "[1] to go back to administrator menu" << endl;
                             cout << "[2] to remove another bird" << endl;
 
                             cin >> administratorChoice2;
@@ -505,8 +505,8 @@ int main() {
                         editBirdAttribute(IDToEdit, "bird_objects_list_saved.txt");
 
                         do {
-                            cout << "[0] to exit the program" << endl;     
-                            cout << "\n[1] to go back to administrator menu" << endl;
+                            cout << "\n[0] to exit the program" << endl;     
+                            cout << "[1] to go back to administrator menu" << endl;
                             cout << "[2] to edit another bird" << endl;
 
                             cin >> administratorChoice2;
