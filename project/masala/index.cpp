@@ -220,7 +220,7 @@ void editBirdAttribute(string targetID, const string& filename) {
     }
 
     if (!found) {
-        cout << "Bird ID " << targetID << " not found." << endl;
+        cout << "\nBird ID " << targetID << " not found." << endl;
         return;
     }
 
@@ -265,10 +265,10 @@ int main() {
     string administratorPassword = "Masala";
     int i;
     
-    cout << "WELCOME TO OUR BIRD CLINIC\n" << endl;
+    cout << "WELCOME TO OUR BIRD CLINIC" << endl;
     startOfProgram:
     do{
-        cout << "Choose one of the following options:" << endl;
+        cout << "\nChoose one of the following options:" << endl;
         cout << "Enter [1] to lookup birds" << endl;
         cout << "Enter [2] to access birds database (Administrator Password Required)" << endl;
         cin >> firstOption;
@@ -333,7 +333,7 @@ int main() {
                     else if(birdIDOrAll == "ID") {
                         startOfID:
                         string searchID;
-                        cout << "please enter the ID of the bird you would like to view"<< endl;
+                        cout << "\nPlease enter the ID of the bird you would like to view:"<< endl;
                         cin >> searchID;
 
                         Bird foundbird = birdLookupSpecific(searchID, "bird_objects_list_saved.txt");
@@ -391,7 +391,7 @@ int main() {
             
             else if (firstOption == 2) {
                 for(i=0;i<3;i++){
-                    cout << "Please enter the administrator Password(Case Sensitive!)" << endl;
+                    cout << "\nPlease enter the administrator Password(Case Sensitive!)" << endl;
                     cin >> userPasswordInput;
 
                     if (userPasswordInput==administratorPassword){
@@ -567,7 +567,7 @@ int main() {
                     else if (administratorChoice == 4) {
                         startOfEditBird:
                         string IDToEdit;
-                        cout << "Enter the ID of the bird you wish to edit";
+                        cout << "Enter the ID of the bird you wish to edit:" << endl;
                         cin >> IDToEdit;
 
                         editBirdAttribute(IDToEdit, "bird_objects_list_saved.txt");
