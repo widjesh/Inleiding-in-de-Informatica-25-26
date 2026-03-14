@@ -1,10 +1,3 @@
-3,t,t,t,t,t,tt
-<<<<<<< HEAD,,,,,,
-2,2,2,2,2,w,2
-=======,,,,,,
-3,4,3,4,3,4,5
->>>>>>> f157352e56034bc0d7f19ff03b6841aadb4367d3,,,,,,
-2,k,k,k,k,k,k
-3,d,d,d,d,d,d
-3,3,3,3,3,3,3
 1,Stitch,Macaw,Ara,Ara ararauna,Check-up,14/03/2026
+2,Frans,A meduim-sized South American parrot,Red-fan parrot (Fransmadam),Deroptyus accipitrinus,Broken wing,14/03/2026
+3,Melodie,A small seed-eating songbird belonging to the tanager family,Chestnut-bellied Seed-Finch(picolet),tracheal mite,14/03/2026
