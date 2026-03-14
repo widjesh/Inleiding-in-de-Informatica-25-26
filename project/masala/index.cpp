@@ -67,7 +67,7 @@ Bird createNewBird() {
     getline(cin >> ws, scientificName);
     cout << "Enter type of injury" << endl;
     getline(cin >> ws, typeOfInjury);
-    cout << "Enter date" << endl;
+    cout << "Enter date (DD/MM/YY)" << endl;
     getline(cin >> ws, dateInAndOut);
 
     return Bird(ID, birdName, birdType, birdSpecies, scientificName, typeOfInjury, dateInAndOut);
