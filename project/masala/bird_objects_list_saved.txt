@@ -1,3 +1,4 @@
 1,Stitch,Macaw,Ara,Ara ararauna,Check-up,14/03/2026
 2,Frans,A meduim-sized South American parrot,Red-fan parrot (Fransmadam),Deroptyus accipitrinus,Broken wing,14/03/2026
-3,Melodie,A small seed-eating songbird belonging to the tanager family,Chestnut-bellied Seed-Finch(picolet),tracheal mite,14/03/2026
+3,Melodie,A small seed-eating songbird belonging to the tanager family,Chestnut-bellied Seed-Finch(picolet),Sporophila angolensis,tracheal mite,14/03/2026
+4,Tax evader,Parrot,Hyacinth Macaw,Anodorhynvhus hyacinthinus,Wing clip,12/3/2026
