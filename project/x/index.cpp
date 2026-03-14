@@ -1,4 +1,5 @@
 #include <iostream>
+#Include     
 using namespace std;
 
 string caesar_cipher(string word, int shift){
@@ -56,6 +57,49 @@ string caesar_cipher(string word, int shift){
 
     return word;
 }
-int main(){
-    cout<< "Hello World" << endl;
+int main() {
+    int choice;  
+    string website, password;
+    map<string, string> passwords;
+  
+    while (true) {
+        cout << "\nPassword Manager\n";
+        cout << "1. Add Password" << endl;
+        cout << "2. View Password" << endl;
+        cout << "3. Exit" << endl;
+        cout << "Choose an option: ";
+        cin >> choice;
+        cin.ignore();
+
+        if (choice == 1) {
+            cout << "Enter website: ";
+            getline(cin, website);
+            cout << "Enter password: ";
+            getline(cin, password);
+            passwords[website] = password;
+        }
+        else if (choice == 2) {
+            cout << "Enter website: ";
+            getline(cin, website);
+            bool found = false;
+            for (auto& p : passwords) {
+                if (p.first == website) {
+                    cout << "Password: " << p.second << endl;
+                    found = true;
+                    break;
+                }
+            }
+            if (!found) {
+                cout << "No password found for " << website << endl;
+            }
+        }
+        else if (choice == 3) {
+            break;
+        }
+        else {
+            cout << "Invalid Choice. Please try again." << endl;
+        }
+    }
+    return 0;
+}
 }
