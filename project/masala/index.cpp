@@ -67,7 +67,7 @@ Bird createNewBird() {
     getline(cin >> ws, scientificName);
     cout << "Enter type of injury" << endl;
     getline(cin >> ws, typeOfInjury);
-    cout << "Enter date" << endl;
+    cout << "Enter date (DD/MM/YY)" << endl;
     getline(cin >> ws, dateInAndOut);
 
     return Bird(ID, birdName, birdType, birdSpecies, scientificName, typeOfInjury, dateInAndOut);
@@ -235,11 +235,11 @@ void exitOption(){
 
 int main() {
   //  startOfProgram:
-    int firstOption;
+    string firstOption;
     string userPasswordInput;
     string birdIDOrAll;
-    int administratorChoice;
-    int administratorChoice2;
+    string administratorChoice;
+    string administratorChoice2;
     Bird object;
     string administratorPassword = "Masala";
     int i;
