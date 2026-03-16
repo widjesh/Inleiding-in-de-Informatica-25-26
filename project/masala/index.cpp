@@ -37,7 +37,7 @@ void saveBird( const Bird& bird, const string& filename) {
     ofstream outfile(filename, ios::app);
 
     if(outfile.is_open()) {
-        outfile << bird.ID << ";" << "," << bird.birdName << ";" << ","<< bird.birdType<< ";" << ","<< bird.birdSpecies << ";" << "," << bird.scientificName << ";" << "," << bird.typeOfInjury << ";" << "," << bird.dateInAndOut << endl;
+        outfile << bird.ID  << "," << bird.birdName << ";" << ","<< bird.birdType<< ";" << ","<< bird.birdSpecies << ";" << "," << bird.scientificName << ";" << "," << bird.typeOfInjury << ";" << "," << bird.dateInAndOut << endl;
         cout << "\nSaved " << bird.birdName << " to " << filename << endl;
 
     } else{
@@ -469,7 +469,7 @@ int main() {
                         }while (administratorChoice2!=0 && administratorChoice2!=1);
 
                     } 
-                    else if(administratorChoice = 2) {
+                    else if(administratorChoice == 2) {
                         startOfSecondID:
                         string searchID;
                         cout << "\nPlease enter the ID of the bird you would like to view:"<< endl;
@@ -489,7 +489,7 @@ int main() {
                         }
 
                             if (administratorChoice2 == 1) {
-                                goto startOflookup;
+                                goto startOfAdministratorMenu;
                             } 
                                         
                             else if (administratorChoice2 == 2) {
