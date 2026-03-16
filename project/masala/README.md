@@ -4,9 +4,9 @@
 Welcome to our bird clinic! This is a project made by 4 students of the Anton de Kom University of Suriname (ADEKUS) <br>
 Those 4 students (with their student numbers) are: <br>
 * **Ishaan Oedit 20250004**
-* **Amaris Gobind**
-* **Amalesh Sewratan**
-* **Kaylie Goerdin**
+* **Amaris Gobind 20240732**
+* **Amalesh Sewratan 20250154**
+* **Kaylie Goerdin 20250133**
 
 We are 4 students majoring in Electrical Engineering. This is our first C++ project for the course Inleiding Informatica (Introdcution to Computer Science). This project is to demonstrate our understanding of the basics of C++. The minimun requirements were using a if else logic, loops, classes and objects and arrays. Instead of an array we used a vector to better handle memory management and because it would fit better into our project
 
@@ -17,9 +17,15 @@ A bird clinic is a veterinary facility specializing in the medical care, diagnos
 Normal bird clinics use stamps to identify and store birds. These stamps are physical pieces of paper on which information of the bird is manually written. These stamps can be ahrd to work with, as they need to be stored correctly to prevent the loss or destruction of it. Writing information or looking through all stamps can also take a lot of time. That is why we have digitalized this process. Now storing information of birds, creating new digital "stamps" and viewing that information has become easier and robust.
 
 ## How does the program work
-This code for this program consist of 3 parts. The classes, the functions and the workflow. We also have an external database which is a text file called *"bird_objects_list_saved.txt"* The first part, classes, is where the Bird class is made with all the attributes that are needed for a clinic. <br>
+This program as made to follow *CRUD* operations. The code for this program consist of 3 parts. The classes, the functions and the workflow. We also have an external database which is a text file called `bird_objects_list_saved.txt` The first part, classes, is where the Bird class is made with all the attributes that are needed for a clinic. <br>
 
-After that we have functions, which are the *createNewBird*, *saveBird*, *birdLookupAll*, *birdlookupSpecific*, *removeBirdByID* , *editBirdAttribute* and the *exit* function. The create new bird function works by using user input for the attributes and than creating a new object using those attributes. The save function works by using *ofstream* to open our database file and saving te birds into that file. The birdLookupAll function works by loading all the birds, which are saved in the file, into a vector and using getline to make the "," the delimiter for the attributes. The Lookupspecific, removebird and editbird all work by first using the birdLookupAll function to load all birds into a vector. From there, the birdlookup specific asks for a ID trough user input and loops trough the vector and looks for a bird with the matching ID. The removeBird function also loops trough the vector, but removes the bird with the matching ID. the editBird function loops trough the vector to look for a matching ID and allows you to choose and edit a attribute of your choosing and then updated that attribute. The editBird and removeBird function than update the vector with the changes you want and thus "update" the database. <br>
+After that we have functions, which are the `createNewBird`, `saveBird`, `birdLookupAll`, `birdlookupSpecific`, `removeBirdByID` , `editBirdAttribute` and the `exit` function. 
+
+The create new bird function works by using user input for the attributes and than creating a new object using those attributes. The save function works by using *ofstream* to open our database file and saving te birds into that file. 
+
+The birdLookupAll function works by loading all the birds, which are saved in the file, into a vector and using getline to make the "," the delimiter for the attributes. 
+
+The Lookupspecific, removebird and editbird all work by first using the birdLookupAll function to load all birds into a vector. From there, the birdlookup specific asks for a ID trough user input and loops trough the vector and looks for a bird with the matching ID. The removeBird function also loops trough the vector, but removes the bird with the matching ID. the editBird function loops trough the vector to look for a matching ID and allows you to choose and edit a attribute of your choosing and then updated that attribute. The editBird and removeBird function than update the vector with the changes you want and thus "update" the database. <br>
 
 The workflow consists in the int main and uses if-else functions and do-while loops. When running the code, you can either choose to view the birds database (which is more a public function) or going to a administrator menu (which as the name suggests is for administrators only and requires a password). The menu works by user input and navigating trough the menu using if else functions and do while loops. This allows for a good user experience
 
