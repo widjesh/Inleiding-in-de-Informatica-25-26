@@ -4,6 +4,7 @@
 #include <string>
 #include <sstream>
 #include <cstdlib>
+#include <limits>
 #include <algorithm> // Required for std::remove_if bij function om bird te removen
 
 
@@ -284,7 +285,11 @@ int main() {
         cout << "\nChoose one of the following options:" << endl;
         cout << "Enter [1] to lookup birds" << endl;
         cout << "Enter [2] to access birds database (Administrator Password Required)" << endl;
-        cin >> firstOption;
+        while (!(cin >> firstOption)){
+                        cout << "Please put in a valid \033[1mnumber\033[0m." << endl;
+                        cin.clear ();
+                        cin.ignore (numeric_limits <streamsize>::max(), '\n');
+                    }
 
 
         if (firstOption == 1 || firstOption == 2) { 
@@ -314,10 +319,14 @@ int main() {
                             }
                         }
                         
+                        do{
                         cout << "\n[0] to exit the program" << endl;                
                         cout << "[1] to go back to administrator menu" << endl;
-                        
-                        cin >> administratorChoice2;
+                        while (!(cin >> administratorChoice2)){
+                            cout << "Please put in a valid \033[1mnumber\033[0m." << endl;
+                            cin.clear ();
+                            cin.ignore (numeric_limits <streamsize>::max(), '\n');
+                        }
                                         
                         if (administratorChoice2 == 1) {
                             goto startOflookup;
@@ -327,22 +336,23 @@ int main() {
                             exitOption();
                         }
 
-                        else {
-                            while (true){
-                                cout << "\nPlease put in a valid number" << endl;
-                                cout << "[0] to exit the program" << endl;
-                                cout << "[1] to go back to administrator menu" << endl;
+                        // else {
+                        //     while (true){
+                        //         cout << "\nPlease put in a valid number" << endl;
+                        //         cout << "[0] to exit the program" << endl;
+                        //         cout << "[1] to go back to administrator menu" << endl;
                                 
-                                cin >> administratorChoice2;
+                        //         cin >> administratorChoice2;
                                                 
-                                if (administratorChoice2 == 1) {
-                                        goto startOflookup;
-                                }
-                                 else if (administratorChoice2==0){
-                                   exitOption();
-                                }
-                            }
-                        } 
+                        //         if (administratorChoice2 == 1) {
+                        //                 goto startOflookup;
+                        //         }
+                        //          else if (administratorChoice2==0){
+                        //            exitOption();
+                        //         }
+                        //     }
+                        // } 
+                    }while (administratorChoice2!=0 && administratorChoice2!=1);
                     } 
                     
                     else if(birdIDOrAll == "ID") {
@@ -358,8 +368,12 @@ int main() {
                             cout << "\n[0] to exit the program" << endl;
                             cout << "[1] to go back to administrator menu" << endl;
                             cout << "[2] to continue" << endl;
-                                        
-                            cin >> administratorChoice2;
+                            while (!(cin >> administratorChoice2)){
+                            cout << "Please put in a valid \033[1mnumber\033[0m." << endl;
+                            cin.clear ();
+                            cin.ignore (numeric_limits <streamsize>::max(), '\n');
+                        }
+
                             if (administratorChoice2 == 1) {
                                 goto startOflookup;
                             } 
@@ -428,7 +442,11 @@ int main() {
                     cout << "[3] to Remove a Bird" << endl;
                     cout << "[4] to Alter an Existing Bird" << endl;
                     cout << "[5] to Return to Main Menu" << endl;   // To return to main menu, we will call the main function again (So we will start the whole process again, asking for the first option and so on)
-                    cin >> administratorChoice;
+                    while (!(cin >> administratorChoice)){
+                            cout << "Please put in a valid \033[1mnumber\033[0m." << endl;
+                            cin.clear ();
+                            cin.ignore (numeric_limits <streamsize>::max(), '\n');
+                        }
                         
 
                     if (administratorChoice == 1) {
@@ -447,10 +465,12 @@ int main() {
                         do{
                             cout << "\n[0] to exit the program" << endl;
                             cout << "[1] to go back to administrator menu" << endl;
-                        
-                                
-                            cin >> administratorChoice2;
-                                    
+                            while (!(cin >> administratorChoice2)){
+                            cout << "Please put in a valid \033[1mnumber\033[0m." << endl;
+                            cin.clear ();
+                            cin.ignore (numeric_limits <streamsize>::max(), '\n');
+                            }
+                                      
                             if (administratorChoice2 == 1) {
                                     goto startOfAdministratorMenu;
                             }
@@ -476,7 +496,11 @@ int main() {
                             cout << "\n[0] to exit the program" << endl;
                             cout << "[1] to go back to administrator menu" << endl;
                             cout << "[2] to add another bird" << endl;
-                            cin >> administratorChoice2;
+                            while (!(cin >> administratorChoice2)){
+                            cout << "Please put in a valid \033[1mnumber\033[0m." << endl;
+                            cin.clear ();
+                            cin.ignore (numeric_limits <streamsize>::max(), '\n');
+                            }
 
                             if (administratorChoice2 == 1) {
                                 goto startOfAdministratorMenu;
@@ -510,8 +534,12 @@ int main() {
                             cout << "\n[0] to exit the program" << endl;     
                             cout << "[1] to go back to administrator menu" << endl;
                             cout << "[2] to remove another bird" << endl;
+                            while (!(cin >> administratorChoice2)){
+                            cout << "Please put in a valid \033[1mnumber\033[0m." << endl;
+                            cin.clear ();
+                            cin.ignore (numeric_limits <streamsize>::max(), '\n');
+                            }
 
-                            cin >> administratorChoice2;
                             if (administratorChoice2 == 1) {
                                 goto startOfAdministratorMenu;
                             } 
@@ -542,8 +570,12 @@ int main() {
                             cout << "\n[0] to exit the program" << endl;     
                             cout << "[1] to go back to administrator menu" << endl;
                             cout << "[2] to edit another bird" << endl;
+                            while (!(cin >> administratorChoice2)){
+                            cout << "Please put in a valid \033[1mnumber\033[0m." << endl;
+                            cin.clear ();
+                            cin.ignore (numeric_limits <streamsize>::max(), '\n');
+                            }
 
-                            cin >> administratorChoice2;
                             if (administratorChoice2 == 1) {
                                 goto startOfAdministratorMenu;
                             } 
