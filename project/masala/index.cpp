@@ -301,7 +301,7 @@ int main() {
                     cout << "\n[A] for whole database" << endl;
                     cout << "[ID] for specific bird" << endl;
                     cout << "[R] to return to main menu" << endl; // To return to main menu, we will call the main function again (So we will start the whole process again, asking for the first option and so on)
-                    cin >> birdIDOrAll;
+                    cin >> birdIDOrAll; // while (!(cin>>birdIDOrAll)) is hier niet nodig omdat birdIDOrall al string is
 
                     if (birdIDOrAll == "A") {
                         startOfA:
@@ -321,9 +321,9 @@ int main() {
                         }
                         
                         do{
-                        cout << "\n[0] to exit the program" << endl;                
+                        cout << "\n[0] to exit the program" << endl;  //er zijn alleen exit options aan het eind cvan het programma, we nemen aan dat de gebruiker het programma pas wil eindigen na iets te hebben bekeken of veranderd             
                         cout << "[1] to go back to administrator menu" << endl;
-                        while (!(cin >> administratorChoice2)){
+                        while (!(cin >> administratorChoice2)){ // dit zorgt ervoor dat er geen oneindige loop is wanneer er een letter wordt ingevuld bij int
                             cout << "Please put in a valid \033[1mnumber\033[0m." << endl;
                             cin.clear ();
                             cin.ignore (numeric_limits <streamsize>::max(), '\n');
@@ -337,22 +337,6 @@ int main() {
                             exitOption();
                         }
 
-                        // else {
-                        //     while (true){
-                        //         cout << "\nPlease put in a valid number" << endl;
-                        //         cout << "[0] to exit the program" << endl;
-                        //         cout << "[1] to go back to administrator menu" << endl;
-                                
-                        //         cin >> administratorChoice2;
-                                                
-                        //         if (administratorChoice2 == 1) {
-                        //                 goto startOflookup;
-                        //         }
-                        //          else if (administratorChoice2==0){
-                        //            exitOption();
-                        //         }
-                        //     }
-                        // } 
                     }while (administratorChoice2!=0 && administratorChoice2!=1);
                     } 
                     
@@ -431,18 +415,17 @@ int main() {
                     } 
                 } 
               
-                    
-
                 if (userPasswordInput == administratorPassword) {
                     cout << "\nWelcome administrator" << endl;
                     cout << "Please choose one of the following" << endl;
                     startOfAdministratorMenu:
                     cout << "\nASMINISTRATOR MENU:" << endl;
                     cout << "[1] to View Database" << endl;
-                    cout << "[2] to Add a New Bird" << endl;
-                    cout << "[3] to Remove a Bird" << endl;
-                    cout << "[4] to Alter an Existing Bird" << endl;
-                    cout << "[5] to Return to Main Menu" << endl;   // To return to main menu, we will call the main function again (So we will start the whole process again, asking for the first option and so on)
+                    cout << "[2] to View a Specific Bird" << endl;
+                    cout << "[3] to Add a New Bird" << endl;
+                    cout << "[4] to Remove a Bird" << endl;
+                    cout << "[5] to Alter an Existing Bird" << endl;
+                    cout << "[6] to Return to Main Menu" << endl;   // To return to main menu, we will call the main function again (So we will start the whole process again, asking for the first option and so on)
                     while (!(cin >> administratorChoice)){
                             cout << "Please put in a valid \033[1mnumber\033[0m." << endl;
                             cin.clear ();
@@ -484,9 +467,48 @@ int main() {
                                 cout << "Please put in a valid number" << endl;
                             } 
                         }while (administratorChoice2!=0 && administratorChoice2!=1);
+
+                    } 
+                    else if(administratorChoice = 2) {
+                        startOfSecondID:
+                        string searchID;
+                        cout << "\nPlease enter the ID of the bird you would like to view:"<< endl;
+                        cin >> searchID;
+
+                        Bird foundbird = birdLookupSpecific(searchID, "bird_objects_list_saved.txt");
+                        cout << foundbird.ID << " " << foundbird.birdName << " " << foundbird.birdType << " " << foundbird.birdSpecies << " " << foundbird.scientificName << " " << foundbird.typeOfInjury << " " << foundbird.dateInAndOut << endl;
+
+                        do {     
+                            cout << "\n[0] to exit the program" << endl;
+                            cout << "[1] to go back to administrator menu" << endl;
+                            cout << "[2] to continue" << endl;
+                            while (!(cin >> administratorChoice2)){
+                            cout << "Please put in a valid \033[1mnumber\033[0m." << endl;
+                            cin.clear ();
+                            cin.ignore (numeric_limits <streamsize>::max(), '\n');
+                        }
+
+                            if (administratorChoice2 == 1) {
+                                goto startOflookup;
+                            } 
+                                        
+                            else if (administratorChoice2 == 2) {
+                            goto startOfSecondID;
+                            }
+
+                            else if (administratorChoice2==0){
+                            exitOption();
+                            }
+
+                            else {
+                                    cout << "\nPlease put in a valid number" << endl;
+                            }
+                            
+                        }while (administratorChoice2 != 0 && administratorChoice2 !=1 && administratorChoice2!=2);
+                                    
                     } 
                         
-                    else if (administratorChoice == 2) {
+                    else if (administratorChoice == 3) {
                         startOfCreateNewBird:
                         Bird bird(createNewBird());
                         saveBird(bird, "bird_objects_list_saved.txt");
@@ -523,7 +545,7 @@ int main() {
                             
                     }
 
-                    else if (administratorChoice == 3) {
+                    else if (administratorChoice == 4) {
                         startOfRemoveBird:
                         string IDToRemove;
                         cout << "\nEnter the ID of the bird you wish to remove: ";
@@ -559,7 +581,7 @@ int main() {
                         } while (administratorChoice2 != 0 && administratorChoice2 !=1 && administratorChoice2!=2);
                     }
 
-                    else if (administratorChoice == 4) {
+                    else if (administratorChoice == 5) {
                         startOfEditBird:
                         string IDToEdit;
                         cout << "\nEnter the ID of the bird you wish to edit:" << endl;
@@ -596,7 +618,7 @@ int main() {
                     }
 
                         
-                    else if (administratorChoice == 5) {
+                    else if (administratorChoice == 6) {
                         goto startOfProgram;
                     }
                     
