@@ -113,6 +113,7 @@ void enter()
 
     cout << "\nStudent(s) added successfully!" << endl;
 }
+
 void view()
 {
     if (total == 0)
@@ -165,4 +166,156 @@ void update()
     cin >> id;
     cin.ignore(1000, '\n');
 
-    
+    for (int i = 0; i < total; i++)
+    {
+        if (id == arr[i].studentID)
+        {
+            cout << "\nCurrent data:\n";
+            printStudent(arr[i]);
+
+            cout << "\nEnter new data\n";
+
+            cout << "Enter name: ";
+            getline(cin, arr[i].name);
+
+            cout << "Enter student ID: ";
+            arr[i].studentID = readIDNoSpaces();
+            
+
+            cout << "Enter faculty: ";
+            getline(cin, arr[i].faculty);
+
+            cout << "Enter course: ";
+            getline(cin, arr[i].course);
+
+            cout << "Enter contactnumber: ";
+            getline(cin, arr[i].contactnumber);
+
+            cout << "\nStudent data updated successfully!" << endl;
+
+            found = true;
+            break;
+        }
+    }
+
+    if (!found)
+    {
+        cout << "Student with ID " << id << " not found." << endl;
+    }
+}
+
+void deleterecord()
+{
+    int choice;
+
+    cout << "\nPress 1 to delete all records" << endl;
+    cout << "Press 2 to delete a specific record" << endl;
+    cin >> choice;
+
+    if (choice == 1)
+    {
+        total = 0;
+        cout << "All records deleted successfully!" << endl;
+    }
+    else if (choice == 2)
+    {
+        string id;
+        bool found = false;
+
+        cout << "Enter the student ID to delete: ";
+        cin >> id;
+
+        for (int i = 0; i < total; i++)
+        {
+            if (id == arr[i].studentID)
+            {
+                for (int j = i; j < total - 1; j++)
+                {
+                    arr[j] = arr[j + 1];
+                }
+
+                total--;
+
+                cout << "Record deleted successfully!" << endl;
+                found = true;
+                break;
+            }
+        }
+
+        if (!found)
+        {
+            cout << "Student with ID " << id << " not found." << endl;
+        }
+    }
+    else
+    {
+        cout << "Invalid input." << endl;
+    }
+}
+
+int main()
+{
+    loadFromFile();
+    int value;
+
+    while (true)
+    {
+        cout << "===================================\n";
+        cout << "      Student Management System\n";
+        cout << "===================================\n";
+
+        cout << "Press 1 to add student" << endl;
+        cout << "Press 2 to view all students" << endl;
+        cout << "Press 3 to search student" << endl;
+        cout << "Press 4 to update student" << endl;
+        cout << "Press 5 to delete student" << endl;
+        cout << "Press 6 to exit\n" << endl;
+
+        cout << "Enter your choice: ";
+
+        if (!(cin >> value))
+        {
+            cin.clear();
+            cin.ignore(1000, '\n');
+            cout << "Invalid input.\n" << endl;
+            continue;
+        }
+
+        switch (value)
+        {
+        case 1:
+            enter();
+            cout << endl;
+            break;
+
+        case 2:
+            view();
+            cout << endl;
+            break;
+
+        case 3:
+            search();
+            cout << endl;
+            break;
+
+        case 4:
+            update();
+            cout << endl;
+            break;
+
+        case 5:
+            deleterecord();
+            cout << endl;
+            break;
+
+        case 6:
+            saveToFile();
+            exit(0);
+
+        default:
+            cout << "Invalid input. Please try again.\n" << endl;
+        }
+    }
+
+    return 0;
+}
