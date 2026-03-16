@@ -5,10 +5,10 @@ Project Goal:
 Our program is a comprehensive management system designed to handle student data efficiently. It allows administrators to maintain an organized database by performing essential data operations.
 
 Team-Member: 
-Jagernath Nirav: Developed the int main function and integrated the core logic of the program.
-Dhorai Sonali: Programmed the Update and Delete functionality.
-Jamin Jolan: Built the View and Enter functions, along with the initial logic for updates.
-Somowidjojo Xaviëra: Designed the Main Menu and the program's entry interface.
+Jagernath Nirav 20250051: Developed the int main function and integrated the core logic of the program.
+Dhorai Sonali 20250099: Programmed the Update and Delete functionality.
+Jamin Jolan 20250444: Built the View and Enter functions, along with the initial logic for updates.
+Somowidjojo Xaviëra 20250140: Designed the Main Menu and the program's entry interface.
 Feautures
 
 The program supports full CRUD operations for student administration:
