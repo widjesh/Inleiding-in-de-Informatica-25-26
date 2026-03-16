@@ -2,7 +2,7 @@ This is our project for Inleiding Informatica.
 Lecturer: Widjesh Baggan 
 Groep members: Chetram Samuel 20250020
                Wangsawirana Yosao 20250676 
-
+               Amoeferie Silvio 20250737
 # Simple Console Password Manager (C++)
 
 ## Overview
