@@ -36,7 +36,7 @@ void saveBird( const Bird& bird, const string& filename) {
     ofstream outfile(filename, ios::app);
 
     if(outfile.is_open()) {
-        outfile << bird.ID << "," << bird.birdName << ","<< bird.birdType<< ","<< bird.birdSpecies << "," << bird.scientificName << "," << bird.typeOfInjury << "," << bird.dateInAndOut << endl;
+        outfile << bird.ID << ";" << "," << bird.birdName << ";" << ","<< bird.birdType<< ";" << ","<< bird.birdSpecies << ";" << "," << bird.scientificName << ";" << "," << bird.typeOfInjury << ";" << "," << bird.dateInAndOut << endl;
         cout << "\nSaved " << bird.birdName << " to " << filename << endl;
 
     } else{
@@ -144,12 +144,12 @@ Bird birdLookupSpecific(string targetID, const string& filename ) {
 */
 
 void removeBirdByID(string targetID, const string& filename) {
-    // 1. LOAD all birds into a vector
+    // 1. Load alle birds into a vector
     vector<Bird> birdList = birdLookupAll(filename); 
     bool found = false;
 
-    // 2. REMOVE the bird with the matching ID
-    // We use a simple loop or std::remove_if
+    // 2. Remove the bird with the matching ID
+    // We gebruiken een simple loop or std::remove_if
     for (auto it = birdList.begin(); it != birdList.end(); ++it) {
         if (it->ID == targetID) {
             cout << "Removing: " << it->birdName << " (ID: " << it->ID << ")" << endl;
@@ -164,7 +164,7 @@ void removeBirdByID(string targetID, const string& filename) {
         return;
     }
 
-    // 3. OVERWRITE the file with the updated list
+    // 3. Overwrite the file with the updated list
     ofstream outfile(filename, ios::trunc); // 'trunc' clears the old file
     if (outfile.is_open()) {
         for (const auto& b : birdList) {
@@ -212,14 +212,14 @@ void editBirdAttribute(string targetID, const string& filename) {
             attempts = 0;
             // Use getline(cin >> ws, ...) to handle spaces in user input
             if (choice == 1) { cout << "Enter new ID: "; getline(cin >> ws, b.ID); }
-            else if (choice == 2) { cout << "Enter new type: "; getline(cin >> ws, b.birdName); }
+            else if (choice == 2) { cout << "Enter new name: "; getline(cin >> ws, b.birdName); }
             else if (choice == 3) { cout << "Enter new type: "; getline(cin >> ws, b.birdType); }
             else if (choice == 4) { cout << "Enter new species: "; getline(cin >> ws, b.birdSpecies); }
             else if (choice == 5) { cout << "Enter new type: "; getline(cin >> ws, b.scientificName); }
             else if (choice == 6) { cout << "Enter new injury: "; getline(cin >> ws, b.typeOfInjury); }
             else if (choice == 7) { cout << "Enter new dates: "; getline(cin >> ws, b.dateInAndOut); }
             
-            cout << "\nAttribute updated in memory!" << endl;
+            cout << "\nAttribute updated in the database!" << endl;
 
             // 3. Overwrite the file with the updated vector
             ofstream outfile(filename, ios::trunc); 
