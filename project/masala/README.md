@@ -1,22 +1,22 @@
-# Bird Clinic
+# 🐦 Bird Clinic
 
 ## Overview
 Welcome to our bird clinic! This is a project made by 4 students of the Anton de Kom University of Suriname (ADEKUS) <br>
-Those 4 students (with their student numbers) are: <br>
-* **Ishaan Oedit 20250004**
-* **Amaris Gobind 20240732**
-* **Amalesh Sewratan 20250154**
-* **Kaylie Goerdin 20250133**
+Those 4 students (with their student numbers and github accounts) are: <br>
+* **Ishaan Oedit 20250004** @ishoediah
+* **Amaris Gobind 20240732** @amarisgx
+* **Amalesh Sewratan 20250154** @amalesh2007
+* **Ishita Goerdin 20250133** @kayliegoerdin
 
 We are 4 students majoring in Electrical Engineering. This is our first C++ project for the course Inleiding Informatica (Introdcution to Computer Science). This project is to demonstrate our understanding of the basics of C++. The minimun requirements were using a if else logic, loops, classes and objects and arrays. Instead of an array we used a vector to better handle memory management and because it would fit better into our project
 
-## Bird clinic and our project
+## 🏥 Bird clinic and our project
 A bird clinic is a veterinary facility specializing in the medical care, diagnosis, treatment and grooming of birds.
 
 ### How our project helps
-Normal bird clinics use stamps to identify and store birds. These stamps are physical pieces of paper on which information of the bird is manually written. These stamps can be ahrd to work with, as they need to be stored correctly to prevent the loss or destruction of it. Writing information or looking through all stamps can also take a lot of time. That is why we have digitalized this process. Now storing information of birds, creating new digital "stamps" and viewing that information has become easier and robust.
+Normal bird clinics use stamps to identify and store birds. These stamps are physical pieces of paper on which information of the bird is manually written. These stamps can be hard to work with, as they need to be stored correctly to prevent the loss or destruction of it. Writing information or looking through all stamps can also take a lot of time. That is why we have digitalized this process. Now storing information of birds, creating new digital "stamps" and viewing that information has become easier and robust.
 
-## How does the program work
+## 💻 How does the program work
 This program as made to follow *CRUD* operations. The code for this program consist of 3 parts. The classes, the functions and the workflow. We also have an external database which is a text file called `bird_objects_list_saved.txt` The first part, classes, is where the Bird class is made with all the attributes that are needed for a clinic. <br>
 
 After that we have functions, which are the `createNewBird`, `saveBird`, `birdLookupAll`, `birdlookupSpecific`, `removeBirdByID` , `editBirdAttribute` and the `exit` function. 
@@ -31,16 +31,16 @@ The workflow consists in the int main and uses if-else functions and do-while lo
 
 (PS: for anyone wanting to try our program, the administrator password is Masala)
 
-## What have we learned from this project
+## 💁‍♂️ What have we learned from this project
 We have many many thing from this project<br>
 * We have learned the basics of how C++ works and how to work with fuctions, objects, memory management and more
 * We have learned how to use this knowleadge and these skills to solve a real world problem. This gave us experience and knowleadge on how to approach and slove real world problems, esspecially using C++ and programing to provide solutions
 * We have learned how to use version control , git, and github to upload and receive code that we and other people have worked on
 * We have learned how to work together in a solution offering coding environment. This gave us insights on how problems can be approached as a group on how we can code and solve problems together
 
-## The future of our project and what could be improved
+## 🚀 The future of our project and what could be improved
 There are plans to further improve on this project. This includes building a web interface for this project so it can be used commercially. There will also be an actual database implementation like a DBMS. This will make this project a commercial product which can be used worldwide.
 
 ---
 
-As a final note, we would like to thank our lecturer Shiva Bhaggan for teaching us this class and helping us trough this process of making this program. Thank you!
+As a final note, we would like to thank our lecturer Shiva Bhaggan ( @widjesh) for teaching us this class and helping us trough this process of making this program. Thank you!
