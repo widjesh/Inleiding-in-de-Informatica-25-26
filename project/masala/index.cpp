@@ -308,9 +308,10 @@ int main() {
                         } 
                             
                         else {
+                             cout << "Bird: " << "ID ; Bird Name ; Bird Type ; Bird Species ; Bird Scientific Name ; Type of Injury ; Date(In and Out)" << endl;
                             // You can now loop through the vector to use the data
                             for (const auto& bird : myBirds){
-                                cout << " Bird: " << bird.ID << " " << bird.birdName << " " << bird.birdType << " " << bird.birdSpecies << " " << bird.scientificName << " " << bird.typeOfInjury << " " << bird.dateInAndOut << endl;
+                                cout << "Bird: " << bird.ID << " " << bird.birdName << " " << bird.birdType << " " << bird.birdSpecies << " " << bird.scientificName << " " << bird.typeOfInjury << " " << bird.dateInAndOut << endl;
                             }
                         }
                         
@@ -439,9 +440,9 @@ int main() {
                             cout << "No birds found or file could not be opened." << endl;
                         } 
                         else {
-                            // You can now loop through the vector to use the data
+                            cout << "Bird: " << "ID ; Bird Name ; Bird Type ; Bird Species ; Bird Scientific Name ; Type of Injury ; Date(In and Out)" << endl;
                             for (const auto& bird : myBirds){
-                                cout << " Bird: " << bird.ID << " " << bird.birdName << " " << bird.birdType << " " << bird.birdSpecies << " " << bird.scientificName << " " << bird.typeOfInjury << " " << bird.dateInAndOut << endl;
+                                cout << "Bird: " << bird.ID << " " << bird.birdName << " " << bird.birdType << " " << bird.birdSpecies << " " << bird.scientificName << " " << bird.typeOfInjury << " " << bird.dateInAndOut << endl;
                             }
                         }
                         do{
