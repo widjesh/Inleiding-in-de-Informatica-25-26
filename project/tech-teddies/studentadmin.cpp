@@ -251,4 +251,69 @@ void deleterecord()
         cout << "Invalid input." << endl;
     }
     
-    
+    int main()
+{
+    loadFromFile();
+    int value;
+
+    while (true)
+    {
+        cout << "===================================\n";
+        cout << "      Student Management System\n";
+        cout << "===================================\n";
+
+        cout << "Press 1 to add student" << endl;
+        cout << "Press 2 to view all students" << endl;
+        cout << "Press 3 to search student" << endl;
+        cout << "Press 4 to update student" << endl;
+        cout << "Press 5 to delete student" << endl;
+        cout << "Press 6 to exit\n" << endl;
+
+        cout << "Enter your choice: ";
+
+        if (!(cin >> value))
+        {
+            cin.clear();
+            cin.ignore(1000, '\n');
+            cout << "Invalid input.\n" << endl;
+            continue;
+        }
+
+        switch (value)
+        {
+        case 1:
+            enter();
+            cout << endl;
+            break;
+
+        case 2:
+            view();
+            cout << endl;
+            break;
+
+        case 3:
+            search();
+            cout << endl;
+            break;
+
+        case 4:
+            update();
+            cout << endl;
+            break;
+
+        case 5:
+            deleterecord();
+            cout << endl;
+            break;
+
+        case 6:
+            saveToFile();
+            exit(0);
+
+        default:
+            cout << "Invalid input. Please try again.\n" << endl;
+        }
+    }
+
+    return 0;
+}
