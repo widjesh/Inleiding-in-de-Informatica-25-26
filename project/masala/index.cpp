@@ -37,7 +37,7 @@ void saveBird( const Bird& bird, const string& filename) {
     ofstream outfile(filename, ios::app);
 
     if(outfile.is_open()) {
-        outfile << bird.ID  << "," << bird.birdName << ";" << ","<< bird.birdType<< ";" << ","<< bird.birdSpecies << ";" << "," << bird.scientificName << ";" << "," << bird.typeOfInjury << ";" << "," << bird.dateInAndOut << endl;
+        outfile << bird.ID  << "," << bird.birdName << ","<< bird.birdType << ","<< bird.birdSpecies << "," << bird.scientificName << "," << bird.typeOfInjury << "," << bird.dateInAndOut << endl;
         cout << "\nSaved " << bird.birdName << " to " << filename << endl;
 
     } else{
@@ -225,7 +225,7 @@ void editBirdAttribute(string targetID, const string& filename) {
             // 3. Overwrite the file with the updated vector
             ofstream outfile(filename, ios::trunc); 
             for (const auto& b : birdList) {
-                outfile << b.ID << "," << b.birdName << "," << b.birdType << "," 
+                outfile << b.ID << "," << b.birdName<< "," << b.birdType << "," 
                         << b.birdSpecies << "," << b.scientificName << "," 
                         << b.typeOfInjury << "," << b.dateInAndOut << endl;
             }
@@ -316,7 +316,7 @@ int main() {
                              cout << "Bird: " << "ID ; Bird Name ; Bird Type ; Bird Species ; Bird Scientific Name ; Type of Injury ; Date(In and Out)" << endl;
                             // You can now loop through the vector to use the data
                             for (const auto& bird : myBirds){
-                                cout << "Bird: " << bird.ID << " " << bird.birdName << " " << bird.birdType << " " << bird.birdSpecies << " " << bird.scientificName << " " << bird.typeOfInjury << " " << bird.dateInAndOut << endl;
+                                cout << "Bird: " << bird.ID << "; " << bird.birdName << "; " << bird.birdType << "; " << bird.birdSpecies << "; " << bird.scientificName << "; " << bird.typeOfInjury << "; " << bird.dateInAndOut << endl;
                             }
                         }
                         
@@ -347,7 +347,7 @@ int main() {
                         cin >> searchID;
 
                         Bird foundbird = birdLookupSpecific(searchID, "bird_objects_list_saved.txt");
-                        cout << foundbird.ID << " " << foundbird.birdName << " " << foundbird.birdType << " " << foundbird.birdSpecies << " " << foundbird.scientificName << " " << foundbird.typeOfInjury << " " << foundbird.dateInAndOut << endl;
+                        cout << foundbird.ID << "; " << foundbird.birdName << "; " << foundbird.birdType << "; " << foundbird.birdSpecies << "; " << foundbird.scientificName << "; " << foundbird.typeOfInjury << "; " << foundbird.dateInAndOut << endl;
 
                         do {     
                             cout << "\n[0] to exit the program" << endl;
@@ -443,7 +443,7 @@ int main() {
                         else {
                             cout << "Bird: " << "ID ; Bird Name ; Bird Type ; Bird Species ; Bird Scientific Name ; Type of Injury ; Date(In and Out)" << endl;
                             for (const auto& bird : myBirds){
-                                cout << "Bird: " << bird.ID << " " << bird.birdName << " " << bird.birdType << " " << bird.birdSpecies << " " << bird.scientificName << " " << bird.typeOfInjury << " " << bird.dateInAndOut << endl;
+                                cout << "Bird: " << bird.ID << "; " << bird.birdName << "; " << bird.birdType << "; " << bird.birdSpecies << "; " << bird.scientificName << "; " << bird.typeOfInjury << "; " << bird.dateInAndOut << endl;
                             }
                         }
                         do{
@@ -476,7 +476,7 @@ int main() {
                         cin >> searchID;
 
                         Bird foundbird = birdLookupSpecific(searchID, "bird_objects_list_saved.txt");
-                        cout << foundbird.ID << " " << foundbird.birdName << " " << foundbird.birdType << " " << foundbird.birdSpecies << " " << foundbird.scientificName << " " << foundbird.typeOfInjury << " " << foundbird.dateInAndOut << endl;
+                        cout << foundbird.ID << "; " << foundbird.birdName << "; " << foundbird.birdType << "; " << foundbird.birdSpecies << "; " << foundbird.scientificName << "; " << foundbird.typeOfInjury << "; " << foundbird.dateInAndOut << endl;
 
                         do {     
                             cout << "\n[0] to exit the program" << endl;
