@@ -45,4 +45,4 @@ There are plans to further improve on this project. This includes building a web
 
 ---
 
-As a final note, we would like to thank our lecturer Shiva Bhaggan ( @widjesh) for teaching us this class and helping us trough this process of making this program. Thank you!
+As a final note, we would like to thank our lecturer Shiva Bhaggan ( @widjesh) for teaching us this class and helping us through this process of making this program. Thank you!
