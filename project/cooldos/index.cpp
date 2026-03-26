@@ -148,6 +148,36 @@ void viewAcars(vector<Car>& availableCars, vector<Car>& wishlist, int carIndex, 
 }
 }
 
+void viewWishlist(vector<Car>& wishlist) { // function for viewing wishlist
+    while (true) {
+        if (wishlist.empty()) {
+            cout << "Your wishlist is empty." << endl;
+            break;
+        }
+
+        cout << "Which car would you like to view the specifications of? " << endl;
+        for (int j = 0; j < wishlist.size(); j++) {
+            cout << j + 1 << ") " << wishlist[j].brand << ' ' << wishlist[j].model << endl;
+        }
+        cout << "(0) Back to the main menu." << endl;
+        int userChoice;
+        cin >> userChoice;   // kies welke specs van auto's je wilt zien
+        if (userChoice == 0) { // brengt je terug naar main menu
+            break;
+        }
+        else if (userChoice > 0 && userChoice <= wishlist.size()) {
+            wishlist[userChoice - 1].specs(); // shows specs of previously bought cars
+        }
+        while (true) {
+            cout << "(0) Back to wishlist" << endl;
+            cin >> userChoice;
+            if (userChoice == 0) {
+                break;
+            }
+        }
+    }
+}
+
 void adminMenu(vector<Car> aCars)
 { // function for admin menu
 
@@ -334,32 +364,7 @@ if (userAnswer == "guest"){
             break;
 
         case 'b': // dit geeft een lijst van previously purchased cars onder elkaar weer
-            while (true) {
-                cout << "Which car would you like to view the specifications of? " << endl;
-                for (int j = 0; j < wishlist.size(); j++)
-                {
-                    cout << j + 1 << ") " << wishlist[j].brand << ' ' << wishlist[j].model << endl;
-                }
-                cout << "(0) Back to the main menu." << endl;
-                cin >> userChoice;   // kies welke specs van auto's je wilt zien
-                if (userChoice == 0) // brengt je terug naar main menu
-                {
-                    break;
-                }
-                else if (userChoice > 0 && userChoice <= wishlist.size())
-                {
-                    wishlist[userChoice - 1].specs(); // shows specs of previously bought cars
-                }
-                while (true)
-                {
-                    cout << "(0) Back to purchased car list" << endl;
-                    cin >> userChoice;
-                    if (userChoice == 0)
-                    {
-                        break;
-                    }
-                }
-            }
+            viewWishlist(wishlist); // calls function for viewing previously purchased cars for guests
             break;
 
         case 'e':
