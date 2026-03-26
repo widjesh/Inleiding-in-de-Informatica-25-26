@@ -118,6 +118,40 @@ void changePrice(vector<Car>& aCars, int& vectorSize) { //function for updating 
     
     }
 }
+
+
+
+int carIndex;
+void viewAcars(int numberAcars, vector<Car> availableCars) { // function for viewing available cars for guests
+  while (true){
+    cout << "Which car would you like to view the specifications of? " << endl;
+                for (int i = 0; i < numberAcars; i++)
+                {
+                    cout << i + 1 << ") " << availableCars[i].brand << ' ' << availableCars[i].model << endl;
+                }
+                cout << "(0) Back to main menu" << endl;
+                cin >> carIndex;   // je kan dus kiezen welke specs je wilt zien
+                if (carIndex == 0) // brengt je terug naar main menu
+                {
+                    break;
+                }
+                else if (carIndex > 0 && carIndex <= numberAcars)
+                {
+                    availableCars[carIndex - 1].specs(); // hier worden de specificaties van de gekozen auto weergegeven
+                }
+                while (true)
+                {
+                    cout << "(0) Back to available car list" << endl;
+                    cin >> carIndex;
+                    if (carIndex == 0){
+                        break;
+                }
+        
+           }
+    }
+}
+
+
 void adminMenu(vector<Car> aCars, int vectorSize)
 { // function for admin menu
 
@@ -321,39 +355,14 @@ if (userAnswer == "guest"){
         char view;
         cin >> view; // hier kan je kiezen welke van de opties je wilt zien
 
-        int carIndex;
         int historyIndex;
 
         switch (view)
         {
         case 'a': // dit geeft een lijst van available cars onder elkaar weer
-            while (true)
-            {
-                cout << "Which car would you like to view the specifications of? " << endl;
-                for (int i = 0; i < numberAcars; i++)
-                {
-                    cout << i + 1 << ") " << availableCars[i].brand << ' ' << availableCars[i].model << endl;
-                }
-                cout << "(0) Back to main menu" << endl;
-                cin >> carIndex;   // je kan dus kiezen welke specs je wilt zien
-                if (carIndex == 0) // brengt je terug naar main menu
-                {
-                    break;
-                }
-                else if (carIndex > 0 && carIndex <= numberAcars)
-                {
-                    availableCars[carIndex - 1].specs(); // hier worden de specificaties van de gekozen auto weergegeven
-                }
-                while (true)
-                {
-                    cout << "(0) Back to available car list" << endl;
-                    cin >> carIndex;
-                    if (carIndex == 0)
-                    {
-                        break;
-                    }
-                }
-            }
+
+                viewAcars(numberAcars, availableCars);
+
             break;
 
         case 'b': // dit geeft een lijst van previously purchased cars onder elkaar weer
@@ -393,9 +402,10 @@ if (userAnswer == "guest"){
     }
 }
     else if (userAnswer == "admin")
-        cout << "poopensharten"<< endl;
-adminMenu(availableCars, numberAcars); // calls function for admin menu
+{
+    adminMenu(availableCars, numberAcars); // calls function for admin menu
 }
 return 0;
 }
- 
+
+}
